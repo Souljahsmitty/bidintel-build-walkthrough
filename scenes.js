@@ -1,5 +1,65 @@
 const SCENES = [
   {
+    "chapter": "Course Shape - Fast Track And Expert Track",
+    "title": "Fix Shape: Two Tracks, Not One Long Watch",
+    "skin": "diagram",
+    "visual": "<div class=\"diagram-grid\"><div class=\"node hot\">Fast Track: local mock app</div><div class=\"node \">Fast Track: FastAPI + DB</div><div class=\"node \">Fast Track: RAG + tests</div><div class=\"node hot\">Expert Track: IAM + authz</div><div class=\"node \">Expert Track: Bedrock + ECS</div><div class=\"node \">Expert Track: CloudFront</div><div class=\"node \">Expert Track: RAGAS + Phoenix</div><div class=\"node \">Expert Track: hardening</div></div>",
+    "narration": "The course is now split into two tracks. Fast Track gets a beginner to a working local app: mock frontend, FastAPI, SQLite or Postgres, RAG, and tests. Expert Track adds IAM Identity Center, authorization, Bedrock, ECS, CloudFront, RAGAS, Phoenix, and production hardening. This fixes the shape problem from the educator gap analysis.",
+    "code": "Source:\nBidIntel_Walkthrough_Educator_Gap_Analysis.pdf\n\nBlunt grade from the review:\nA- as architecture walkthrough.\nC+ as beginner-to-expert course.\n\nCourse shape:\n\nFast Track:\n1. prerequisites and expected outputs\n2. clone/setup commands\n3. local mock frontend\n4. FastAPI routes\n5. SQLite/Postgres data store\n6. local RAG with sample documents\n7. tests and checkpoints\n\nExpert Track:\n1. authorization model\n2. IAM Identity Center groups, claims, assignments\n3. Bedrock model access and backend-only calls\n4. Docker -> ECR -> ECS/Fargate\n5. frontend dist -> S3 -> CloudFront\n6. RAGAS evaluation\n7. Phoenix traces\n8. production hardening boundaries",
+    "codeMode": "literal",
+    "duration": 56
+  },
+  {
+    "chapter": "Course Shape - Fast Track And Expert Track",
+    "title": "Fast Track: Watch, Do, Verify",
+    "skin": "terminal",
+    "visual": "$ git clone <repo>\n$ cd bidintel-build-walkthrough\n$ docker compose up -d\n$ cd backend && python3 -m venv .venv\n$ source .venv/bin/activate\n$ pip install -r requirements.txt\n$ uvicorn app.main:app --reload --port 8000\n# expected: Uvicorn running on http://127.0.0.1:8000",
+    "narration": "Fast Track is the beginner build path. Every module has a watch step, a do step, and a verify step. The student should never wonder whether they are in the project root, backend folder, frontend folder, browser, or AWS console.",
+    "code": "Fast Track module contract:\n\nModule 1 - setup\nDo:\n  install Git, Python, Node, Docker\nVerify:\n  git --version\n  python3 --version\n  node --version\n  npm --version\n  docker --version\n\nModule 2 - local services\nDo:\n  docker compose up -d\nVerify expected output:\n  docker ps shows bidintel-db and bidintel-phoenix\n  Phoenix opens at http://localhost:6006\n\nModule 3 - backend\nDo:\n  uvicorn app.main:app --reload --port 8000\nVerify:\n  http://localhost:8000/docs opens Swagger\n  GET /health returns {\"ok\": true}\n\nModule 4 - frontend\nDo:\n  npm install\n  npm run dev\nVerify:\n  http://localhost:5173 opens the BidIntel UI\n\nModule 5 - RAG\nDo:\n  upload sample RFP\n  ask one question\nVerify:\n  response includes answer, citations, evaluation, guardrail status",
+    "codeMode": "literal",
+    "duration": 64
+  },
+  {
+    "chapter": "Course Shape - Fast Track And Expert Track",
+    "title": "Expert Track IAM Lab: Claims Must Become Permissions",
+    "skin": "aws",
+    "visual": "<div class=\"aws-console\"><aside><strong>AWS Console</strong><span>Dashboard</span><span>Groups</span><span>Applications</span><span>Attribute mappings</span><span>Assignments</span></aside><main><div class=\"aws-top\"><span>Applications / BidIntel / Attribute mappings / Assignments</span><strong>IAM Identity Center</strong></div><h2>IAM lab turns groups into testable backend behavior</h2><div class=\"aws-cards\"><section class=\"aws-card\"><h3>Create groups</h3><p>Proposal Writer, Manager, Auditor, Elevated Admin.</p></section><section class=\"aws-card\"><h3>Map claims</h3><p>email, groups, tenant_id, access_level.</p></section><section class=\"aws-card\"><h3>Assign app</h3><p>Assign groups to BidIntel application.</p></section><section class=\"aws-card\"><h3>Verify</h3><p>/auth/me and blocked 403 paths prove it works.</p></section></div></main></div>",
+    "narration": "The IAM section now becomes a lab. It is not enough to show AWS screens. The student must create groups, map claims, assign the app, sign in as each role, call auth/me, and prove manager, auditor, and elevated admin behave differently.",
+    "code": "Expert Track IAM role lab:\n\nDo in AWS Console:\n1. IAM Identity Center -> Groups -> Create group:\n   BidIntel_Proposal_Writer\n   BidIntel_Manager\n   BidIntel_Auditor\n   BidIntel_Elevated_Admin\n\n2. IAM Identity Center -> Applications -> BidIntel -> Actions -> Edit attribute mapping:\n   email -> ${user:email}\n   groups -> ${user:groups}\n   tenant_id -> ${user:custom:tenant_id}\n   access_level -> ${user:custom:access_level}\n\n3. Applications -> BidIntel -> Assign users and groups:\n   assign all BidIntel groups\n\nDo in backend code:\nbackend/app/auth.py\n  verify token, extract claims\n\nbackend/app/authz.py\n  map group strings to app roles\n\nbackend/app/security/permissions.py\n  enforce route permissions\n\nbackend/app/services/retrieval.py\n  filter documents by tenant_id and access_groups before vector search\n\nVerify:\nGET /auth/me as auditor returns role=auditor.\nPOST /documents/upload as auditor returns 403.\nGET /audit as auditor returns 200.\nManager can approve review but cannot administer users.\nElevated admin access writes an audit event.",
+    "codeMode": "literal",
+    "duration": 74
+  },
+  {
+    "chapter": "Course Shape - Fast Track And Expert Track",
+    "title": "Every Module Needs A Checklist And Screenshot Target",
+    "skin": "browser",
+    "visual": "<div class=\"panel\"><strong>CHECKLIST.md</strong><br>Command, where to run it, expected output, screenshot target.</div>\n<div class=\"panel\"><strong>TROUBLESHOOTING.md</strong><br>Error, likely cause, fix, verify again.</div>\n<div class=\"panel\"><strong>contracts/API_CONTRACT.md</strong><br>Routes, env vars, request JSON, response JSON.</div>\n<div class=\"panel\"><strong>labs/</strong><br>Role lab, retrieval lab, guardrail lab, evaluation lab, deployment lab.</div>",
+    "narration": "The repo now includes course pages, not just a video. Checklist tells the student what to run and what they should see. Troubleshooting gives recovery paths. API contract is the source of truth for routes and JSON. Labs turn passive watching into practice.",
+    "code": "New files/pages added:\n\nPREREQUISITES.md\n  exact installs, account notes, cost warning, local-first promise\n\nCHECKLIST.md\n  every command, run location, expected output, screenshot target\n\nTROUBLESHOOTING.md\n  Docker, CORS, Python venv, Node, AWS AccessDenied, Bedrock model access\n\ncontracts/API_CONTRACT.md\n  routes, env vars, request/response JSON\n\nteacher-notes.md\n  where students usually fail and how to coach them\n\nlabs/role-lab.md\nlabs/retrieval-lab.md\nlabs/guardrail-lab.md\nlabs/evaluation-lab.md\nlabs/deployment-lab.md\n\nLearning rule:\nWatch -> Do -> Verify -> Fix -> Repeat.\nThat is how this becomes a course instead of a passive walkthrough.",
+    "codeMode": "literal",
+    "duration": 62
+  },
+  {
+    "chapter": "Course Shape - Fast Track And Expert Track",
+    "title": "Failure Labs Build Expert Judgment",
+    "skin": "diagram",
+    "visual": "<div class=\"flow\"><div class=\"node \">Break chunk overlap</div><div class=\"node hot\">Measure low recall</div><div class=\"node \">Fix retrieval config</div><div class=\"node \">Rerun RAGAS</div><div class=\"node hot\">Inspect Phoenix trace</div></div>",
+    "narration": "The expert track now includes failure labs. Expertise is not watching a happy path. It is seeing low recall, wrong filters, weak prompts, hallucinations, and AccessDenied errors, then measuring and fixing them.",
+    "code": "Failure lab examples:\n\nRetrieval lab:\nBreak:\n  set CHUNK_OVERLAP_TOKENS=0\nExpected problem:\n  context_recall drops\nFix:\n  restore overlap to 120 and rerun eval\n\nGuardrail lab:\nBreak:\n  ask for restricted payroll records\nExpected:\n  blocked=true and audit row written\nFix:\n  tighten prompt injection and access checks\n\nEvaluation lab:\nBreak:\n  remove citation requirement from prompt\nExpected:\n  faithfulness and citation coverage drop\nFix:\n  restore prompt_builder.py evidence rules\n\nDeployment lab:\nBreak:\n  ECS task role lacks bedrock:InvokeModel\nExpected:\n  AWS AccessDenied in CloudWatch\nFix:\n  attach least-privilege Bedrock policy and redeploy task",
+    "codeMode": "literal",
+    "duration": 64
+  },
+  {
+    "chapter": "Course Shape - Fast Track And Expert Track",
+    "title": "Prototype Boundary, AWS Cost, And Teardown",
+    "skin": "aws",
+    "visual": "<div class=\"aws-console\"><aside><strong>AWS Console</strong><span>Billing</span><span>Cost Explorer</span><span>CloudWatch</span><span>ECS</span><span>RDS</span><span>Bedrock</span></aside><main><div class=\"aws-top\"><span>Billing / Cost Explorer / ECS / CloudFront / Bedrock</span><strong>AWS Billing + Security</strong></div><h2>Expert track must teach cost and security boundaries</h2><div class=\"aws-cards\"><section class=\"aws-card\"><h3>Prototype boundary</h3><p>This is not ATO, FedRAMP, or legal compliance.</p></section><section class=\"aws-card\"><h3>Cost warning</h3><p>Bedrock, ECS, NAT, ALB, RDS, CloudFront can bill.</p></section><section class=\"aws-card\"><h3>Local first</h3><p>Use mock mode for most practice.</p></section><section class=\"aws-card\"><h3>Teardown</h3><p>Delete ECS service, ALB, RDS, ECR images, S3/CloudFront when done.</p></section></div></main></div>",
+    "narration": "The course now repeats the boundary: this is a working prototype and learning build, not a production ATO. It also adds AWS account and cost notes, plus teardown reminders so a learner is not surprised by billing.",
+    "code": "Cost/account notes:\n\nLocal-first:\nAbout 90 percent of the course can run locally with MockLLM, local Postgres, and Phoenix.\n\nAWS steps that can cost money:\nAmazon Bedrock model calls\nECS/Fargate running tasks\nApplication Load Balancer\nRDS/Aurora PostgreSQL\nNAT Gateway if used\nS3 storage\nCloudFront distribution\nCloudWatch logs\n\nTeardown checklist:\n1. Scale ECS service to 0 or delete service.\n2. Delete ALB and target group if created.\n3. Stop/delete RDS if it was only a lab.\n4. Empty and delete lab S3 buckets.\n5. Delete CloudFront distribution after disabling it.\n6. Delete ECR images if no longer needed.\n7. Remove lab Secrets Manager secrets.\n8. Check Billing -> Cost Explorer the next day.\n\nSecurity boundary:\nThis tutorial is not an ATO.\nProduction federal deployment needs cloud/security engineers, SSP, controls, scanning, logging, incident response, data classification, and authority review.",
+    "codeMode": "literal",
+    "duration": 72
+  },
+  {
     "chapter": "Original Build - Welcome & Big Picture",
     "title": "What BidIntel Builds",
     "skin": "diagram",

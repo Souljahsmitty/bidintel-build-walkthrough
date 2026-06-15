@@ -1,503 +1,527 @@
 1
-00:00:00,000 --> 00:00:06,000
-Welcome. We are building BidIntel, a contract-intelligence assistant. The safest mental model is an open-book exam: the AI must use your documents and cite the page instead of guessing.
+00:00:00,000 --> 00:00:56,000
+The course is now split into two tracks. Fast Track gets a beginner to a working local app: mock frontend, FastAPI, SQLite or Postgres, RAG, and tests. Expert Track adds IAM Identity Center, authorization, Bedrock, ECS, CloudFront, RAGAS, Phoenix, and production hardening. This fixes the shape problem from the educator gap analysis.
 
 2
-00:00:06,000 --> 00:00:28,000
-RAG. Retrieval-Augmented Generation means we retrieve real evidence first, then ask the AI to answer from that evidence. Think of it this way: An open-book exam where the AI must cite the book.
+00:00:56,000 --> 00:01:02,000
+Fast Track is the beginner build path. Every module has a watch step, a do step, and a verify step. The student should never wonder whether they are in the project root, backend folder, frontend folder, browser, or AWS console.
 
 3
-00:00:28,000 --> 00:00:50,000
-Chunking. Chunking splits a big document into small overlapping passages. A token is a small piece of text. Overlap repeats a little text between chunks so we do not cut an idea in half. Think of it this way: Cutting a book into index cards with a few repeated lines.
+00:01:02,000 --> 00:02:16,000
+The IAM section now becomes a lab. It is not enough to show AWS screens. The student must create groups, map claims, assign the app, sign in as each role, call auth/me, and prove manager, auditor, and elevated admin behave differently.
 
 4
-00:00:50,000 --> 00:01:12,000
-Embedding / Vector. An embedding is a list of numbers that captures meaning. A vector is that list of numbers. Think of it this way: Giving every sentence GPS coordinates in meaning space.
+00:02:16,000 --> 00:03:18,000
+The repo now includes course pages, not just a video. Checklist tells the student what to run and what they should see. Troubleshooting gives recovery paths. API contract is the source of truth for routes and JSON. Labs turn passive watching into practice.
 
 5
-00:01:12,000 --> 00:01:34,000
-Vector Search. Vector search finds chunks whose meaning is close to the question, even if the exact words differ. Think of it this way: Detective number two matches suspects by behavior.
+00:03:18,000 --> 00:04:22,000
+The expert track now includes failure labs. Expertise is not watching a happy path. It is seeing low recall, wrong filters, weak prompts, hallucinations, and AccessDenied errors, then measuring and fixing them.
 
 6
-00:01:34,000 --> 00:01:56,000
-BM25. BM25 is classic keyword search. It rewards exact word matches, useful word frequency, and sensible document length. Think of it this way: Detective number one matches suspects by exact name.
+00:04:22,000 --> 00:05:34,000
+The course now repeats the boundary: this is a working prototype and learning build, not a production ATO. It also adds AWS account and cost notes, plus teardown reminders so a learner is not surprised by billing.
 
 7
-00:01:56,000 --> 00:02:18,000
-Hybrid Search. Hybrid search runs keyword search and meaning search together because each catches evidence the other can miss. Think of it this way: Two detectives compare notes.
+00:05:34,000 --> 00:05:40,000
+Welcome. We are building BidIntel, a contract-intelligence assistant. The safest mental model is an open-book exam: the AI must use your documents and cite the page instead of guessing.
 
 8
-00:02:18,000 --> 00:02:40,000
-RRF. Reciprocal Rank Fusion merges ranked lists using 1 divided by k plus rank. With k equals 60, first place gives 1/(60+1), or 0.01639. Think of it this way: The sergeant promotes any suspect both detectives flagged. RRF is not the reranker.
+00:05:40,000 --> 00:06:02,000
+RAG. Retrieval-Augmented Generation means we retrieve real evidence first, then ask the AI to answer from that evidence. Think of it this way: An open-book exam where the AI must cite the book.
 
 9
-00:02:40,000 --> 00:03:02,000
-Reranker. A reranker deeply reviews the shortlisted chunks against the question and keeps the best few. Think of it this way: The lead detective interviews the suspects.
+00:06:02,000 --> 00:06:24,000
+Chunking. Chunking splits a big document into small overlapping passages. A token is a small piece of text. Overlap repeats a little text between chunks so we do not cut an idea in half. Think of it this way: Cutting a book into index cards with a few repeated lines.
 
 10
-00:03:02,000 --> 00:03:24,000
-Context Builder. The context builder assembles selected chunks, source IDs, and page numbers into the package sent to the model. Think of it this way: The briefing folder handed to the prosecutor.
+00:06:24,000 --> 00:06:46,000
+Embedding / Vector. An embedding is a list of numbers that captures meaning. A vector is that list of numbers. Think of it this way: Giving every sentence GPS coordinates in meaning space.
 
 11
-00:03:24,000 --> 00:03:46,000
-LLM / Amazon Bedrock / Claude. A large language model writes the answer. Amazon Bedrock is AWS's managed way to call models like Claude. Think of it this way: The prosecutor argues only from the case file.
+00:06:46,000 --> 00:07:08,000
+Vector Search. Vector search finds chunks whose meaning is close to the question, even if the exact words differ. Think of it this way: Detective number two matches suspects by behavior.
 
 12
-00:03:46,000 --> 00:04:08,000
-Guardrails. Guardrails are checks that block prompt injection and unsupported answers before the user sees them. Think of it this way: The courtroom rules of evidence.
+00:07:08,000 --> 00:07:30,000
+BM25. BM25 is classic keyword search. It rewards exact word matches, useful word frequency, and sensible document length. Think of it this way: Detective number one matches suspects by exact name.
 
 13
-00:04:08,000 --> 00:04:30,000
-Evaluator / LLM-as-a-Judge. An evaluator grades the answer after it is written. LLM-as-a-judge means using another AI to grade the first AI. Think of it this way: Internal Affairs reviews the case.
+00:07:30,000 --> 00:07:52,000
+Hybrid Search. Hybrid search runs keyword search and meaning search together because each catches evidence the other can miss. Think of it this way: Two detectives compare notes.
 
 14
-00:04:30,000 --> 00:04:52,000
-RAGAS. RAGAS is a library for batch-scoring RAG quality metrics like faithfulness and context recall. Think of it this way: The performance report.
+00:07:52,000 --> 00:08:14,000
+RRF. Reciprocal Rank Fusion merges ranked lists using 1 divided by k plus rank. With k equals 60, first place gives 1/(60+1), or 0.01639. Think of it this way: The sergeant promotes any suspect both detectives flagged. RRF is not the reranker.
 
 15
-00:04:52,000 --> 00:05:14,000
-Phoenix / Observability / Tracing. Phoenix records each step, timing, and metadata. A trace is the timeline of one request. A span is one step in that timeline. Think of it this way: The command-center dashboard.
+00:08:14,000 --> 00:08:36,000
+Reranker. A reranker deeply reviews the shortlisted chunks against the question and keeps the best few. Think of it this way: The lead detective interviews the suspects.
 
 16
-00:05:14,000 --> 00:05:24,000
-Precision@K. Of the chunks we retrieved, precision asks how many were actually useful. Higher is better. Think of it this way: How many suspects on the shortlist truly mattered.
+00:08:36,000 --> 00:08:58,000
+Context Builder. The context builder assembles selected chunks, source IDs, and page numbers into the package sent to the model. Think of it this way: The briefing folder handed to the prosecutor.
 
 17
-00:05:24,000 --> 00:05:34,000
-Recall@K. Of all useful chunks that exist, recall asks how many we found. Higher is better. For BidIntel, missing evidence is worse than extra evidence. Think of it this way: Did we find every witness who mattered.
+00:08:58,000 --> 00:09:20,000
+LLM / Amazon Bedrock / Claude. A large language model writes the answer. Amazon Bedrock is AWS's managed way to call models like Claude. Think of it this way: The prosecutor argues only from the case file.
 
 18
-00:05:34,000 --> 00:05:44,000
-MRR. Mean Reciprocal Rank measures how early the first correct result appears. Higher is better. Think of it this way: How quickly the detective finds the first real lead.
+00:09:20,000 --> 00:09:42,000
+Guardrails. Guardrails are checks that block prompt injection and unsupported answers before the user sees them. Think of it this way: The courtroom rules of evidence.
 
 19
-00:05:44,000 --> 00:05:54,000
-NDCG. NDCG checks whether the best chunks are ranked highest, not merely found somewhere. Higher is better. Think of it this way: Putting the strongest witness first.
+00:09:42,000 --> 00:10:04,000
+Evaluator / LLM-as-a-Judge. An evaluator grades the answer after it is written. LLM-as-a-judge means using another AI to grade the first AI. Think of it this way: Internal Affairs reviews the case.
 
 20
-00:05:54,000 --> 00:06:04,000
-Faithfulness. Faithfulness asks whether the answer stayed grounded in retrieved context. It is the hallucination detector and the most important BidIntel metric. Think of it this way: No claims outside the case file.
+00:10:04,000 --> 00:10:26,000
+RAGAS. RAGAS is a library for batch-scoring RAG quality metrics like faithfulness and context recall. Think of it this way: The performance report.
 
 21
-00:06:04,000 --> 00:06:14,000
-Answer Relevancy. Answer relevancy asks whether the answer actually responds to the question. Higher is better. Think of it this way: The witness answers the question asked.
+00:10:26,000 --> 00:10:48,000
+Phoenix / Observability / Tracing. Phoenix records each step, timing, and metadata. A trace is the timeline of one request. A span is one step in that timeline. Think of it this way: The command-center dashboard.
 
 22
-00:06:14,000 --> 00:06:24,000
-Context Precision / Context Recall. Context precision asks how much retrieved context was useful. Context recall asks whether we brought all needed evidence. Think of it this way: A clean case folder versus a complete case folder.
+00:10:48,000 --> 00:10:58,000
+Precision@K. Of the chunks we retrieved, precision asks how many were actually useful. Higher is better. Think of it this way: How many suspects on the shortlist truly mattered.
 
 23
-00:06:24,000 --> 00:06:34,000
-Answer Correctness. Answer correctness compares the answer to a known ground truth. Higher is better. Think of it this way: The final statement matches the verified answer key.
+00:10:58,000 --> 00:11:08,000
+Recall@K. Of all useful chunks that exist, recall asks how many we found. Higher is better. For BidIntel, missing evidence is worse than extra evidence. Think of it this way: Did we find every witness who mattered.
 
 24
-00:06:34,000 --> 00:06:44,000
-Latency / Cost / Citation Coverage / Hallucination Rate. Operations metrics track speed, money, source coverage, and unsupported claims. Think of it this way: The dashboard that tells the team if the system is practical.
+00:11:08,000 --> 00:11:18,000
+MRR. Mean Reciprocal Rank measures how early the first correct result appears. Higher is better. Think of it this way: How quickly the detective finds the first real lead.
 
 25
-00:06:44,000 --> 00:07:06,000
-PostgreSQL. PostgreSQL is the relational database where BidIntel stores users, documents, chunks, audits, and scores. Think of it this way: The courthouse records office.
+00:11:18,000 --> 00:11:28,000
+NDCG. NDCG checks whether the best chunks are ranked highest, not merely found somewhere. Higher is better. Think of it this way: Putting the strongest witness first.
 
 26
-00:07:06,000 --> 00:07:28,000
-pgvector. pgvector adds vector storage and similarity search to PostgreSQL. Think of it this way: A meaning-coordinate cabinet inside the records office.
+00:11:28,000 --> 00:11:38,000
+Faithfulness. Faithfulness asks whether the answer stayed grounded in retrieved context. It is the hallucination detector and the most important BidIntel metric. Think of it this way: No claims outside the case file.
 
 27
-00:07:28,000 --> 00:07:38,000
-Full-text Search / tsvector. Full-text search turns text into searchable keywords. tsvector is PostgreSQL's search-ready form. Think of it this way: A professional index in the back of a book.
+00:11:38,000 --> 00:11:48,000
+Answer Relevancy. Answer relevancy asks whether the answer actually responds to the question. Higher is better. Think of it this way: The witness answers the question asked.
 
 28
-00:07:38,000 --> 00:07:48,000
-HNSW & GIN Indexes. HNSW speeds up vector search. GIN speeds up keyword search. Think of it this way: Fast filing systems for meaning and exact words.
+00:11:48,000 --> 00:11:58,000
+Context Precision / Context Recall. Context precision asks how much retrieved context was useful. Context recall asks whether we brought all needed evidence. Think of it this way: A clean case folder versus a complete case folder.
 
 29
-00:07:48,000 --> 00:08:10,000
-Docker / Container / docker-compose. A container packages a service with its runtime. Docker runs containers. docker-compose starts multiple services together. Think of it this way: A labeled toolbox that opens the same way on every machine.
+00:11:58,000 --> 00:12:08,000
+Answer Correctness. Answer correctness compares the answer to a known ground truth. Higher is better. Think of it this way: The final statement matches the verified answer key.
 
 30
-00:08:10,000 --> 00:08:32,000
-FastAPI / Swagger Docs. FastAPI is the Python web API framework. Swagger at /docs lets you click and test endpoints. Think of it this way: The service desk and its interactive menu.
+00:12:08,000 --> 00:12:18,000
+Latency / Cost / Citation Coverage / Hallucination Rate. Operations metrics track speed, money, source coverage, and unsupported claims. Think of it this way: The dashboard that tells the team if the system is practical.
 
 31
-00:08:32,000 --> 00:08:54,000
-React / Vite. React builds the browser interface. Vite runs the local frontend quickly. Think of it this way: The analyst's control room.
+00:12:18,000 --> 00:12:40,000
+PostgreSQL. PostgreSQL is the relational database where BidIntel stores users, documents, chunks, audits, and scores. Think of it this way: The courthouse records office.
 
 32
-00:08:54,000 --> 00:09:16,000
-IAM Role / Temporary Credentials. An IAM role grants AWS permissions to the backend. Temporary credentials are short-lived credentials AWS provides automatically. Think of it this way: A time-limited badge, not a permanent key.
+00:12:40,000 --> 00:13:02,000
+pgvector. pgvector adds vector storage and similarity search to PostgreSQL. Think of it this way: A meaning-coordinate cabinet inside the records office.
 
 33
-00:09:16,000 --> 00:09:38,000
-S3 / Secrets Manager / ECS Task. S3 stores files, Secrets Manager stores secrets, and an ECS task runs the backend container. Think of it this way: Storage room, locked safe, and assigned worker.
+00:13:02,000 --> 00:13:12,000
+Full-text Search / tsvector. Full-text search turns text into searchable keywords. tsvector is PostgreSQL's search-ready form. Think of it this way: A professional index in the back of a book.
 
 34
-00:09:38,000 --> 00:10:00,000
-CloudTrail / CloudWatch. CloudTrail records AWS API actions. CloudWatch stores logs and metrics. Think of it this way: Security camera and operations dashboard.
+00:13:12,000 --> 00:13:22,000
+HNSW & GIN Indexes. HNSW speeds up vector search. GIN speeds up keyword search. Think of it this way: Fast filing systems for meaning and exact words.
 
 35
-00:10:00,000 --> 00:10:22,000
-Multi-tenancy / tenant_id / Access Groups / ATO. Multi-tenancy separates customers with tenant_id. Access groups limit documents. ATO means Authority to Operate, a formal production security approval. Think of it this way: Separate courtrooms, locked evidence rooms, and final authorization.
+00:13:22,000 --> 00:13:44,000
+Docker / Container / docker-compose. A container packages a service with its runtime. Docker runs containers. docker-compose starts multiple services together. Think of it this way: A labeled toolbox that opens the same way on every machine.
 
 36
-00:10:22,000 --> 00:10:28,000
-Here is the whole case flow. The browser asks FastAPI. FastAPI checks identity, retrieves only allowed evidence, builds the context, calls the model or mock model, evaluates the answer, applies guardrails, writes audit, and returns citations.
+00:13:44,000 --> 00:14:06,000
+FastAPI / Swagger Docs. FastAPI is the Python web API framework. Swagger at /docs lets you click and test endpoints. Think of it this way: The service desk and its interactive menu.
 
 37
-00:10:28,000 --> 00:10:39,000
-A terminal is just the command window where we ask the computer to run tools. We need Python, Node, Docker, and Git before building BidIntel.
+00:14:06,000 --> 00:14:28,000
+React / Vite. React builds the browser interface. Vite runs the local frontend quickly. Think of it this way: The analyst's control room.
 
 38
-00:10:39,000 --> 00:10:50,000
-The frontend is the analyst screen. The backend owns APIs and security. Services hold RAG logic. Infra explains AWS. Docs explain how to run and harden it.
+00:14:28,000 --> 00:14:50,000
+IAM Role / Temporary Credentials. An IAM role grants AWS permissions to the backend. Temporary credentials are short-lived credentials AWS provides automatically. Think of it this way: A time-limited badge, not a permanent key.
 
 39
-00:10:50,000 --> 00:11:01,000
-Docker starts PostgreSQL with pgvector and Phoenix for observability. PostgreSQL stores records. pgvector stores meaning coordinates.
+00:14:50,000 --> 00:15:12,000
+S3 / Secrets Manager / ECS Task. S3 stores files, Secrets Manager stores secrets, and an ECS task runs the backend container. Think of it this way: Storage room, locked safe, and assigned worker.
 
 40
-00:11:01,000 --> 00:11:09,000
-The schema creates the evidence store. The critical table is document_chunks, because search retrieves chunks, not whole PDFs.
+00:15:12,000 --> 00:15:34,000
+CloudTrail / CloudWatch. CloudTrail records AWS API actions. CloudWatch stores logs and metrics. Think of it this way: Security camera and operations dashboard.
 
 41
-00:11:09,000 --> 00:11:15,000
-Document ingestion turns a PDF or text file into searchable evidence. Extract text, split into chunks, create embeddings, and store active chunks with page and section metadata.
+00:15:34,000 --> 00:15:56,000
+Multi-tenancy / tenant_id / Access Groups / ATO. Multi-tenancy separates customers with tenant_id. Access groups limit documents. ATO means Authority to Operate, a formal production security approval. Think of it this way: Separate courtrooms, locked evidence rooms, and final authorization.
 
 42
-00:11:15,000 --> 00:11:26,000
-BM25 is our literal detective. It is great when the analyst uses exact words like submission requirements or due date.
+00:15:56,000 --> 00:16:02,000
+Here is the whole case flow. The browser asks FastAPI. FastAPI checks identity, retrieves only allowed evidence, builds the context, calls the model or mock model, evaluates the answer, applies guardrails, writes audit, and returns citations.
 
 43
-00:11:26,000 --> 00:11:37,000
-Vector search is the meaning detective. It can connect automobile to car, or cybersecurity incident response to breach handling.
+00:16:02,000 --> 00:16:13,000
+A terminal is just the command window where we ask the computer to run tools. We need Python, Node, Docker, and Git before building BidIntel.
 
 44
-00:11:37,000 --> 00:11:48,000
-RRF merges the detective lists without trusting incompatible score scales. Rank position is enough. Shared candidates rise.
+00:16:13,000 --> 00:16:24,000
+The frontend is the analyst screen. The backend owns APIs and security. Services hold RAG logic. Infra explains AWS. Docs explain how to run and harden it.
 
 45
-00:11:48,000 --> 00:11:59,000
-The reranker is the deeper review. It looks at the question and shortlisted chunks and keeps the strongest evidence for the model.
+00:16:24,000 --> 00:16:35,000
+Docker starts PostgreSQL with pgvector and Phoenix for observability. PostgreSQL stores records. pgvector stores meaning coordinates.
 
 46
-00:11:59,000 --> 00:12:05,000
-Context engineering means arranging evidence so the model can answer safely. In local mode, MockLLM replaces Bedrock so you can run with no AWS keys.
+00:16:35,000 --> 00:16:43,000
+The schema creates the evidence store. The critical table is document_chunks, because search retrieves chunks, not whole PDFs.
 
 47
-00:12:05,000 --> 00:12:16,000
-This is the most important security rule. The model never receives documents the user is not allowed to see.
+00:16:43,000 --> 00:16:49,000
+Document ingestion turns a PDF or text file into searchable evidence. Extract text, split into chunks, create embeddings, and store active chunks with page and section metadata.
 
 48
-00:12:16,000 --> 00:12:27,000
-Evaluation checks retrieval and answers. Faithfulness is number one for BidIntel because a confident unsupported answer is dangerous.
+00:16:49,000 --> 00:17:00,000
+BM25 is our literal detective. It is great when the analyst uses exact words like submission requirements or due date.
 
 49
-00:12:27,000 --> 00:12:38,000
-Observability records the request timeline. When something is slow or wrong, traces show which step caused it.
+00:17:00,000 --> 00:17:11,000
+Vector search is the meaning detective. It can connect automobile to car, or cybersecurity incident response to breach handling.
 
 50
-00:12:38,000 --> 00:12:49,000
-The Assistant page sends the question through one API wrapper, waits for JSON, then renders the answer and source cards.
+00:17:11,000 --> 00:17:22,000
+RRF merges the detective lists without trusting incompatible score scales. Rank position is enough. Shared candidates rise.
 
 51
-00:12:49,000 --> 00:13:11,000
-BidIntel is more than chat. RAG finds the evidence, then the proposal scoring engine grades compliance, technical strength, management, past performance, and price risk before returning a scorecard with fixes.
+00:17:22,000 --> 00:17:33,000
+The reranker is the deeper review. It looks at the question and shortlisted chunks and keeps the strongest evidence for the model.
 
 52
-00:13:11,000 --> 00:13:22,000
-In AWS, the backend runs with an IAM role. No AWS keys go in the frontend. The Bedrock policy only permits the approved Claude and Titan models.
+00:17:33,000 --> 00:17:39,000
+Context engineering means arranging evidence so the model can answer safely. In local mode, MockLLM replaces Bedrock so you can run with no AWS keys.
 
 53
-00:13:22,000 --> 00:13:33,000
-This is the local proof path. Start the database, seed demo data, run FastAPI, run Vite, upload or use seeded documents, ask a question, and confirm sources plus audit.
+00:17:39,000 --> 00:17:50,000
+This is the most important security rule. The model never receives documents the user is not allowed to see.
 
 54
-00:13:33,000 --> 00:13:39,000
-Common failures are ordinary. Check database connection, Bedrock permissions, CORS origins, active chunks, retrieval speed, and unsupported answers.
+00:17:50,000 --> 00:18:01,000
+Evaluation checks retrieval and answers. Faithfulness is number one for BidIntel because a confident unsupported answer is dangerous.
 
 55
-00:13:39,000 --> 00:13:48,000
-You went from zero to the full map. BidIntel is a secure evidence pipeline around an AI model, not a generic chatbot. The prototype works locally; production still needs cloud and security review.
+00:18:01,000 --> 00:18:12,000
+Observability records the request timeline. When something is slow or wrong, traces show which step caused it.
 
 56
-00:13:48,000 --> 00:14:02,000
-The first half explains and builds the RAG system. The second half adds the product walkthrough: login, dashboard, document ingest, RAG ask, proposal scoring, RAGAS and Phoenix dashboards, AWS hosting, IAM, and Bedrock.
+00:18:12,000 --> 00:18:23,000
+The Assistant page sends the question through one API wrapper, waits for JSON, then renders the answer and source cards.
 
 57
-00:14:02,000 --> 00:14:20,000
-The tutorial needs to show what the app actually looks like. The login screen starts with the BidIntel command center and gives the user AWS IAM Identity Center or Microsoft Entra ID sign-in before the backend maps identity to role and groups.
+00:18:23,000 --> 00:18:45,000
+BidIntel is more than chat. RAG finds the evidence, then the proposal scoring engine grades compliance, technical strength, management, past performance, and price risk before returning a scorecard with fixes.
 
 58
-00:14:20,000 --> 00:14:40,000
-The document screen is where RAG begins. The analyst uploads a solicitation or contract, adds classification and access groups, then the backend extracts text, chunks it, embeds it, stores metadata, and makes it available for retrieval.
+00:18:45,000 --> 00:18:56,000
+In AWS, the backend runs with an IAM role. No AWS keys go in the frontend. The Bedrock policy only permits the approved Claude and Titan models.
 
 59
-00:14:40,000 --> 00:14:58,000
-The audit screen is not decoration. It proves every query, retrieval, model call, evaluation score, and blocked guardrail decision is recorded and exportable.
+00:18:56,000 --> 00:19:07,000
+This is the local proof path. Start the database, seed demo data, run FastAPI, run Vite, upload or use seeded documents, ask a question, and confirm sources plus audit.
 
 60
-00:14:58,000 --> 00:15:20,000
-The granular build starts with five frontend files. The HTML mount point loads React, CSS defines the command-center look, api.ts is the only bridge to Python, and the page components prove the click loop.
+00:19:07,000 --> 00:19:13,000
+Common failures are ordinary. Check database connection, Bedrock permissions, CORS origins, active chunks, retrieval speed, and unsupported answers.
 
 61
-00:15:20,000 --> 00:15:44,000
-Every screen calls the backend through one API client. That makes local development and AWS cutover a single environment variable instead of a rewrite.
+00:19:13,000 --> 00:19:21,000
+You went from zero to the full map. BidIntel is a secure evidence pipeline around an AI model, not a generic chatbot. The prototype works locally; production still needs cloud and security review.
 
 62
-00:15:44,000 --> 00:16:10,000
-This is the exact frontend loop: user types, clicks Ask, React calls FastAPI, saves the JSON result into state, and rerenders the answer plus source chunks.
+00:19:21,000 --> 00:19:35,000
+The first half explains and builds the RAG system. The second half adds the product walkthrough: login, dashboard, document ingest, RAG ask, proposal scoring, RAGAS and Phoenix dashboards, AWS hosting, IAM, and Bedrock.
 
 63
-00:16:10,000 --> 00:16:36,000
-The Python backend is where security and RAG actually happen. The frontend does not retrieve documents or call the model. FastAPI checks the user, filters retrieval by access group, builds the prompt, calls the LLM, writes the audit row, and returns JSON.
+00:19:35,000 --> 00:19:53,000
+The tutorial needs to show what the app actually looks like. The login screen starts with the BidIntel command center and gives the user AWS IAM Identity Center or Microsoft Entra ID sign-in before the backend maps identity to role and groups.
 
 64
-00:16:36,000 --> 00:17:04,000
-Login is not just a page. The SSO identity maps to role and access groups, and those groups are used on every retrieval query so unauthorized documents never reach the prompt.
+00:19:53,000 --> 00:20:13,000
+The document screen is where RAG begins. The analyst uploads a solicitation or contract, adds classification and access groups, then the backend extracts text, chunks it, embeds it, stores metadata, and makes it available for retrieval.
 
 65
-00:17:04,000 --> 00:17:28,000
-This is the AWS console mental map. For BidIntel you open Identity Center, Bedrock, IAM, Secrets Manager, RDS, S3, ECR, ECS, and CloudFront. The order matters because later screens depend on earlier credentials and roles.
+00:20:13,000 --> 00:20:31,000
+The audit screen is not decoration. It proves every query, retrieval, model call, evaluation score, and blocked guardrail decision is recorded and exportable.
 
 66
-00:17:28,000 --> 00:17:58,000
-This is where the user's login starts. Create the groups in Identity Center, add users to the right groups, and connect BidIntel as a SAML or OIDC app so the backend can read group claims.
+00:20:31,000 --> 00:20:53,000
+The granular build starts with five frontend files. The HTML mount point loads React, CSS defines the command-center look, api.ts is the only bridge to Python, and the page components prove the click loop.
 
 67
-00:17:58,000 --> 00:18:28,000
-Bedrock access is a console step before code works. Open Amazon Bedrock, go to Model access, enable Anthropic Claude Sonnet and Amazon Titan Embeddings, then store only model IDs in the backend environment.
+00:20:53,000 --> 00:21:17,000
+Every screen calls the backend through one API client. That makes local development and AWS cutover a single environment variable instead of a rewrite.
 
 68
-00:18:28,000 --> 00:19:02,000
-The beginner mistake is thinking IAM is one thing. For BidIntel there are two identity systems: IAM Identity Center handles human login, groups, and app assignments. The backend IAM role handles AWS service calls. Start in IAM Identity Center because this is where the login and role recognition begin.
+00:21:17,000 --> 00:21:43,000
+This is the exact frontend loop: user types, clicks Ask, React calls FastAPI, saves the JSON result into state, and rerenders the answer plus source chunks.
 
 69
-00:19:02,000 --> 00:19:36,000
-This screen is where the roles become concrete. Create groups that match the business permissions you need: Proposal Writer, Manager, Auditor, and Elevated Admin. These group names later become token claims and backend authorization rules.
+00:21:43,000 --> 00:22:09,000
+The Python backend is where security and RAG actually happen. The frontend does not retrieve documents or call the model. FastAPI checks the user, filters retrieval by access group, builds the prompt, calls the LLM, writes the audit row, and returns JSON.
 
 70
-00:19:36,000 --> 00:20:14,000
-On the Users screen, add the person and assign groups. This is what makes the app recognize different roles. A user can be a proposal writer, manager, auditor, or elevated admin because their Identity Center group membership appears in the login token.
+00:22:09,000 --> 00:22:37,000
+Login is not just a page. The SSO identity maps to role and access groups, and those groups are used on every retrieval query so unauthorized documents never reach the prompt.
 
 71
-00:20:14,000 --> 00:20:56,000
-This is the application registration screen. You add BidIntel as a customer-managed app, choose SAML or OIDC, and enter the application URLs. In a production build, the frontend login redirects here, then the callback returns to the backend so the backend can create the app session.
+00:22:37,000 --> 00:23:01,000
+This is the AWS console mental map. For BidIntel you open Identity Center, Bedrock, IAM, Secrets Manager, RDS, S3, ECR, ECS, and CloudFront. The order matters because later screens depend on earlier credentials and roles.
 
 72
-00:20:56,000 --> 00:21:40,000
-This is the missing wiring screen. In the BidIntel app details, choose Actions, then Edit attribute mapping. Add mappings for email, subject, groups, tenant id, and access level. The backend reads those claims and turns them into the CurrentUser object.
+00:23:01,000 --> 00:23:31,000
+This is where the user's login starts. Create the groups in Identity Center, add users to the right groups, and connect BidIntel as a SAML or OIDC app so the backend can read group claims.
 
 73
-00:21:40,000 --> 00:22:18,000
-After the app exists, assign groups to it. This is separate from merely creating groups. If Auditor is not assigned to the BidIntel app, the auditor cannot sign into BidIntel. If assigned, the backend still restricts what the auditor can do.
+00:23:31,000 --> 00:24:01,000
+Bedrock access is a console step before code works. Open Amazon Bedrock, go to Model access, enable Anthropic Claude Sonnet and Amazon Titan Embeddings, then store only model IDs in the backend environment.
 
 74
-00:22:18,000 --> 00:23:00,000
-This is the login flow as a builder should understand it. The React login button redirects to Identity Center. The backend callback verifies the token or assertion, maps groups to roles, creates a secure session, and the frontend calls auth me to know which pages to show.
+00:24:01,000 --> 00:24:35,000
+The beginner mistake is thinking IAM is one thing. For BidIntel there are two identity systems: IAM Identity Center handles human login, groups, and app assignments. The backend IAM role handles AWS service calls. Start in IAM Identity Center because this is where the login and role recognition begin.
 
 75
-00:23:00,000 --> 00:23:06,000
-The backend needs an explicit role map. Manager, Auditor, Proposal Writer, and Elevated Admin are not vague labels. They become deterministic permissions the API checks on every request.
+00:24:35,000 --> 00:25:09,000
+This screen is where the roles become concrete. Create groups that match the business permissions you need: Proposal Writer, Manager, Auditor, and Elevated Admin. These group names later become token claims and backend authorization rules.
 
 76
-00:23:06,000 --> 00:23:50,000
-A tutorial needs this matrix because it teaches what the roles actually do. Proposal writers can work documents and ask questions. Managers can approve and review team work. Auditors read audit evidence. Elevated admins manage policy and data source settings.
+00:25:09,000 --> 00:25:47,000
+On the Users screen, add the person and assign groups. This is what makes the app recognize different roles. A user can be a proposal writer, manager, auditor, or elevated admin because their Identity Center group membership appears in the login token.
 
 77
-00:23:50,000 --> 00:24:32,000
-This is the part that keeps the system honest. Every protected endpoint depends on require permission. If an auditor tries to call proposal scoring directly, the backend returns forbidden even if the frontend button is hidden.
+00:25:47,000 --> 00:26:29,000
+This is the application registration screen. You add BidIntel as a customer-managed app, choose SAML or OIDC, and enter the application URLs. In a production build, the frontend login redirects here, then the callback returns to the backend so the backend can create the app session.
 
 78
-00:24:32,000 --> 00:25:22,000
-Authorization has to reach the retrieval layer. The RAG pipeline filters chunks by tenant and document access groups before any text is inserted into the Bedrock prompt. This prevents an auditor, manager, or writer from accidentally retrieving documents outside their lane.
+00:26:29,000 --> 00:27:13,000
+This is the missing wiring screen. In the BidIntel app details, choose Actions, then Edit attribute mapping. Add mappings for email, subject, groups, tenant id, and access level. The backend reads those claims and turns them into the CurrentUser object.
 
 79
-00:25:22,000 --> 00:26:06,000
-Elevated access should be treated as break-glass access, not normal manager access. Require MFA, a separate group, a reason, a ticket, a time limit, and an audit row for every policy or user change.
+00:27:13,000 --> 00:27:51,000
+After the app exists, assign groups to it. This is separate from merely creating groups. If Auditor is not assigned to the BidIntel app, the auditor cannot sign into BidIntel. If assigned, the backend still restricts what the auditor can do.
 
 80
-00:26:06,000 --> 00:26:48,000
-Auditor access is a separate teaching path. The auditor logs in through the same Identity Center app, but the backend grants only audit read and export permissions. The auditor should not ask the AI questions or mutate proposal data.
+00:27:51,000 --> 00:28:33,000
+This is the login flow as a builder should understand it. The React login button redirects to Identity Center. The backend callback verifies the token or assertion, maps groups to roles, creates a secure session, and the frontend calls auth me to know which pages to show.
 
 81
-00:26:48,000 --> 00:27:28,000
-Manager is not the same as elevated admin. A manager can approve decisions and review team scoring, but cannot manage users, IAM, data sources, or global policies unless they are also in the elevated admin group.
+00:28:33,000 --> 00:28:39,000
+The backend needs an explicit role map. Manager, Auditor, Proposal Writer, and Elevated Admin are not vague labels. They become deterministic permissions the API checks on every request.
 
 82
-00:27:28,000 --> 00:28:12,000
-The tutorial should end this section with proof commands. Create one user per role, sign in, call auth me, then test the API matrix. The important proof is not that the buttons hide. The proof is that the backend returns 403 for unauthorized role and permission combinations.
+00:28:39,000 --> 00:29:23,000
+A tutorial needs this matrix because it teaches what the roles actually do. Proposal writers can work documents and ask questions. Managers can approve and review team work. Auditors read audit evidence. Elevated admins manage policy and data source settings.
 
 83
-00:28:12,000 --> 00:28:46,000
-The backend needs its own AWS identity. Create an IAM role trusted by ECS tasks, attach least-privilege policy for the approved Bedrock models, and add only the S3 and Secrets permissions this service needs.
+00:29:23,000 --> 00:30:05,000
+This is the part that keeps the system honest. Every protected endpoint depends on require permission. If an auditor tries to call proposal scoring directly, the backend returns forbidden even if the frontend button is hidden.
 
 84
-00:28:46,000 --> 00:29:20,000
-The backend is hosted as a container. Build the Docker image, push it to ECR, create an ECS Fargate task using the backend IAM role, pass environment variables and secrets, then expose it through a load balancer.
+00:30:05,000 --> 00:30:55,000
+Authorization has to reach the retrieval layer. The RAG pipeline filters chunks by tenant and document access groups before any text is inserted into the Bedrock prompt. This prevents an auditor, manager, or writer from accidentally retrieving documents outside their lane.
 
 85
-00:29:20,000 --> 00:29:50,000
-The frontend is static HTML, CSS, and JavaScript after Vite builds it. Set the API base to the AWS backend URL, build the dist folder, upload it to S3, put CloudFront in front, and test the real hosted URL.
+00:30:55,000 --> 00:31:39,000
+Elevated access should be treated as break-glass access, not normal manager access. Require MFA, a separate group, a reason, a ticket, a time limit, and an audit row for every policy or user change.
 
 86
-00:29:50,000 --> 00:30:20,000
-The data layer is where the real system becomes durable. Store secrets in Secrets Manager, run PostgreSQL in RDS, enable vector retrieval, and keep uploaded documents in an S3 bucket controlled by backend IAM.
+00:31:39,000 --> 00:32:21,000
+Auditor access is a separate teaching path. The auditor logs in through the same Identity Center app, but the backend grants only audit read and export permissions. The auditor should not ask the AI questions or mutate proposal data.
 
 87
-00:30:20,000 --> 00:30:48,000
-This is the corrected granular order from the attached PDF. Build the frontend and click loop first, wire FastAPI, add login and group filters, then do Bedrock access, IAM, data services, backend hosting, frontend hosting, and finally flip from mock to live.
+00:32:21,000 --> 00:33:01,000
+Manager is not the same as elevated admin. A manager can approve decisions and review team scoring, but cannot manage users, IAM, data sources, or global policies unless they are also in the elevated admin group.
 
 88
-00:30:48,000 --> 00:31:24,000
-This is the first missing tutorial step. In the AWS console search box, open IAM Identity Center. That is where user login, groups, app assignment, and claims are configured. Do not start in IAM Roles when you are wiring the login page.
+00:33:01,000 --> 00:33:45,000
+The tutorial should end this section with proof commands. Create one user per role, sign in, call auth me, then test the API matrix. The important proof is not that the buttons hide. The proof is that the backend returns 403 for unauthorized role and permission combinations.
 
 89
-00:31:24,000 --> 00:32:08,000
-On the Groups screen, click Create group and enter the actual role groups. These are the strings the backend will later map into permissions. This is where manager, auditor, and elevated access become real.
+00:33:45,000 --> 00:34:20,000
+The backend needs its own AWS identity. Create an IAM role trusted by ECS tasks, attach least-privilege policy for the approved Bedrock models, and add only the S3 and Secrets permissions this service needs.
 
 90
-00:32:08,000 --> 00:32:56,000
-Now go to Applications. Choose the Customer managed tab, add an application, choose that you have an app to set up, and pick SAML 2.0 for the tutorial path. This is the Identity Center app your BidIntel login button ultimately talks to.
+00:34:20,000 --> 00:34:54,000
+The backend is hosted as a container. Build the Docker image, push it to ECR, create an ECS Fargate task using the backend IAM role, pass environment variables and secrets, then expose it through a load balancer.
 
 91
-00:32:56,000 --> 00:33:50,000
-This is where the tutorial needs to slow down. The ACS or callback URL is the backend endpoint that receives the login response. The Entity ID identifies your BidIntel app. The metadata URL or file is saved so your backend can verify Identity Center signatures.
+00:34:54,000 --> 00:35:24,000
+The frontend is static HTML, CSS, and JavaScript after Vite builds it. Set the API base to the AWS backend URL, build the dist folder, upload it to S3, put CloudFront in front, and test the real hosted URL.
 
 92
-00:33:50,000 --> 00:33:56,000
-Open the BidIntel app, choose Actions, then Edit attribute mapping. Click Add new attribute mapping for each claim. This is how manager, auditor, and elevated admin group names reach your backend.
+00:35:24,000 --> 00:35:54,000
+The data layer is where the real system becomes durable. Store secrets in Secrets Manager, run PostgreSQL in RDS, enable vector retrieval, and keep uploaded documents in an S3 bucket controlled by backend IAM.
 
 93
-00:33:56,000 --> 00:34:42,000
-This is another common missing step. Creating groups does not grant access to the app. In the BidIntel application, open Assignments, choose Assign users and groups, select the groups, and save. Then test each group.
+00:35:54,000 --> 00:36:22,000
+This is the corrected granular order from the attached PDF. Build the frontend and click loop first, wire FastAPI, add login and group filters, then do Bedrock access, IAM, data services, backend hosting, frontend hosting, and finally flip from mock to live.
 
 94
-00:34:42,000 --> 00:35:36,000
-For AWS hosting, start with ECR. The FastAPI backend becomes a Docker image, and ECR is where you push it. The ECS task definition later asks for the ECR image URI.
+00:36:22,000 --> 00:36:58,000
+This is the first missing tutorial step. In the AWS console search box, open IAM Identity Center. That is where user login, groups, app assignment, and claims are configured. Do not start in IAM Roles when you are wiring the login page.
 
 95
-00:35:36,000 --> 00:36:28,000
-Secrets Manager is where backend-only values go. Do not put DATABASE_URL, session keys, SSO metadata, or Bedrock config in React. Store them as a secret, then reference that secret from the ECS task definition.
+00:36:58,000 --> 00:37:42,000
+On the Groups screen, click Create group and enter the actual role groups. These are the strings the backend will later map into permissions. This is where manager, auditor, and elevated access become real.
 
 96
-00:36:28,000 --> 00:37:28,000
-In ECS, create a task definition. Paste the ECR image URI, set port 8000 for FastAPI, choose the backend IAM role as the task role, and add environment variables and Secrets Manager references.
+00:37:42,000 --> 00:38:30,000
+Now go to Applications. Choose the Customer managed tab, add an application, choose that you have an app to set up, and pick SAML 2.0 for the tutorial path. This is the Identity Center app your BidIntel login button ultimately talks to.
 
 97
-00:37:28,000 --> 00:38:32,000
-A task definition is only a template. To run it, create an ECS service on Fargate and attach an Application Load Balancer. The ALB URL becomes your backend API base URL.
+00:38:30,000 --> 00:39:24,000
+This is where the tutorial needs to slow down. The ACS or callback URL is the backend endpoint that receives the login response. The Entity ID identifies your BidIntel app. The metadata URL or file is saved so your backend can verify Identity Center signatures.
 
 98
-00:38:32,000 --> 00:39:30,000
-For the frontend, run npm build locally or in CI, then upload the dist files to S3. The key detail is to set VITE_API_BASE to the hosted backend API before building.
+00:39:24,000 --> 00:39:30,000
+Open the BidIntel app, choose Actions, then Edit attribute mapping. Click Add new attribute mapping for each claim. This is how manager, auditor, and elevated admin group names reach your backend.
 
 99
-00:39:30,000 --> 00:40:34,000
-CloudFront is the public HTTPS front door for the React app. Choose the S3 bucket as origin, create origin access control, set index dot html as the default root object, and add React routing error responses.
+00:39:30,000 --> 00:40:16,000
+This is another common missing step. Creating groups does not grant access to the app. In the BidIntel application, open Assignments, choose Assign users and groups, select the groups, and save. Then test each group.
 
 100
-00:40:34,000 --> 00:41:26,000
-Bedrock has a console gate. Open Bedrock, go to Model access, modify model access, enable Claude and Titan Embeddings, then make sure the ECS task role policy allows those model ARNs.
+00:40:16,000 --> 00:41:10,000
+For AWS hosting, start with ECR. The FastAPI backend becomes a Docker image, and ECR is where you push it. The ECS task definition later asks for the ECR image URI.
 
 101
-00:41:26,000 --> 00:41:32,000
-The tutorial also needs to show where RAGAS, Phoenix, and the vector database are wired. pgvector lives in PostgreSQL for embeddings and indexes. Phoenix traces the request path. RAGAS evaluates faithfulness, answer relevance, and context recall after the RAG answer is produced.
+00:41:10,000 --> 00:42:02,000
+Secrets Manager is where backend-only values go. Do not put DATABASE_URL, session keys, SSO metadata, or Bedrock config in React. Store them as a secret, then reference that secret from the ECS task definition.
 
 102
-00:41:32,000 --> 00:42:34,000
-This is the educator answer that was missing. You do not write the BidIntel code on an AWS server. You build and test it on your machine first. Docker runs the local database and Phoenix. Your backend and frontend run from local terminals. When it works, the backend is wrapped as a Docker image, pushed to ECR, and ECS runs that image.
+00:42:02,000 --> 00:43:02,000
+In ECS, create a task definition. Paste the ECR image URI, set port 8000 for FastAPI, choose the backend IAM role as the task role, and add environment variables and Secrets Manager references.
 
 103
-00:42:34,000 --> 00:43:32,000
-A build tutorial should say where commands run. These are terminal commands on your local machine. The backend command runs from the backend folder. The frontend command runs from the frontend folder. Docker Compose runs from the project root where docker-compose dot yml lives.
+00:43:02,000 --> 00:44:06,000
+A task definition is only a template. To run it, create an ECS service on Fargate and attach an Application Load Balancer. The ALB URL becomes your backend API base URL.
 
 104
-00:43:32,000 --> 00:43:38,000
-The tutorial now treats architecture as a file map. If a section says RAG, it shows the React page, API route, service file, database table, and proof command. That is the difference between an overview and a build-along.
+00:44:06,000 --> 00:45:04,000
+For the frontend, run npm build locally or in CI, then upload the dist files to S3. The key detail is to set VITE_API_BASE to the hosted backend API before building.
 
 105
-00:43:38,000 --> 00:44:42,000
-Docker Compose is for the local development stack. It gives you a repeatable Postgres with pgvector and Phoenix without installing those services manually. This is not the AWS deploy yet; it is the training wheels that make local development predictable.
+00:45:04,000 --> 00:46:08,000
+CloudFront is the public HTTPS front door for the React app. Choose the S3 bucket as origin, create origin access control, set index dot html as the default root object, and add React routing error responses.
 
 106
-00:44:42,000 --> 00:45:48,000
-This is the transfer answer. You do not copy Python files into AWS by hand. You wrap the backend in a Docker image. That image contains the code and dependencies. You push it to ECR. ECS pulls and runs it.
+00:46:08,000 --> 00:47:00,000
+Bedrock has a console gate. Open Bedrock, go to Model access, modify model access, enable Claude and Titan Embeddings, then make sure the ECS task role policy allows those model ARNs.
 
 107
-00:45:48,000 --> 00:46:46,000
-The React frontend does not run on the same kind of server as FastAPI. Vite builds static files. Those files go to S3, and CloudFront serves them over HTTPS. The frontend talks to the backend through VITE_API_BASE.
+00:47:00,000 --> 00:47:06,000
+The tutorial also needs to show where RAGAS, Phoenix, and the vector database are wired. pgvector lives in PostgreSQL for embeddings and indexes. Phoenix traces the request path. RAGAS evaluates faithfulness, answer relevance, and context recall after the RAG answer is produced.
 
 108
-00:46:46,000 --> 00:47:50,000
-A serious tutorial has to separate local config from AWS secrets. Local backend dot env is for development. AWS Secrets Manager is for production secrets. ECS injects those values into the container. React only gets public build-time config like the API base URL.
+00:47:06,000 --> 00:48:08,000
+This is the educator answer that was missing. You do not write the BidIntel code on an AWS server. You build and test it on your machine first. Docker runs the local database and Phoenix. Your backend and frontend run from local terminals. When it works, the backend is wrapped as a Docker image, pushed to ECR, and ECS runs that image.
 
 109
-00:47:50,000 --> 00:48:56,000
-This is the audit standard I’m applying now. A viewer should be able to rebuild the project by following the page: create folders, run local services, write backend scripts, test endpoints, wire React, run RAG with citations, see audit and eval output, then transfer backend and frontend to AWS.
+00:48:08,000 --> 00:49:06,000
+A build tutorial should say where commands run. These are terminal commands on your local machine. The backend command runs from the backend folder. The frontend command runs from the frontend folder. Docker Compose runs from the project root where docker-compose dot yml lives.
 
 110
-00:48:56,000 --> 00:49:20,000
-The build starts with the local folder structure, not AWS. First separate frontend, backend, infra, and docs so each layer has a clear responsibility.
+00:49:06,000 --> 00:49:12,000
+The tutorial now treats architecture as a file map. If a section says RAG, it shows the React page, API route, service file, database table, and proof command. That is the difference between an overview and a build-along.
 
 111
-00:49:20,000 --> 00:49:44,000
-Build the frontend first with mock data. The goal is to prove that login, navigation, upload, RAG ask, and scoring screens make sense before wiring AWS.
+00:49:12,000 --> 00:50:16,000
+Docker Compose is for the local development stack. It gives you a repeatable Postgres with pgvector and Phoenix without installing those services manually. This is not the AWS deploy yet; it is the training wheels that make local development predictable.
 
 112
-00:49:44,000 --> 00:50:08,000
-The frontend API client is the switch between local development and AWS. The frontend never calls the database or Bedrock directly.
+00:50:16,000 --> 00:51:22,000
+This is the transfer answer. You do not copy Python files into AWS by hand. You wrap the backend in a Docker image. That image contains the code and dependencies. You push it to ECR. ECS pulls and runs it.
 
 113
-00:50:08,000 --> 00:50:32,000
-The login screen is the first product screen. The frontend can show or hide pages, but the backend enforces real access by checking the user, tenant, role, and groups.
+00:51:22,000 --> 00:52:20,000
+The React frontend does not run on the same kind of server as FastAPI. Vite builds static files. Those files go to S3, and CloudFront serves them over HTTPS. The frontend talks to the backend through VITE_API_BASE.
 
 114
-00:50:32,000 --> 00:50:56,000
-After login, the user lands on the capture dashboard. This is where BidIntel stops feeling like a chatbot and starts feeling like a contract-intelligence workspace.
+00:52:20,000 --> 00:53:24,000
+A serious tutorial has to separate local config from AWS secrets. Local backend dot env is for development. AWS Secrets Manager is for production secrets. ECS injects those values into the container. React only gets public build-time config like the API base URL.
 
 115
-00:50:56,000 --> 00:51:20,000
-The document screen is where contracts and supporting media enter the system. Every file is tagged with tenant, classification, source type, and access group before retrieval.
+00:53:24,000 --> 00:54:30,000
+This is the audit standard I’m applying now. A viewer should be able to rebuild the project by following the page: create folders, run local services, write backend scripts, test endpoints, wire React, run RAG with citations, see audit and eval output, then transfer backend and frontend to AWS.
 
 116
-00:51:20,000 --> 00:51:44,000
-FastAPI is the control layer. Every frontend click becomes an API request, and the backend decides identity, permissions, retrieval, model calls, and audit logging.
+00:54:30,000 --> 00:54:54,000
+The build starts with the local folder structure, not AWS. First separate frontend, backend, infra, and docs so each layer has a clear responsibility.
 
 117
-00:51:44,000 --> 00:52:08,000
-PostgreSQL stores the business truth: tenants, users, documents, chunks, embeddings, and audit logs. Tenant ID is the wall between organizations.
+00:54:54,000 --> 00:55:18,000
+Build the frontend first with mock data. The goal is to prove that login, navigation, upload, RAG ask, and scoring screens make sense before wiring AWS.
 
 118
-00:52:08,000 --> 00:52:32,000
-The RAG screen shows the user question, the grounded answer, citations, and trace metadata. The backend filters evidence before Bedrock sees it.
+00:55:18,000 --> 00:55:42,000
+The frontend API client is the switch between local development and AWS. The frontend never calls the database or Bedrock directly.
 
 119
-00:52:32,000 --> 00:52:56,000
-The model does not decide what the user can see. Retrieval filters by tenant and permission before any chunk enters the Bedrock prompt.
+00:55:42,000 --> 00:56:06,000
+The login screen is the first product screen. The frontend can show or hide pages, but the backend enforces real access by checking the user, tenant, role, and groups.
 
 120
-00:52:56,000 --> 00:53:20,000
-The scoring page turns retrieved evidence into proposal guidance. It shows weighted category scores, gaps, risk, and recommended fixes.
+00:56:06,000 --> 00:56:30,000
+After login, the user lands on the capture dashboard. This is where BidIntel stops feeling like a chatbot and starts feeling like a contract-intelligence workspace.
 
 121
-00:53:20,000 --> 00:53:44,000
-RAGAS is the batch evaluation layer. The tutorial shows mock metrics so the viewer understands how faithfulness, context recall, and relevancy are checked.
+00:56:30,000 --> 00:56:54,000
+The document screen is where contracts and supporting media enter the system. Every file is tagged with tenant, classification, source type, and access group before retrieval.
 
 122
-00:53:44,000 --> 00:54:08,000
-Phoenix shows the AI request timeline: retrieval, reranking, model call, evaluation, and audit. It makes the system debuggable instead of mysterious.
+00:56:54,000 --> 00:57:18,000
+FastAPI is the control layer. Every frontend click becomes an API request, and the backend decides identity, permissions, retrieval, model calls, and audit logging.
 
 123
-00:54:08,000 --> 00:54:32,000
-AWS has a dependency order. Do identity first, model access second, IAM service role third, secrets and database fourth, backend fifth, and frontend cutover last.
+00:57:18,000 --> 00:57:42,000
+PostgreSQL stores the business truth: tenants, users, documents, chunks, embeddings, and audit logs. Tenant ID is the wall between organizations.
 
 124
-00:54:32,000 --> 00:54:56,000
-There are two kinds of permission. The human user's role controls which documents they can retrieve. The backend IAM role controls which AWS services the app can call.
+00:57:42,000 --> 00:58:06,000
+The RAG screen shows the user question, the grounded answer, citations, and trace metadata. The backend filters evidence before Bedrock sees it.
 
 125
-00:54:56,000 --> 00:55:20,000
-Bedrock is backend only. The frontend calls FastAPI, FastAPI builds the prompt from allowed evidence, and the backend container uses its IAM role to invoke Bedrock.
+00:58:06,000 --> 00:58:30,000
+The model does not decide what the user can see. Retrieval filters by tenant and permission before any chunk enters the Bedrock prompt.
 
 126
-00:55:20,000 --> 00:55:44,000
+00:58:30,000 --> 00:58:54,000
+The scoring page turns retrieved evidence into proposal guidance. It shows weighted category scores, gaps, risk, and recommended fixes.
+
+127
+00:58:54,000 --> 00:59:18,000
+RAGAS is the batch evaluation layer. The tutorial shows mock metrics so the viewer understands how faithfulness, context recall, and relevancy are checked.
+
+128
+00:59:18,000 --> 00:59:42,000
+Phoenix shows the AI request timeline: retrieval, reranking, model call, evaluation, and audit. It makes the system debuggable instead of mysterious.
+
+129
+00:59:42,000 --> 01:00:06,000
+AWS has a dependency order. Do identity first, model access second, IAM service role third, secrets and database fourth, backend fifth, and frontend cutover last.
+
+130
+01:00:06,000 --> 01:00:30,000
+There are two kinds of permission. The human user's role controls which documents they can retrieve. The backend IAM role controls which AWS services the app can call.
+
+131
+01:00:30,000 --> 01:00:54,000
+Bedrock is backend only. The frontend calls FastAPI, FastAPI builds the prompt from allowed evidence, and the backend container uses its IAM role to invoke Bedrock.
+
+132
+01:00:54,000 --> 01:01:18,000
 The final message is simple. BidIntel is not just a chatbot. It is a secure evidence pipeline around an AI model, with frontend screens, backend enforcement, database retrieval, IAM, Bedrock, evaluation, and audit.

@@ -17,6 +17,8 @@ file:///Users/adamsmith/Documents/New%20project/bidintel-ai/tutorial-complete/in
 
 Coverage:
 
+- two-track course shape: Fast Track local build and Expert Track AWS/IAM production path
+- course scaffold files: prerequisites, checklist, troubleshooting, labs, API contract, teacher notes
 - original BidIntel RAG build tutorial
 - long code panels with scroll-frame video capture
 - product screenshots from the attached reference images

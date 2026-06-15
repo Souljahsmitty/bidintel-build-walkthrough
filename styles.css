@@ -1,7 +1,7 @@
 :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: #08111f; color: #eef6ff; }
 * { box-sizing: border-box; }
 body { margin: 0; background: #08111f; }
-.site-nav { position: sticky; top: 0; z-index: 50; display: flex; gap: 10px; align-items: center; justify-content: flex-end; min-height: 54px; padding: 8px 24px; background: rgba(8,17,31,.94); border-bottom: 1px solid #213856; backdrop-filter: blur(12px); }
+.site-nav { position: sticky; top: 0; z-index: 50; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: flex-end; min-height: 54px; padding: 8px 24px; background: rgba(8,17,31,.94); border-bottom: 1px solid #213856; backdrop-filter: blur(12px); }
 .site-nav a { border: 1px solid #284866; border-radius: 8px; color: #dcecff; background: #13243d; font-weight: 850; padding: 9px 12px; text-decoration: none; }
 .site-nav a:last-child { background: #22c7b5; color: #07111e; border-color: #22c7b5; }
 .repo-hero { min-height: calc(92vh - 54px); display: grid; grid-template-columns: minmax(0,.95fr) minmax(420px,1.05fr); gap: 34px; align-items: center; padding: 42px; background: #0a1322; border-bottom: 1px solid #213856; scroll-margin-top: 68px; }
