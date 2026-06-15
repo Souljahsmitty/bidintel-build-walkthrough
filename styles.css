@@ -13,7 +13,7 @@ h2 { margin: 0 0 16px; font-size: 24px; }
 .button, button { border: 0; border-radius: 8px; background: #22c7b5; color: #07111e; font-weight: 900; padding: 13px 18px; cursor: pointer; text-decoration: none; }
 .button.secondary, button.secondary { background: #13243d; color: #e8f3ff; border: 1px solid #284866; }
 .hero-video { width: 100%; aspect-ratio: 16/9; background: #050b13; border: 1px solid #2a4a6e; border-radius: 8px; }
-.player { display: grid; grid-template-columns: minmax(0,1fr) 360px; height: 100vh; }
+.player { display: grid; grid-template-columns: minmax(0,1fr) 360px; height: calc(100vh - 70px); min-height: 720px; scroll-margin-top: 70px; }
 .stage { display: grid; grid-template-rows: 54px minmax(220px,32vh) minmax(96px,auto) minmax(360px,1fr); padding: 16px; gap: 12px; min-height: 0; }
 .topbar, .caption, .code-panel, .controls { border: 1px solid #223752; background: #0e1a2d; border-radius: 8px; }
 .topbar { display: flex; align-items: center; justify-content: space-between; padding: 0 18px; color: #b8d8ff; }

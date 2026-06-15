@@ -14,10 +14,12 @@ const TXT = path.join(OUT, "bidintel-complete-build-walkthrough.txt");
 const CHAPTERS = path.join(OUT, "bidintel-complete-build-walkthrough-chapters.md");
 const MANIFEST = path.join(OUT, "bidintel-complete-build-walkthrough-manifest.json");
 const CONTACT = path.join(OUT, "bidintel-complete-contact-sheet.png");
+const CODE_SCROLL_AUDIT = path.join(OUT, "code-scroll-audit.json");
 
 const scenes = vm.runInNewContext(fs.readFileSync(path.join(ROOT, "scenes.js"), "utf8") + "\nSCENES;", {});
 const url = `file://${path.join(ROOT, "index.html")}`;
 let frameEntries = [];
+let codeScrollAudit = [];
 
 function pad(n, size = 4) {
   return String(n).padStart(size, "0");
@@ -37,29 +39,33 @@ function run(cmd, args) {
 
 function codeScrollPositions(clientHeight, scrollTopMax) {
   if (scrollTopMax <= 0) return [0];
-  const step = Math.max(220, Math.floor(clientHeight * 0.82));
+  const step = Math.max(140, Math.floor(clientHeight * 0.65));
   const positions = [0];
   for (let pos = step; pos < scrollTopMax; pos += step) positions.push(pos);
   positions.push(scrollTopMax);
   const unique = [...new Set(positions)];
-  if (unique.length <= 16) return unique;
-  return Array.from({ length: 16 }, (_, index) => Math.round((scrollTopMax * index) / 15));
+  if (unique.length <= 24) return unique;
+  return Array.from({ length: 24 }, (_, index) => Math.round((scrollTopMax * index) / 23));
 }
 
 function frameDuration(scene, count, index) {
-  if (count === 1) return scene.duration || 9;
-  if (index === 0) return 2.75;
-  if (index === count - 1) return 3.25;
-  return 2.1;
+  const total = Math.max(scene.duration || 9, count * 3.2);
+  if (count === 1) return total;
+  if (count === 2) return total / 2;
+  const edge = Math.max(3, total * 0.22);
+  const middle = Math.max(2.4, (total - edge * 2) / (count - 2));
+  if (index === 0 || index === count - 1) return edge;
+  return middle;
 }
 
 async function captureFrames() {
   fs.rmSync(FRAMES, { recursive: true, force: true });
   fs.mkdirSync(FRAMES, { recursive: true });
   frameEntries = [];
+  codeScrollAudit = [];
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
-  await page.goto(url);
+  await page.goto(url + "#walkthrough");
   await page.evaluate(() => {
     const style = document.createElement("style");
     style.textContent = "* { animation: none !important; transition: none !important; }";
@@ -71,6 +77,7 @@ async function captureFrames() {
     await page.locator("#sceneList li").nth(i).click();
     await page.evaluate(() => {
       if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+      document.querySelector("#walkthrough")?.scrollIntoView({ block: "start" });
       const details = document.querySelector(".code-panel");
       if (details) details.open = true;
     });
@@ -79,9 +86,21 @@ async function captureFrames() {
       clientHeight: el.clientHeight,
       scrollHeight: el.scrollHeight,
       scrollTopMax: Math.max(0, el.scrollHeight - el.clientHeight),
+      lineCount: (el.querySelector("pre")?.textContent || "").split("\n").length,
     }));
-    const shouldScroll = scrollData.scrollTopMax > 120 && scenes[i].code;
+    const shouldScroll = scrollData.scrollTopMax > 0 && scenes[i].code;
     const positions = shouldScroll ? codeScrollPositions(scrollData.clientHeight, scrollData.scrollTopMax) : [0];
+    if (shouldScroll) {
+      codeScrollAudit.push({
+        scene_index: i + 1,
+        title: scenes[i].title,
+        chapter: scenes[i].chapter,
+        line_count: scrollData.lineCount,
+        scroll_top_max: scrollData.scrollTopMax,
+        generated_scroll_frames: positions.length,
+        scroll_positions: positions,
+      });
+    }
     for (let j = 0; j < positions.length; j++) {
       await page.locator(".code-panel").evaluate((el, top) => { el.scrollTop = top; }, positions[j]);
       await page.waitForTimeout(50);
@@ -140,6 +159,12 @@ function writeTextAssets() {
     viewport: "1920x1080",
     note: "Browser screenshots of the frontend/AWS tutorial URL. Long code scenes are captured as multiple scroll frames.",
     assets,
+  }, null, 2) + "\n");
+  fs.writeFileSync(CODE_SCROLL_AUDIT, JSON.stringify({
+    note: "Scenes whose code panel overflows. Each listed scene is rendered as multiple scroll frames so the MP4 shows the full code/build detail.",
+    scene_count: scenes.length,
+    scrolling_scene_count: codeScrollAudit.length,
+    scenes: codeScrollAudit,
   }, null, 2) + "\n");
 }
 

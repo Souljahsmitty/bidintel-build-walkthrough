@@ -1,0 +1,480 @@
+{
+  "note": "Scenes whose code panel overflows. Each listed scene is rendered as multiple scroll frames so the MP4 shows the full code/build detail.",
+  "scene_count": 132,
+  "scrolling_scene_count": 38,
+  "scenes": [
+    {
+      "scene_index": 1,
+      "title": "Fix Shape: Two Tracks, Not One Long Watch",
+      "chapter": "Course Shape - Fast Track And Expert Track",
+      "line_count": 27,
+      "scroll_top_max": 19,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        19
+      ]
+    },
+    {
+      "scene_index": 2,
+      "title": "Fast Track: Watch, Do, Verify",
+      "chapter": "Course Shape - Fast Track And Expert Track",
+      "line_count": 39,
+      "scroll_top_max": 203,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        203
+      ]
+    },
+    {
+      "scene_index": 3,
+      "title": "Expert Track IAM Lab: Claims Must Become Permissions",
+      "chapter": "Course Shape - Fast Track And Expert Track",
+      "line_count": 37,
+      "scroll_top_max": 172,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        172
+      ]
+    },
+    {
+      "scene_index": 4,
+      "title": "Every Module Needs A Checklist And Screenshot Target",
+      "chapter": "Course Shape - Fast Track And Expert Track",
+      "line_count": 26,
+      "scroll_top_max": 3,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        3
+      ]
+    },
+    {
+      "scene_index": 5,
+      "title": "Failure Labs Build Expert Judgment",
+      "chapter": "Course Shape - Fast Track And Expert Track",
+      "line_count": 33,
+      "scroll_top_max": 111,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        111
+      ]
+    },
+    {
+      "scene_index": 6,
+      "title": "Prototype Boundary, AWS Cost, And Teardown",
+      "chapter": "Course Shape - Fast Track And Expert Track",
+      "line_count": 28,
+      "scroll_top_max": 34,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        34
+      ]
+    },
+    {
+      "scene_index": 7,
+      "title": "What BidIntel Builds",
+      "chapter": "Original Build - Welcome & Big Picture",
+      "line_count": 53,
+      "scroll_top_max": 403,
+      "generated_scroll_frames": 3,
+      "scroll_positions": [
+        0,
+        288,
+        403
+      ]
+    },
+    {
+      "scene_index": 42,
+      "title": "Pipeline Map",
+      "chapter": "Original Build - Mental Model",
+      "line_count": 44,
+      "scroll_top_max": 280,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        280
+      ]
+    },
+    {
+      "scene_index": 46,
+      "title": "Tables and Indexes",
+      "chapter": "Original Build - Database Schema",
+      "line_count": 77,
+      "scroll_top_max": 787,
+      "generated_scroll_frames": 4,
+      "scroll_positions": [
+        0,
+        288,
+        576,
+        787
+      ]
+    },
+    {
+      "scene_index": 47,
+      "title": "Ingestion",
+      "chapter": "Original Build - Documents In",
+      "line_count": 50,
+      "scroll_top_max": 372,
+      "generated_scroll_frames": 3,
+      "scroll_positions": [
+        0,
+        288,
+        372
+      ]
+    },
+    {
+      "scene_index": 49,
+      "title": "Vector Query",
+      "chapter": "Original Build - Meaning Search",
+      "line_count": 28,
+      "scroll_top_max": 34,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        34
+      ]
+    },
+    {
+      "scene_index": 52,
+      "title": "Build Prompt",
+      "chapter": "Original Build - Context & Model",
+      "line_count": 40,
+      "scroll_top_max": 218,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        218
+      ]
+    },
+    {
+      "scene_index": 57,
+      "title": "Proposal Scoring Engine",
+      "chapter": "Original Build - Analyst Tools",
+      "line_count": 250,
+      "scroll_top_max": 3444,
+      "generated_scroll_frames": 13,
+      "scroll_positions": [
+        0,
+        288,
+        576,
+        864,
+        1152,
+        1440,
+        1728,
+        2016,
+        2304,
+        2592,
+        2880,
+        3168,
+        3444
+      ]
+    },
+    {
+      "scene_index": 58,
+      "title": "Eight Console Steps",
+      "chapter": "Original Build - Going to AWS",
+      "line_count": 28,
+      "scroll_top_max": 34,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        34
+      ]
+    },
+    {
+      "scene_index": 60,
+      "title": "Common Problems",
+      "chapter": "Original Build - Troubleshooting & Maturity",
+      "line_count": 40,
+      "scroll_top_max": 249,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        249
+      ]
+    },
+    {
+      "scene_index": 61,
+      "title": "ADHD Short Version",
+      "chapter": "Original Build - Final Recap",
+      "line_count": 61,
+      "scroll_top_max": 572,
+      "generated_scroll_frames": 3,
+      "scroll_positions": [
+        0,
+        288,
+        572
+      ]
+    },
+    {
+      "scene_index": 68,
+      "title": "Assistant Click Loop",
+      "chapter": "Granular PDF - Frontend Code Order",
+      "line_count": 28,
+      "scroll_top_max": 34,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        34
+      ]
+    },
+    {
+      "scene_index": 70,
+      "title": "Login Maps To Groups, Not Just A UI Button",
+      "chapter": "Granular PDF - Login And Access",
+      "line_count": 38,
+      "scroll_top_max": 188,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        188
+      ]
+    },
+    {
+      "scene_index": 80,
+      "title": "Frontend Login Button To Backend Session",
+      "chapter": "IAM Deep Dive - Authorization Build",
+      "line_count": 29,
+      "scroll_top_max": 49,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        49
+      ]
+    },
+    {
+      "scene_index": 81,
+      "title": "Map Groups To BidIntel Roles",
+      "chapter": "IAM Deep Dive - Authorization Build",
+      "line_count": 51,
+      "scroll_top_max": 387,
+      "generated_scroll_frames": 3,
+      "scroll_positions": [
+        0,
+        288,
+        387
+      ]
+    },
+    {
+      "scene_index": 83,
+      "title": "Backend Blocks Unauthorized APIs",
+      "chapter": "IAM Deep Dive - Authorization Build",
+      "line_count": 31,
+      "scroll_top_max": 80,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        80
+      ]
+    },
+    {
+      "scene_index": 84,
+      "title": "Document Retrieval Filters By Tenant And Access Group",
+      "chapter": "IAM Deep Dive - Authorization Build",
+      "line_count": 30,
+      "scroll_top_max": 65,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        65
+      ]
+    },
+    {
+      "scene_index": 88,
+      "title": "Test The IAM Wiring End To End",
+      "chapter": "IAM Deep Dive - Authorization Build",
+      "line_count": 28,
+      "scroll_top_max": 34,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        34
+      ]
+    },
+    {
+      "scene_index": 95,
+      "title": "Groups Screen: Create The Roles Users Will Carry",
+      "chapter": "Docs-Backed Click Path - IAM Identity Center",
+      "line_count": 29,
+      "scroll_top_max": 49,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        49
+      ]
+    },
+    {
+      "scene_index": 97,
+      "title": "Configuration Screen: Paste ACS, Entity, And Metadata Values",
+      "chapter": "Docs-Backed Click Path - IAM Identity Center",
+      "line_count": 28,
+      "scroll_top_max": 34,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        34
+      ]
+    },
+    {
+      "scene_index": 98,
+      "title": "Attribute Mapping Screen: Put Claims In The Token",
+      "chapter": "Docs-Backed Click Path - IAM Identity Center",
+      "line_count": 41,
+      "scroll_top_max": 234,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        234
+      ]
+    },
+    {
+      "scene_index": 102,
+      "title": "ECS Task Definition: Paste Image URI And Env Vars",
+      "chapter": "Docs-Backed Click Path - Backend Hosting",
+      "line_count": 31,
+      "scroll_top_max": 80,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        80
+      ]
+    },
+    {
+      "scene_index": 103,
+      "title": "ECS Service And Load Balancer: Make The API Reachable",
+      "chapter": "Docs-Backed Click Path - Backend Hosting",
+      "line_count": 32,
+      "scroll_top_max": 96,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        96
+      ]
+    },
+    {
+      "scene_index": 104,
+      "title": "S3 Bucket: Upload The Built React Frontend",
+      "chapter": "Docs-Backed Click Path - Frontend Hosting",
+      "line_count": 29,
+      "scroll_top_max": 49,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        49
+      ]
+    },
+    {
+      "scene_index": 105,
+      "title": "CloudFront: Create The Public Tutorial/App URL",
+      "chapter": "Docs-Backed Click Path - Frontend Hosting",
+      "line_count": 35,
+      "scroll_top_max": 142,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        142
+      ]
+    },
+    {
+      "scene_index": 107,
+      "title": "Where RAGAS, Phoenix, And pgvector Fit",
+      "chapter": "Docs-Backed Click Path - RAGAS Phoenix Vector DB",
+      "line_count": 39,
+      "scroll_top_max": 203,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        203
+      ]
+    },
+    {
+      "scene_index": 108,
+      "title": "Where You Actually Build: Local First, AWS Later",
+      "chapter": "Educator Build-Along - Bible Gaps Filled",
+      "line_count": 28,
+      "scroll_top_max": 34,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        34
+      ]
+    },
+    {
+      "scene_index": 109,
+      "title": "Exact Local Terminal Setup From Empty Folder",
+      "chapter": "Educator Build-Along - Bible Gaps Filled",
+      "line_count": 29,
+      "scroll_top_max": 49,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        49
+      ]
+    },
+    {
+      "scene_index": 110,
+      "title": "Architecture Section To File Map",
+      "chapter": "Educator Build-Along - Bible Gaps Filled",
+      "line_count": 39,
+      "scroll_top_max": 203,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        203
+      ]
+    },
+    {
+      "scene_index": 111,
+      "title": "Docker Compose Is Local Infrastructure, Not The Cloud",
+      "chapter": "Educator Build-Along - Bible Gaps Filled",
+      "line_count": 37,
+      "scroll_top_max": 172,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        172
+      ]
+    },
+    {
+      "scene_index": 114,
+      "title": "Environment Variables: Local .env Versus AWS Secrets",
+      "chapter": "Educator Build-Along - Bible Gaps Filled",
+      "line_count": 31,
+      "scroll_top_max": 80,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        80
+      ]
+    },
+    {
+      "scene_index": 115,
+      "title": "Proof Checklist: Could You Build It From This?",
+      "chapter": "Educator Build-Along - Bible Gaps Filled",
+      "line_count": 33,
+      "scroll_top_max": 111,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        111
+      ]
+    },
+    {
+      "scene_index": 123,
+      "title": "PostgreSQL And pgvector Tables",
+      "chapter": "Frontend + AWS - Backend And Database",
+      "line_count": 30,
+      "scroll_top_max": 65,
+      "generated_scroll_frames": 2,
+      "scroll_positions": [
+        0,
+        65
+      ]
+    }
+  ]
+}

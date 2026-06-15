@@ -1,21 +1,33 @@
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0001.png'
-duration 56
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0001-01.png'
+duration 28
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0001-02.png'
+duration 28
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0002-01.png'
-duration 2.75
+duration 32
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0002-02.png'
-duration 3.25
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0003.png'
-duration 74
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0004.png'
-duration 62
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0005.png'
-duration 64
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0006.png'
-duration 72
+duration 32
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0003-01.png'
+duration 37
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0003-02.png'
+duration 37
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0004-01.png'
+duration 31
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0004-02.png'
+duration 31
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0005-01.png'
+duration 32
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0005-02.png'
+duration 32
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0006-01.png'
+duration 36
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0006-02.png'
+duration 36
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0007-01.png'
-duration 2.75
+duration 3
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0007-02.png'
-duration 3.25
+duration 5
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0007-03.png'
+duration 3
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0008.png'
 duration 22
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0009.png'
@@ -85,9 +97,9 @@ duration 22
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0041.png'
 duration 22
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0042-01.png'
-duration 2.75
+duration 5.5
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0042-02.png'
-duration 3.25
+duration 5.5
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0043.png'
 duration 11
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0044.png'
@@ -95,27 +107,33 @@ duration 11
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0045.png'
 duration 11
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0046-01.png'
-duration 2.75
+duration 3
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0046-02.png'
-duration 2.1
+duration 3.4000000000000004
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0046-03.png'
-duration 3.25
+duration 3.4000000000000004
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0046-04.png'
+duration 3
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0047-01.png'
-duration 2.75
+duration 3
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0047-02.png'
-duration 3.25
+duration 5
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0047-03.png'
+duration 3
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0048.png'
 duration 11
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0049.png'
-duration 11
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0049-01.png'
+duration 5.5
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0049-02.png'
+duration 5.5
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0050.png'
 duration 11
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0051.png'
 duration 11
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0052-01.png'
-duration 2.75
+duration 5.5
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0052-02.png'
-duration 3.25
+duration 5.5
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0053.png'
 duration 11
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0054.png'
@@ -125,39 +143,47 @@ duration 11
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0056.png'
 duration 11
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-01.png'
-duration 2.75
+duration 9.152000000000001
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-02.png'
-duration 2.1
+duration 2.4
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-03.png'
-duration 2.1
+duration 2.4
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-04.png'
-duration 2.1
+duration 2.4
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-05.png'
-duration 2.1
+duration 2.4
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-06.png'
-duration 2.1
+duration 2.4
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-07.png'
-duration 2.1
+duration 2.4
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-08.png'
-duration 2.1
+duration 2.4
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-09.png'
-duration 2.1
+duration 2.4
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-10.png'
-duration 3.25
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0058.png'
-duration 11
+duration 2.4
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-11.png'
+duration 2.4
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-12.png'
+duration 2.4
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-13.png'
+duration 9.152000000000001
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0058-01.png'
+duration 5.5
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0058-02.png'
+duration 5.5
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0059.png'
 duration 11
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0060-01.png'
-duration 2.75
+duration 5.5
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0060-02.png'
-duration 3.25
+duration 5.5
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0061-01.png'
-duration 2.75
+duration 3
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0061-02.png'
-duration 2.1
+duration 5
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0061-03.png'
-duration 3.25
+duration 3
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0062.png'
 duration 14
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0063.png'
@@ -170,12 +196,16 @@ file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/expor
 duration 22
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0067.png'
 duration 24
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0068.png'
-duration 26
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0068-01.png'
+duration 13
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0068-02.png'
+duration 13
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0069.png'
 duration 26
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0070.png'
-duration 28
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0070-01.png'
+duration 14
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0070-02.png'
+duration 14
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0071.png'
 duration 24
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0072.png'
@@ -194,26 +224,36 @@ file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/expor
 duration 44
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0079.png'
 duration 38
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0080.png'
-duration 42
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0080-01.png'
+duration 21
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0080-02.png'
+duration 21
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0081-01.png'
-duration 2.75
+duration 10.56
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0081-02.png'
-duration 3.25
+duration 26.88
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0081-03.png'
+duration 10.56
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0082.png'
 duration 44
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0083.png'
-duration 42
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0084.png'
-duration 50
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0083-01.png'
+duration 21
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0083-02.png'
+duration 21
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0084-01.png'
+duration 25
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0084-02.png'
+duration 25
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0085.png'
 duration 44
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0086.png'
 duration 42
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0087.png'
 duration 40
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0088.png'
-duration 44
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0088-01.png'
+duration 22
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0088-02.png'
+duration 22
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0089.png'
 duration 34
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0090.png'
@@ -226,54 +266,76 @@ file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/expor
 duration 28
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0094.png'
 duration 36
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0095.png'
-duration 44
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0095-01.png'
+duration 22
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0095-02.png'
+duration 22
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0096.png'
 duration 48
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0097.png'
-duration 54
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0097-01.png'
+duration 27
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0097-02.png'
+duration 27
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0098-01.png'
-duration 2.75
+duration 29
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0098-02.png'
-duration 3.25
+duration 29
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0099.png'
 duration 46
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0100.png'
 duration 54
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0101.png'
 duration 52
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0102.png'
-duration 60
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0103.png'
-duration 64
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0104.png'
-duration 58
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0105.png'
-duration 64
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0102-01.png'
+duration 30
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0102-02.png'
+duration 30
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0103-01.png'
+duration 32
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0103-02.png'
+duration 32
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0104-01.png'
+duration 29
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0104-02.png'
+duration 29
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0105-01.png'
+duration 32
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0105-02.png'
+duration 32
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0106.png'
 duration 52
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0107-01.png'
-duration 2.75
+duration 29
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0107-02.png'
-duration 3.25
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0108.png'
-duration 62
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0109.png'
-duration 58
+duration 29
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0108-01.png'
+duration 31
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0108-02.png'
+duration 31
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0109-01.png'
+duration 29
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0109-02.png'
+duration 29
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0110-01.png'
-duration 2.75
+duration 32
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0110-02.png'
-duration 3.25
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0111.png'
-duration 64
+duration 32
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0111-01.png'
+duration 32
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0111-02.png'
+duration 32
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0112.png'
 duration 66
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0113.png'
 duration 58
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0114.png'
-duration 64
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0115.png'
-duration 66
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0114-01.png'
+duration 32
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0114-02.png'
+duration 32
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0115-01.png'
+duration 33
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0115-02.png'
+duration 33
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0116.png'
 duration 24
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0117.png'
@@ -288,8 +350,10 @@ file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/expor
 duration 24
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0122.png'
 duration 24
-file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0123.png'
-duration 24
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0123-01.png'
+duration 12
+file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0123-02.png'
+duration 12
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0124.png'
 duration 24
 file '/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0125.png'

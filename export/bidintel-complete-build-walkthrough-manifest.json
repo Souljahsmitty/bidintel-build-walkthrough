@@ -2,7 +2,7 @@
   "source": "file:///Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/index.html",
   "video": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/bidintel-complete-build-walkthrough.mp4",
   "scene_count": 132,
-  "duration_seconds": 3678,
+  "duration_seconds": 3994.504,
   "viewport": "1920x1080",
   "note": "Browser screenshots of the frontend/AWS tutorial URL. Long code scenes are captured as multiple scroll frames.",
   "assets": [
@@ -11,14 +11,21 @@
       "chapter": "Course Shape - Fast Track And Expert Track",
       "title": "Fix Shape: Two Tracks, Not One Long Watch",
       "duration": 56,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0001.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0001-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0001.png",
-          "duration": 56,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0001-01.png",
+          "duration": 28,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0001-02.png",
+          "duration": 28,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 19
         }
       ]
     },
@@ -26,22 +33,22 @@
       "index": 2,
       "chapter": "Course Shape - Fast Track And Expert Track",
       "title": "Fast Track: Watch, Do, Verify",
-      "duration": 6,
+      "duration": 64,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0002-01.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0002-01.png",
-          "duration": 2.75,
+          "duration": 32,
           "scroll_index": 1,
           "scroll_count": 2,
           "scroll_top": 0
         },
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0002-02.png",
-          "duration": 3.25,
+          "duration": 32,
           "scroll_index": 2,
           "scroll_count": 2,
-          "scroll_top": 133
+          "scroll_top": 203
         }
       ]
     },
@@ -50,14 +57,21 @@
       "chapter": "Course Shape - Fast Track And Expert Track",
       "title": "Expert Track IAM Lab: Claims Must Become Permissions",
       "duration": 74,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0003.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0003-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0003.png",
-          "duration": 74,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0003-01.png",
+          "duration": 37,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0003-02.png",
+          "duration": 37,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 172
         }
       ]
     },
@@ -66,14 +80,21 @@
       "chapter": "Course Shape - Fast Track And Expert Track",
       "title": "Every Module Needs A Checklist And Screenshot Target",
       "duration": 62,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0004.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0004-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0004.png",
-          "duration": 62,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0004-01.png",
+          "duration": 31,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0004-02.png",
+          "duration": 31,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 3
         }
       ]
     },
@@ -82,14 +103,21 @@
       "chapter": "Course Shape - Fast Track And Expert Track",
       "title": "Failure Labs Build Expert Judgment",
       "duration": 64,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0005.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0005-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0005.png",
-          "duration": 64,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0005-01.png",
+          "duration": 32,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0005-02.png",
+          "duration": 32,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 111
         }
       ]
     },
@@ -98,14 +126,21 @@
       "chapter": "Course Shape - Fast Track And Expert Track",
       "title": "Prototype Boundary, AWS Cost, And Teardown",
       "duration": 72,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0006.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0006-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0006.png",
-          "duration": 72,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0006-01.png",
+          "duration": 36,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0006-02.png",
+          "duration": 36,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 34
         }
       ]
     },
@@ -113,22 +148,29 @@
       "index": 7,
       "chapter": "Original Build - Welcome & Big Picture",
       "title": "What BidIntel Builds",
-      "duration": 6,
+      "duration": 11,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0007-01.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0007-01.png",
-          "duration": 2.75,
+          "duration": 3,
           "scroll_index": 1,
-          "scroll_count": 2,
+          "scroll_count": 3,
           "scroll_top": 0
         },
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0007-02.png",
-          "duration": 3.25,
+          "duration": 5,
           "scroll_index": 2,
-          "scroll_count": 2,
-          "scroll_top": 333
+          "scroll_count": 3,
+          "scroll_top": 288
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0007-03.png",
+          "duration": 3,
+          "scroll_index": 3,
+          "scroll_count": 3,
+          "scroll_top": 403
         }
       ]
     },
@@ -680,22 +722,22 @@
       "index": 42,
       "chapter": "Original Build - Mental Model",
       "title": "Pipeline Map",
-      "duration": 6,
+      "duration": 11,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0042-01.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0042-01.png",
-          "duration": 2.75,
+          "duration": 5.5,
           "scroll_index": 1,
           "scroll_count": 2,
           "scroll_top": 0
         },
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0042-02.png",
-          "duration": 3.25,
+          "duration": 5.5,
           "scroll_index": 2,
           "scroll_count": 2,
-          "scroll_top": 210
+          "scroll_top": 280
         }
       ]
     },
@@ -751,29 +793,36 @@
       "index": 46,
       "chapter": "Original Build - Database Schema",
       "title": "Tables and Indexes",
-      "duration": 8.1,
+      "duration": 12.8,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0046-01.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0046-01.png",
-          "duration": 2.75,
+          "duration": 3,
           "scroll_index": 1,
-          "scroll_count": 3,
+          "scroll_count": 4,
           "scroll_top": 0
         },
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0046-02.png",
-          "duration": 2.1,
+          "duration": 3.4000000000000004,
           "scroll_index": 2,
-          "scroll_count": 3,
-          "scroll_top": 421
+          "scroll_count": 4,
+          "scroll_top": 288
         },
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0046-03.png",
-          "duration": 3.25,
+          "duration": 3.4000000000000004,
           "scroll_index": 3,
-          "scroll_count": 3,
-          "scroll_top": 717
+          "scroll_count": 4,
+          "scroll_top": 576
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0046-04.png",
+          "duration": 3,
+          "scroll_index": 4,
+          "scroll_count": 4,
+          "scroll_top": 787
         }
       ]
     },
@@ -781,22 +830,29 @@
       "index": 47,
       "chapter": "Original Build - Documents In",
       "title": "Ingestion",
-      "duration": 6,
+      "duration": 11,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0047-01.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0047-01.png",
-          "duration": 2.75,
+          "duration": 3,
           "scroll_index": 1,
-          "scroll_count": 2,
+          "scroll_count": 3,
           "scroll_top": 0
         },
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0047-02.png",
-          "duration": 3.25,
+          "duration": 5,
           "scroll_index": 2,
-          "scroll_count": 2,
-          "scroll_top": 302
+          "scroll_count": 3,
+          "scroll_top": 288
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0047-03.png",
+          "duration": 3,
+          "scroll_index": 3,
+          "scroll_count": 3,
+          "scroll_top": 372
         }
       ]
     },
@@ -821,14 +877,21 @@
       "chapter": "Original Build - Meaning Search",
       "title": "Vector Query",
       "duration": 11,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0049.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0049-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0049.png",
-          "duration": 11,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0049-01.png",
+          "duration": 5.5,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0049-02.png",
+          "duration": 5.5,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 34
         }
       ]
     },
@@ -868,22 +931,22 @@
       "index": 52,
       "chapter": "Original Build - Context & Model",
       "title": "Build Prompt",
-      "duration": 6,
+      "duration": 11,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0052-01.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0052-01.png",
-          "duration": 2.75,
+          "duration": 5.5,
           "scroll_index": 1,
           "scroll_count": 2,
           "scroll_top": 0
         },
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0052-02.png",
-          "duration": 3.25,
+          "duration": 5.5,
           "scroll_index": 2,
           "scroll_count": 2,
-          "scroll_top": 148
+          "scroll_top": 218
         }
       ]
     },
@@ -955,78 +1018,99 @@
       "index": 57,
       "chapter": "Original Build - Analyst Tools",
       "title": "Proposal Scoring Engine",
-      "duration": 22.8,
+      "duration": 44.70399999999999,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-01.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-01.png",
-          "duration": 2.75,
+          "duration": 9.152000000000001,
           "scroll_index": 1,
-          "scroll_count": 10,
+          "scroll_count": 13,
           "scroll_top": 0
         },
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-02.png",
-          "duration": 2.1,
+          "duration": 2.4,
           "scroll_index": 2,
-          "scroll_count": 10,
-          "scroll_top": 421
+          "scroll_count": 13,
+          "scroll_top": 288
         },
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-03.png",
-          "duration": 2.1,
+          "duration": 2.4,
           "scroll_index": 3,
-          "scroll_count": 10,
-          "scroll_top": 842
+          "scroll_count": 13,
+          "scroll_top": 576
         },
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-04.png",
-          "duration": 2.1,
+          "duration": 2.4,
           "scroll_index": 4,
-          "scroll_count": 10,
-          "scroll_top": 1263
+          "scroll_count": 13,
+          "scroll_top": 864
         },
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-05.png",
-          "duration": 2.1,
+          "duration": 2.4,
           "scroll_index": 5,
-          "scroll_count": 10,
-          "scroll_top": 1684
+          "scroll_count": 13,
+          "scroll_top": 1152
         },
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-06.png",
-          "duration": 2.1,
+          "duration": 2.4,
           "scroll_index": 6,
-          "scroll_count": 10,
-          "scroll_top": 2105
+          "scroll_count": 13,
+          "scroll_top": 1440
         },
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-07.png",
-          "duration": 2.1,
+          "duration": 2.4,
           "scroll_index": 7,
-          "scroll_count": 10,
-          "scroll_top": 2526
+          "scroll_count": 13,
+          "scroll_top": 1728
         },
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-08.png",
-          "duration": 2.1,
+          "duration": 2.4,
           "scroll_index": 8,
-          "scroll_count": 10,
-          "scroll_top": 2947
+          "scroll_count": 13,
+          "scroll_top": 2016
         },
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-09.png",
-          "duration": 2.1,
+          "duration": 2.4,
           "scroll_index": 9,
-          "scroll_count": 10,
-          "scroll_top": 3368
+          "scroll_count": 13,
+          "scroll_top": 2304
         },
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-10.png",
-          "duration": 3.25,
+          "duration": 2.4,
           "scroll_index": 10,
-          "scroll_count": 10,
-          "scroll_top": 3374
+          "scroll_count": 13,
+          "scroll_top": 2592
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-11.png",
+          "duration": 2.4,
+          "scroll_index": 11,
+          "scroll_count": 13,
+          "scroll_top": 2880
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-12.png",
+          "duration": 2.4,
+          "scroll_index": 12,
+          "scroll_count": 13,
+          "scroll_top": 3168
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0057-13.png",
+          "duration": 9.152000000000001,
+          "scroll_index": 13,
+          "scroll_count": 13,
+          "scroll_top": 3444
         }
       ]
     },
@@ -1035,14 +1119,21 @@
       "chapter": "Original Build - Going to AWS",
       "title": "Eight Console Steps",
       "duration": 11,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0058.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0058-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0058.png",
-          "duration": 11,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0058-01.png",
+          "duration": 5.5,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0058-02.png",
+          "duration": 5.5,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 34
         }
       ]
     },
@@ -1066,22 +1157,22 @@
       "index": 60,
       "chapter": "Original Build - Troubleshooting & Maturity",
       "title": "Common Problems",
-      "duration": 6,
+      "duration": 11,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0060-01.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0060-01.png",
-          "duration": 2.75,
+          "duration": 5.5,
           "scroll_index": 1,
           "scroll_count": 2,
           "scroll_top": 0
         },
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0060-02.png",
-          "duration": 3.25,
+          "duration": 5.5,
           "scroll_index": 2,
           "scroll_count": 2,
-          "scroll_top": 179
+          "scroll_top": 249
         }
       ]
     },
@@ -1089,29 +1180,29 @@
       "index": 61,
       "chapter": "Original Build - Final Recap",
       "title": "ADHD Short Version",
-      "duration": 8.1,
+      "duration": 11,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0061-01.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0061-01.png",
-          "duration": 2.75,
+          "duration": 3,
           "scroll_index": 1,
           "scroll_count": 3,
           "scroll_top": 0
         },
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0061-02.png",
-          "duration": 2.1,
+          "duration": 5,
           "scroll_index": 2,
           "scroll_count": 3,
-          "scroll_top": 421
+          "scroll_top": 288
         },
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0061-03.png",
-          "duration": 3.25,
+          "duration": 3,
           "scroll_index": 3,
           "scroll_count": 3,
-          "scroll_top": 502
+          "scroll_top": 572
         }
       ]
     },
@@ -1216,14 +1307,21 @@
       "chapter": "Granular PDF - Frontend Code Order",
       "title": "Assistant Click Loop",
       "duration": 26,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0068.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0068-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0068.png",
-          "duration": 26,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0068-01.png",
+          "duration": 13,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0068-02.png",
+          "duration": 13,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 34
         }
       ]
     },
@@ -1248,14 +1346,21 @@
       "chapter": "Granular PDF - Login And Access",
       "title": "Login Maps To Groups, Not Just A UI Button",
       "duration": 28,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0070.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0070-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0070.png",
-          "duration": 28,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0070-01.png",
+          "duration": 14,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0070-02.png",
+          "duration": 14,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 188
         }
       ]
     },
@@ -1408,14 +1513,21 @@
       "chapter": "IAM Deep Dive - Authorization Build",
       "title": "Frontend Login Button To Backend Session",
       "duration": 42,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0080.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0080-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0080.png",
-          "duration": 42,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0080-01.png",
+          "duration": 21,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0080-02.png",
+          "duration": 21,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 49
         }
       ]
     },
@@ -1423,22 +1535,29 @@
       "index": 81,
       "chapter": "IAM Deep Dive - Authorization Build",
       "title": "Map Groups To BidIntel Roles",
-      "duration": 6,
+      "duration": 48,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0081-01.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0081-01.png",
-          "duration": 2.75,
+          "duration": 10.56,
           "scroll_index": 1,
-          "scroll_count": 2,
+          "scroll_count": 3,
           "scroll_top": 0
         },
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0081-02.png",
-          "duration": 3.25,
+          "duration": 26.88,
           "scroll_index": 2,
-          "scroll_count": 2,
-          "scroll_top": 317
+          "scroll_count": 3,
+          "scroll_top": 288
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0081-03.png",
+          "duration": 10.56,
+          "scroll_index": 3,
+          "scroll_count": 3,
+          "scroll_top": 387
         }
       ]
     },
@@ -1463,14 +1582,21 @@
       "chapter": "IAM Deep Dive - Authorization Build",
       "title": "Backend Blocks Unauthorized APIs",
       "duration": 42,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0083.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0083-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0083.png",
-          "duration": 42,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0083-01.png",
+          "duration": 21,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0083-02.png",
+          "duration": 21,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 80
         }
       ]
     },
@@ -1479,14 +1605,21 @@
       "chapter": "IAM Deep Dive - Authorization Build",
       "title": "Document Retrieval Filters By Tenant And Access Group",
       "duration": 50,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0084.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0084-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0084.png",
-          "duration": 50,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0084-01.png",
+          "duration": 25,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0084-02.png",
+          "duration": 25,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 65
         }
       ]
     },
@@ -1543,14 +1676,21 @@
       "chapter": "IAM Deep Dive - Authorization Build",
       "title": "Test The IAM Wiring End To End",
       "duration": 44,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0088.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0088-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0088.png",
-          "duration": 44,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0088-01.png",
+          "duration": 22,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0088-02.png",
+          "duration": 22,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 34
         }
       ]
     },
@@ -1655,14 +1795,21 @@
       "chapter": "Docs-Backed Click Path - IAM Identity Center",
       "title": "Groups Screen: Create The Roles Users Will Carry",
       "duration": 44,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0095.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0095-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0095.png",
-          "duration": 44,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0095-01.png",
+          "duration": 22,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0095-02.png",
+          "duration": 22,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 49
         }
       ]
     },
@@ -1687,14 +1834,21 @@
       "chapter": "Docs-Backed Click Path - IAM Identity Center",
       "title": "Configuration Screen: Paste ACS, Entity, And Metadata Values",
       "duration": 54,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0097.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0097-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0097.png",
-          "duration": 54,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0097-01.png",
+          "duration": 27,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0097-02.png",
+          "duration": 27,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 34
         }
       ]
     },
@@ -1702,22 +1856,22 @@
       "index": 98,
       "chapter": "Docs-Backed Click Path - IAM Identity Center",
       "title": "Attribute Mapping Screen: Put Claims In The Token",
-      "duration": 6,
+      "duration": 58,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0098-01.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0098-01.png",
-          "duration": 2.75,
+          "duration": 29,
           "scroll_index": 1,
           "scroll_count": 2,
           "scroll_top": 0
         },
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0098-02.png",
-          "duration": 3.25,
+          "duration": 29,
           "scroll_index": 2,
           "scroll_count": 2,
-          "scroll_top": 164
+          "scroll_top": 234
         }
       ]
     },
@@ -1774,14 +1928,21 @@
       "chapter": "Docs-Backed Click Path - Backend Hosting",
       "title": "ECS Task Definition: Paste Image URI And Env Vars",
       "duration": 60,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0102.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0102-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0102.png",
-          "duration": 60,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0102-01.png",
+          "duration": 30,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0102-02.png",
+          "duration": 30,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 80
         }
       ]
     },
@@ -1790,14 +1951,21 @@
       "chapter": "Docs-Backed Click Path - Backend Hosting",
       "title": "ECS Service And Load Balancer: Make The API Reachable",
       "duration": 64,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0103.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0103-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0103.png",
-          "duration": 64,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0103-01.png",
+          "duration": 32,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0103-02.png",
+          "duration": 32,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 96
         }
       ]
     },
@@ -1806,14 +1974,21 @@
       "chapter": "Docs-Backed Click Path - Frontend Hosting",
       "title": "S3 Bucket: Upload The Built React Frontend",
       "duration": 58,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0104.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0104-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0104.png",
-          "duration": 58,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0104-01.png",
+          "duration": 29,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0104-02.png",
+          "duration": 29,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 49
         }
       ]
     },
@@ -1822,14 +1997,21 @@
       "chapter": "Docs-Backed Click Path - Frontend Hosting",
       "title": "CloudFront: Create The Public Tutorial/App URL",
       "duration": 64,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0105.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0105-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0105.png",
-          "duration": 64,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0105-01.png",
+          "duration": 32,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0105-02.png",
+          "duration": 32,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 142
         }
       ]
     },
@@ -1853,22 +2035,22 @@
       "index": 107,
       "chapter": "Docs-Backed Click Path - RAGAS Phoenix Vector DB",
       "title": "Where RAGAS, Phoenix, And pgvector Fit",
-      "duration": 6,
+      "duration": 58,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0107-01.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0107-01.png",
-          "duration": 2.75,
+          "duration": 29,
           "scroll_index": 1,
           "scroll_count": 2,
           "scroll_top": 0
         },
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0107-02.png",
-          "duration": 3.25,
+          "duration": 29,
           "scroll_index": 2,
           "scroll_count": 2,
-          "scroll_top": 133
+          "scroll_top": 203
         }
       ]
     },
@@ -1877,14 +2059,21 @@
       "chapter": "Educator Build-Along - Bible Gaps Filled",
       "title": "Where You Actually Build: Local First, AWS Later",
       "duration": 62,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0108.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0108-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0108.png",
-          "duration": 62,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0108-01.png",
+          "duration": 31,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0108-02.png",
+          "duration": 31,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 34
         }
       ]
     },
@@ -1893,14 +2082,21 @@
       "chapter": "Educator Build-Along - Bible Gaps Filled",
       "title": "Exact Local Terminal Setup From Empty Folder",
       "duration": 58,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0109.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0109-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0109.png",
-          "duration": 58,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0109-01.png",
+          "duration": 29,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0109-02.png",
+          "duration": 29,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 49
         }
       ]
     },
@@ -1908,22 +2104,22 @@
       "index": 110,
       "chapter": "Educator Build-Along - Bible Gaps Filled",
       "title": "Architecture Section To File Map",
-      "duration": 6,
+      "duration": 64,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0110-01.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0110-01.png",
-          "duration": 2.75,
+          "duration": 32,
           "scroll_index": 1,
           "scroll_count": 2,
           "scroll_top": 0
         },
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0110-02.png",
-          "duration": 3.25,
+          "duration": 32,
           "scroll_index": 2,
           "scroll_count": 2,
-          "scroll_top": 133
+          "scroll_top": 203
         }
       ]
     },
@@ -1932,14 +2128,21 @@
       "chapter": "Educator Build-Along - Bible Gaps Filled",
       "title": "Docker Compose Is Local Infrastructure, Not The Cloud",
       "duration": 64,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0111.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0111-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0111.png",
-          "duration": 64,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0111-01.png",
+          "duration": 32,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0111-02.png",
+          "duration": 32,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 172
         }
       ]
     },
@@ -1980,14 +2183,21 @@
       "chapter": "Educator Build-Along - Bible Gaps Filled",
       "title": "Environment Variables: Local .env Versus AWS Secrets",
       "duration": 64,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0114.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0114-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0114.png",
-          "duration": 64,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0114-01.png",
+          "duration": 32,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0114-02.png",
+          "duration": 32,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 80
         }
       ]
     },
@@ -1996,14 +2206,21 @@
       "chapter": "Educator Build-Along - Bible Gaps Filled",
       "title": "Proof Checklist: Could You Build It From This?",
       "duration": 66,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0115.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0115-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0115.png",
-          "duration": 66,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0115-01.png",
+          "duration": 33,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0115-02.png",
+          "duration": 33,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 111
         }
       ]
     },
@@ -2124,14 +2341,21 @@
       "chapter": "Frontend + AWS - Backend And Database",
       "title": "PostgreSQL And pgvector Tables",
       "duration": 24,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0123.png",
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0123-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0123.png",
-          "duration": 24,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0123-01.png",
+          "duration": 12,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0123-02.png",
+          "duration": 12,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 65
         }
       ]
     },
