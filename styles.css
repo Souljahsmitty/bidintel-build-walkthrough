@@ -64,6 +64,9 @@ li.active { color: #26d6bd; font-weight: 900; }
 .aws-card { background: white; border: 1px solid #d8e2ef; border-radius: 8px; padding: 14px; min-height: 96px; }
 .aws-card h3 { margin: 0 0 8px; color: #0f172a; }
 .aws-card p { margin: 0; color: #52657c; line-height: 1.35; }
+.matrix { width: 100%; border-collapse: collapse; font-size: 13px; }
+.matrix th, .matrix td { border: 1px solid #d8e2ef; padding: 9px; text-align: left; vertical-align: top; }
+.matrix th { background: #eff4fb; color: #172033; }
 .app-shell { display: grid; grid-template-columns: 220px 1fr; height: 100%; background: #eef3fb; }
 .side { background: #0d1423; color: #b7c6da; padding: 16px; display: grid; align-content: start; gap: 10px; }
 .side strong { color: white; font-size: 20px; }

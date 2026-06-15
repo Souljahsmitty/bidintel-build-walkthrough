@@ -67,25 +67,40 @@
 00:12:33 Granular PDF - AWS Console Screens - AWS Home: The Services You Actually Open
 00:12:57 Granular PDF - AWS Console Screens - IAM Identity Center: User Login And Groups
 00:13:27 Granular PDF - AWS Console Screens - Bedrock: Enable Claude And Titan
-00:13:57 Granular PDF - AWS Console Screens - IAM Role: Backend Service Permissions
-00:14:31 Granular PDF - AWS Console Screens - ECR And ECS: Host The FastAPI Backend
-00:15:05 Granular PDF - AWS Console Screens - S3 And CloudFront: Host The Frontend
-00:15:35 Granular PDF - AWS Console Screens - Secrets, RDS, And S3 Document Storage
-00:16:05 Granular PDF - Final Order - Final Build Order From The PDF
-00:16:33 Frontend + AWS - Correct Build Order - Create The Local Project Skeleton
-00:16:57 Frontend + AWS - Frontend First - Vite React App And Routes
-00:17:21 Frontend + AWS - Frontend First - API Client Is The Switch
-00:17:45 Frontend + AWS - Frontend Product Flow - Login Screen And Identity
-00:18:09 Frontend + AWS - Frontend Product Flow - Dashboard After Login
-00:18:33 Frontend + AWS - Frontend Product Flow - Document Ingest Screen
-00:18:57 Frontend + AWS - Backend And Database - FastAPI Doorway
-00:19:21 Frontend + AWS - Backend And Database - PostgreSQL And pgvector Tables
-00:19:45 Frontend + AWS - RAG Product Flow - Ask BidIntel Screen
-00:20:09 Frontend + AWS - RAG Product Flow - Permission Filter Before Bedrock
-00:20:33 Frontend + AWS - Proposal Scoring - Score Page With Example Findings
-00:20:57 Frontend + AWS - Evaluation And Observability - RAGAS Evaluation Mock Screen
-00:21:21 Frontend + AWS - Evaluation And Observability - Phoenix Trace Mock Screen
-00:21:45 Frontend + AWS - AWS Build Order - Correct AWS Dependency Order
-00:22:09 Frontend + AWS - AWS Build Order - Backend IAM Role Is Not User Role
-00:22:33 Frontend + AWS - Bedrock Wiring - Backend Calls Bedrock, Frontend Never Does
-00:22:57 Frontend + AWS - Final System Map - What BidIntel Is
+00:13:57 IAM Deep Dive - Authorization Build - Identity Center Is The Login Control Plane
+00:14:31 IAM Deep Dive - Authorization Build - Create BidIntel Access Groups
+00:15:05 IAM Deep Dive - Authorization Build - Add Users And Assign Groups
+00:15:43 IAM Deep Dive - Authorization Build - Create The BidIntel Application
+00:16:25 IAM Deep Dive - Authorization Build - Map Identity Attributes Into Claims
+00:17:09 IAM Deep Dive - Authorization Build - Assign Groups To The BidIntel App
+00:17:47 IAM Deep Dive - Authorization Build - Frontend Login Button To Backend Session
+00:18:29 IAM Deep Dive - Authorization Build - Map Groups To BidIntel Roles
+00:18:35 IAM Deep Dive - Authorization Build - Authorization Matrix For Pages And APIs
+00:19:19 IAM Deep Dive - Authorization Build - Backend Blocks Unauthorized APIs
+00:20:01 IAM Deep Dive - Authorization Build - Document Retrieval Filters By Tenant And Access Group
+00:20:51 IAM Deep Dive - Authorization Build - Elevated Access Needs Extra Guardrails
+00:21:35 IAM Deep Dive - Authorization Build - Auditor Access Is Read Only
+00:22:17 IAM Deep Dive - Authorization Build - Manager Access Can Approve But Not Administer
+00:22:57 IAM Deep Dive - Authorization Build - Test The IAM Wiring End To End
+00:23:41 Granular PDF - AWS Console Screens - IAM Role: Backend Service Permissions
+00:24:15 Granular PDF - AWS Console Screens - ECR And ECS: Host The FastAPI Backend
+00:24:49 Granular PDF - AWS Console Screens - S3 And CloudFront: Host The Frontend
+00:25:19 Granular PDF - AWS Console Screens - Secrets, RDS, And S3 Document Storage
+00:25:49 Granular PDF - Final Order - Final Build Order From The PDF
+00:26:17 Frontend + AWS - Correct Build Order - Create The Local Project Skeleton
+00:26:41 Frontend + AWS - Frontend First - Vite React App And Routes
+00:27:05 Frontend + AWS - Frontend First - API Client Is The Switch
+00:27:29 Frontend + AWS - Frontend Product Flow - Login Screen And Identity
+00:27:53 Frontend + AWS - Frontend Product Flow - Dashboard After Login
+00:28:17 Frontend + AWS - Frontend Product Flow - Document Ingest Screen
+00:28:41 Frontend + AWS - Backend And Database - FastAPI Doorway
+00:29:05 Frontend + AWS - Backend And Database - PostgreSQL And pgvector Tables
+00:29:29 Frontend + AWS - RAG Product Flow - Ask BidIntel Screen
+00:29:53 Frontend + AWS - RAG Product Flow - Permission Filter Before Bedrock
+00:30:17 Frontend + AWS - Proposal Scoring - Score Page With Example Findings
+00:30:41 Frontend + AWS - Evaluation And Observability - RAGAS Evaluation Mock Screen
+00:31:05 Frontend + AWS - Evaluation And Observability - Phoenix Trace Mock Screen
+00:31:29 Frontend + AWS - AWS Build Order - Correct AWS Dependency Order
+00:31:53 Frontend + AWS - AWS Build Order - Backend IAM Role Is Not User Role
+00:32:17 Frontend + AWS - Bedrock Wiring - Backend Calls Bedrock, Frontend Never Does
+00:32:41 Frontend + AWS - Final System Map - What BidIntel Is

@@ -670,6 +670,156 @@ const SCENES = [
     "duration": 30
   },
   {
+    "chapter": "IAM Deep Dive - Authorization Build",
+    "title": "Identity Center Is The Login Control Plane",
+    "skin": "aws",
+    "visual": "<div class=\"aws-console\"><aside><strong>AWS Console</strong><span>Dashboard</span><span>Settings</span><span>Users</span><span>Groups</span><span>Applications</span><span>AWS accounts</span></aside><main><div class=\"aws-top\"><span>AWS Console / IAM Identity Center / Dashboard</span><strong>IAM Identity Center</strong></div><h2>Turn on the identity layer before wiring code</h2><div class=\"aws-cards\"><section class=\"aws-card\"><h3>Step 1</h3><p>Enable IAM Identity Center for the AWS account or organization.</p></section><section class=\"aws-card\"><h3>Step 2</h3><p>Choose identity source: built-in directory, Active Directory, Okta, or Microsoft Entra ID.</p></section><section class=\"aws-card\"><h3>Step 3</h3><p>Create the BidIntel application so users can sign in from the app.</p></section><section class=\"aws-card\"><h3>Step 4</h3><p>Assign groups to the app and map claims into the token/assertion.</p></section></div></main></div>",
+    "narration": "The beginner mistake is thinking IAM is one thing. For BidIntel there are two identity systems: IAM Identity Center handles human login, groups, and app assignments. The backend IAM role handles AWS service calls. Start in IAM Identity Center because this is where the login and role recognition begin.",
+    "code": "Official AWS concepts used here:\n- IAM Identity Center can connect customer managed SAML or OAuth/OIDC applications.\n- IAM Identity Center lets you assign users and groups access to applications.\n- Attribute mappings populate SAML assertions or app identity attributes.\n- Attributes for access control can support ABAC-style decisions.\n\nBidIntel tutorial decision:\nUse IAM Identity Center for human sign-in.\nUse app groups/claims for BidIntel roles.\nUse backend code to enforce route, document, and audit authorization.\nUse a separate ECS task IAM role for AWS service calls.",
+    "codeMode": "literal",
+    "duration": 34
+  },
+  {
+    "chapter": "IAM Deep Dive - Authorization Build",
+    "title": "Create BidIntel Access Groups",
+    "skin": "aws",
+    "visual": "<div class=\"aws-console\"><aside><strong>AWS Console</strong><span>Dashboard</span><span>Users</span><span>Groups</span><span>Applications</span><span>Settings</span></aside><main><div class=\"aws-top\"><span>IAM Identity Center / Groups / Create group</span><strong>IAM Identity Center</strong></div><h2>Groups become BidIntel roles and document access</h2><div class=\"aws-cards\"><section class=\"aws-card\"><h3>Proposal_Writer</h3><p>Can ask RAG questions, draft answers, and view assigned opportunities.</p></section><section class=\"aws-card\"><h3>Manager</h3><p>Can approve bid/no-bid decisions, review scores, and manage team workflows.</p></section><section class=\"aws-card\"><h3>Auditor</h3><p>Read-only access to audit logs, citations, guardrail blocks, and exports.</p></section><section class=\"aws-card\"><h3>Elevated_Admin</h3><p>Can manage users, data sources, policies, and emergency access.</p></section></div></main></div>",
+    "narration": "This screen is where the roles become concrete. Create groups that match the business permissions you need: Proposal Writer, Manager, Auditor, and Elevated Admin. These group names later become token claims and backend authorization rules.",
+    "code": "Click path:\nAWS Console -> IAM Identity Center -> Groups -> Create group\n\nCreate these groups:\n1. BidIntel_Proposal_Writer\n2. BidIntel_Manager\n3. BidIntel_Auditor\n4. BidIntel_Elevated_Admin\n\nGroup naming rule:\nUse stable machine-readable names.\nDo not name groups after individual users.\n\nBidIntel role map:\nBidIntel_Proposal_Writer -> role=proposal_writer\nBidIntel_Manager -> role=manager\nBidIntel_Auditor -> role=auditor\nBidIntel_Elevated_Admin -> role=admin, elevated=true",
+    "codeMode": "literal",
+    "duration": 34
+  },
+  {
+    "chapter": "IAM Deep Dive - Authorization Build",
+    "title": "Add Users And Assign Groups",
+    "skin": "aws",
+    "visual": "<div class=\"aws-console\"><aside><strong>AWS Console</strong><span>Users</span><span>Groups</span><span>Applications</span><span>Assignments</span><span>Settings</span></aside><main><div class=\"aws-top\"><span>IAM Identity Center / Users / Add user</span><strong>IAM Identity Center</strong></div><h2>User membership decides what BidIntel recognizes</h2><div class=\"aws-cards\"><section class=\"aws-card\"><h3>Adam Davis</h3><p>Groups: BidIntel_Proposal_Writer, Capture_Team.</p></section><section class=\"aws-card\"><h3>Maria Manager</h3><p>Groups: BidIntel_Manager, Proposal_Team, Capture_Team.</p></section><section class=\"aws-card\"><h3>Avery Auditor</h3><p>Groups: BidIntel_Auditor.</p></section><section class=\"aws-card\"><h3>Emergency Admin</h3><p>Groups: BidIntel_Elevated_Admin. Require MFA and approval.</p></section></div></main></div>",
+    "narration": "On the Users screen, add the person and assign groups. This is what makes the app recognize different roles. A user can be a proposal writer, manager, auditor, or elevated admin because their Identity Center group membership appears in the login token.",
+    "code": "Click path:\nIAM Identity Center -> Users -> Add user\nEnter:\n  Username: adam.davis@bidintel.ai\n  Email: adam.davis@bidintel.ai\n  First name: Adam\n  Last name: Davis\n  Display name: Adam Davis\n\nAssign groups:\n  BidIntel_Proposal_Writer\n  Capture_Team\n\nManager example:\n  maria.manager@bidintel.ai\n  groups = [\"BidIntel_Manager\", \"Proposal_Team\", \"Capture_Team\"]\n\nAuditor example:\n  avery.auditor@bidintel.ai\n  groups = [\"BidIntel_Auditor\"]\n\nElevated access example:\n  emergency.admin@bidintel.ai\n  groups = [\"BidIntel_Elevated_Admin\"]\n  require MFA and ticket/approval workflow",
+    "codeMode": "literal",
+    "duration": 38
+  },
+  {
+    "chapter": "IAM Deep Dive - Authorization Build",
+    "title": "Create The BidIntel Application",
+    "skin": "aws",
+    "visual": "<div class=\"aws-console\"><aside><strong>AWS Console</strong><span>Applications</span><span>Customer managed</span><span>Add application</span><span>Configuration</span><span>Assignments</span></aside><main><div class=\"aws-top\"><span>IAM Identity Center / Applications / Add application</span><strong>IAM Identity Center</strong></div><h2>Register BidIntel as the app users sign into</h2><div class=\"aws-cards\"><section class=\"aws-card\"><h3>Display name</h3><p>BidIntel AI Command Center.</p></section><section class=\"aws-card\"><h3>Protocol</h3><p>Use SAML 2.0 or OIDC/OAuth depending on the app auth library.</p></section><section class=\"aws-card\"><h3>Start URL</h3><p>https://app.bidintel.ai/login or CloudFront URL.</p></section><section class=\"aws-card\"><h3>Callback</h3><p>https://api.bidintel.ai/auth/callback for backend token exchange.</p></section></div></main></div>",
+    "narration": "This is the application registration screen. You add BidIntel as a customer-managed app, choose SAML or OIDC, and enter the application URLs. In a production build, the frontend login redirects here, then the callback returns to the backend so the backend can create the app session.",
+    "code": "Click path:\nIAM Identity Center -> Applications -> Add application\nChoose:\n  Customer managed application\n  SAML 2.0 or OAuth/OIDC app\n\nFields to enter:\n  Display name: BidIntel AI Command Center\n  Description: Contract capture intelligence workspace\n  Application start URL: https://app.bidintel.ai/login\n  Relay state or redirect URL: https://api.bidintel.ai/auth/callback\n  Audience / entity ID: bidintel-ai\n\nLocal/dev values:\n  Frontend URL: http://localhost:5173/login\n  Backend callback: http://localhost:8000/auth/callback\n\nProduction values:\n  Frontend URL: CloudFront distribution or custom domain\n  Backend callback: ALB/App Runner/ECS API URL",
+    "codeMode": "literal",
+    "duration": 42
+  },
+  {
+    "chapter": "IAM Deep Dive - Authorization Build",
+    "title": "Map Identity Attributes Into Claims",
+    "skin": "aws",
+    "visual": "<div class=\"aws-console\"><aside><strong>AWS Console</strong><span>Application details</span><span>Attribute mappings</span><span>Assignments</span><span>Actions</span><span>Edit attribute mapping</span></aside><main><div class=\"aws-top\"><span>Applications / BidIntel / Actions / Edit attribute mapping</span><strong>IAM Identity Center</strong></div><h2>Claims are how the backend knows role and access</h2><div class=\"aws-cards\"><section class=\"aws-card\"><h3>email</h3><p>Maps to user.email. Used for display and audit rows.</p></section><section class=\"aws-card\"><h3>groups</h3><p>Maps group membership. Used for role and access_groups.</p></section><section class=\"aws-card\"><h3>tenant_id</h3><p>Maps the customer/workspace boundary.</p></section><section class=\"aws-card\"><h3>department/access_level</h3><p>Optional ABAC attributes for policy and audit decisions.</p></section></div></main></div>",
+    "narration": "This is the missing wiring screen. In the BidIntel app details, choose Actions, then Edit attribute mapping. Add mappings for email, subject, groups, tenant id, and access level. The backend reads those claims and turns them into the CurrentUser object.",
+    "code": "Click path:\nIAM Identity Center -> Applications -> BidIntel AI Command Center\nActions -> Edit attribute mapping\nAdd new attribute mapping\n\nRecommended app attributes:\n  subject       -> ${user:subject}\n  email         -> ${user:email}\n  display_name  -> ${user:name}\n  groups        -> ${user:groups}\n  tenant_id     -> ${user:custom:tenant_id}\n  department    -> ${user:department}\n  access_level  -> ${user:custom:access_level}\n\nBidIntel claim contract:\n{\n  \"sub\": \"00u-user-id\",\n  \"email\": \"adam.davis@bidintel.ai\",\n  \"groups\": [\"BidIntel_Proposal_Writer\", \"Capture_Team\"],\n  \"tenant_id\": \"tenant_demo\",\n  \"access_level\": \"standard\"\n}\n\nWhy it matters:\nThe backend cannot enforce manager/auditor/elevated rules unless the login token carries stable identity and group claims.",
+    "codeMode": "literal",
+    "duration": 44
+  },
+  {
+    "chapter": "IAM Deep Dive - Authorization Build",
+    "title": "Assign Groups To The BidIntel App",
+    "skin": "aws",
+    "visual": "<div class=\"aws-console\"><aside><strong>AWS Console</strong><span>Application details</span><span>Assignments</span><span>Assign users and groups</span><span>Groups</span><span>Review</span></aside><main><div class=\"aws-top\"><span>Applications / BidIntel / Assign users and groups</span><strong>IAM Identity Center</strong></div><h2>Only assigned groups can open the app</h2><div class=\"aws-cards\"><section class=\"aws-card\"><h3>Assign Proposal Writers</h3><p>Can use dashboard, documents, assistant, proposal scoring.</p></section><section class=\"aws-card\"><h3>Assign Managers</h3><p>Can approve decisions, manage reviews, see team scoring.</p></section><section class=\"aws-card\"><h3>Assign Auditors</h3><p>Can open audit logs and exports, but cannot change content.</p></section><section class=\"aws-card\"><h3>Assign Elevated Admins</h3><p>Limited emergency/admin access; require MFA and audit.</p></section></div></main></div>",
+    "narration": "After the app exists, assign groups to it. This is separate from merely creating groups. If Auditor is not assigned to the BidIntel app, the auditor cannot sign into BidIntel. If assigned, the backend still restricts what the auditor can do.",
+    "code": "Click path:\nIAM Identity Center -> Applications -> BidIntel AI Command Center\nAssignments tab -> Assign users and groups -> Groups\n\nAssign:\n  BidIntel_Proposal_Writer\n  BidIntel_Manager\n  BidIntel_Auditor\n  BidIntel_Elevated_Admin\n\nAccess meaning:\nAssigned to app = can authenticate into BidIntel.\nGroup claim = backend knows what permissions to grant.\nBackend policy = final authority for APIs, documents, and audit logs.\n\nDo not rely on frontend navigation alone.\nFrontend hides buttons.\nBackend blocks unauthorized API calls.",
+    "codeMode": "literal",
+    "duration": 38
+  },
+  {
+    "chapter": "IAM Deep Dive - Authorization Build",
+    "title": "Frontend Login Button To Backend Session",
+    "skin": "diagram",
+    "visual": "<div class=\"diagram-grid\"><div class=\"node hot\">1. Click AWS IAM Identity Center</div><div class=\"node hot\">2. Redirect to Identity Center</div><div class=\"node \">3. User signs in with MFA</div><div class=\"node \">4. Identity Center returns token/assertion</div><div class=\"node \">5. Backend callback verifies token</div><div class=\"node hot\">6. Backend creates session cookie</div><div class=\"node hot\">7. Frontend calls /auth/me</div><div class=\"node hot\">8. UI renders allowed pages</div></div>",
+    "narration": "This is the login flow as a builder should understand it. The React login button redirects to Identity Center. The backend callback verifies the token or assertion, maps groups to roles, creates a secure session, and the frontend calls auth me to know which pages to show.",
+    "code": "# frontend/src/pages/LoginPage.tsx\nfunction loginWithIdentityCenter() {\n  window.location.href = API_BASE + \"/auth/login/aws-sso\";\n}\n\n# backend/app/api/auth_api.py\n@router.get(\"/auth/login/aws-sso\")\ndef login():\n    return RedirectResponse(identity_center_authorize_url())\n\n@router.get(\"/auth/callback\")\ndef callback(code: str):\n    token = exchange_code_for_token(code)\n    claims = verify_identity_token(token)\n    user = map_claims_to_current_user(claims)\n    session_id = create_session(user)\n    response = RedirectResponse(settings.frontend_url)\n    response.set_cookie(\n        \"bidintel_session\",\n        session_id,\n        httponly=True,\n        secure=True,\n        samesite=\"lax\",\n    )\n    return response\n\n@router.get(\"/auth/me\")\ndef me(user=Depends(get_current_user)):\n    return user",
+    "codeMode": "literal",
+    "duration": 42
+  },
+  {
+    "chapter": "IAM Deep Dive - Authorization Build",
+    "title": "Map Groups To BidIntel Roles",
+    "skin": "editor",
+    "visual": "Identity Center groups\n  -> token claims\n  -> role map\n  -> permissions\n  -> API enforcement\n  -> document retrieval filter",
+    "narration": "The backend needs an explicit role map. Manager, Auditor, Proposal Writer, and Elevated Admin are not vague labels. They become deterministic permissions the API checks on every request.",
+    "code": "# backend/app/authz.py\nGROUP_ROLE_MAP = {\n    \"BidIntel_Proposal_Writer\": \"proposal_writer\",\n    \"BidIntel_Manager\": \"manager\",\n    \"BidIntel_Auditor\": \"auditor\",\n    \"BidIntel_Elevated_Admin\": \"admin\",\n}\n\nROLE_PERMISSIONS = {\n    \"proposal_writer\": {\n        \"dashboard:read\",\n        \"documents:upload\",\n        \"documents:read_assigned\",\n        \"rag:ask\",\n        \"proposal_score:run\",\n    },\n    \"manager\": {\n        \"dashboard:read\",\n        \"documents:read_team\",\n        \"rag:ask\",\n        \"proposal_score:run\",\n        \"bid_decision:approve\",\n        \"reviews:assign\",\n    },\n    \"auditor\": {\n        \"audit:read\",\n        \"audit:export\",\n        \"documents:read_citations_only\",\n    },\n    \"admin\": {\n        \"users:manage\",\n        \"data_sources:manage\",\n        \"policies:manage\",\n        \"audit:read\",\n        \"audit:export\",\n    },\n}\n\ndef map_claims_to_current_user(claims: dict) -> CurrentUser:\n    groups = claims.get(\"groups\", [])\n    roles = [GROUP_ROLE_MAP[g] for g in groups if g in GROUP_ROLE_MAP]\n    role = highest_role(roles)\n    return CurrentUser(\n        user_id=claims[\"sub\"],\n        email=claims[\"email\"],\n        tenant_id=claims[\"tenant_id\"],\n        role=role,\n        access_groups=groups,\n        permissions=ROLE_PERMISSIONS[role],\n        elevated=(\"BidIntel_Elevated_Admin\" in groups),\n    )",
+    "codeMode": "literal",
+    "duration": 48
+  },
+  {
+    "chapter": "IAM Deep Dive - Authorization Build",
+    "title": "Authorization Matrix For Pages And APIs",
+    "skin": "browser",
+    "visual": "<div class=\"web\"><div class=\"panel\"><h2>BidIntel Permission Matrix</h2><table class=\"matrix\"><tr><th>Area</th><th>Proposal Writer</th><th>Manager</th><th>Auditor</th><th>Elevated Admin</th></tr><tr><td>Dashboard</td><td>Read own/team</td><td>Read team</td><td>No</td><td>Read all</td></tr><tr><td>Documents</td><td>Upload/read assigned</td><td>Read team</td><td>Citations only</td><td>Manage all</td></tr><tr><td>RAG Ask</td><td>Yes</td><td>Yes</td><td>No</td><td>Admin test only</td></tr><tr><td>Proposal Score</td><td>Run</td><td>Run/approve</td><td>Read audit only</td><td>Manage policy</td></tr><tr><td>Audit Logs</td><td>No</td><td>Team review</td><td>Read/export</td><td>Read/export</td></tr></table></div></div>",
+    "narration": "A tutorial needs this matrix because it teaches what the roles actually do. Proposal writers can work documents and ask questions. Managers can approve and review team work. Auditors read audit evidence. Elevated admins manage policy and data source settings.",
+    "code": "# docs/AUTHORIZATION_MATRIX.md\n| Permission | Proposal Writer | Manager | Auditor | Elevated Admin |\n|---|---|---|---|---|\n| dashboard:read | own/team | team | no | all |\n| documents:upload | yes | no | no | yes |\n| documents:read | assigned | team | citations only | all |\n| rag:ask | yes | yes | no | admin test only |\n| proposal_score:run | yes | yes | no | yes |\n| bid_decision:approve | no | yes | no | yes |\n| audit:read | no | team summary | yes | yes |\n| audit:export | no | no | yes | yes |\n| users:manage | no | no | no | yes |\n\nDesign rule:\nEvery row must be enforced in backend dependencies or service methods.\nThe frontend matrix is helpful, but it is not security.",
+    "codeMode": "literal",
+    "duration": 44
+  },
+  {
+    "chapter": "IAM Deep Dive - Authorization Build",
+    "title": "Backend Blocks Unauthorized APIs",
+    "skin": "editor",
+    "visual": "Button visibility is UX.\nBackend permission checks are security.",
+    "narration": "This is the part that keeps the system honest. Every protected endpoint depends on require permission. If an auditor tries to call proposal scoring directly, the backend returns forbidden even if the frontend button is hidden.",
+    "code": "# backend/app/security/permissions.py\nfrom fastapi import HTTPException, Depends\n\ndef require_permission(permission: str):\n    def checker(user: CurrentUser = Depends(get_current_user)):\n        if permission not in user.permissions:\n            raise HTTPException(status_code=403, detail=\"Not authorized\")\n        return user\n    return checker\n\n# backend/app/api/proposal_score_api.py\n@router.post(\"/proposal-score/run\")\ndef run_score(\n    req: ScoreRequest,\n    user=Depends(require_permission(\"proposal_score:run\")),\n):\n    return scoring_engine.run(req, user)\n\n# backend/app/api/audit_api.py\n@router.get(\"/audit/events\")\ndef audit_events(\n    user=Depends(require_permission(\"audit:read\")),\n):\n    return audit_service.list_events(user)\n\n# backend/app/api/admin_api.py\n@router.post(\"/admin/users\")\ndef create_user(\n    user=Depends(require_permission(\"users:manage\")),\n):\n    return admin_service.create_user(user)",
+    "codeMode": "literal",
+    "duration": 42
+  },
+  {
+    "chapter": "IAM Deep Dive - Authorization Build",
+    "title": "Document Retrieval Filters By Tenant And Access Group",
+    "skin": "editor",
+    "visual": "RAG security check:\ntenant_id match\nAND document access group overlap\nAND role permission allows retrieval\nBEFORE prompt is built",
+    "narration": "Authorization has to reach the retrieval layer. The RAG pipeline filters chunks by tenant and document access groups before any text is inserted into the Bedrock prompt. This prevents an auditor, manager, or writer from accidentally retrieving documents outside their lane.",
+    "code": "# backend/app/retrieval.py\ndef retrieve(db, user, question: str, q_emb: list[float]):\n    if \"rag:ask\" not in user.permissions:\n        raise Forbidden(\"User cannot ask RAG questions\")\n\n    return db.execute(\"\"\"\n        SELECT c.id, c.document_id, c.chunk_text, c.page, c.embedding\n        FROM chunks c\n        JOIN documents d ON d.id = c.document_id\n        WHERE d.tenant_id = :tenant_id\n          AND d.allow_ai_retrieval = true\n          AND d.access_groups && :access_groups\n        ORDER BY bm25_rank(c.chunk_text, :question)\n        LIMIT :top_k\n    \"\"\", {\n        \"tenant_id\": user.tenant_id,\n        \"access_groups\": user.access_groups,\n        \"question\": question,\n        \"top_k\": settings.rag_top_k,\n    }).all()\n\nManager example:\n  access_groups = [\"BidIntel_Manager\", \"Proposal_Team\", \"Capture_Team\"]\n\nAuditor example:\n  access_groups = [\"BidIntel_Auditor\"]\n  permissions do not include rag:ask, so retrieval never runs.\n\nAdmin example:\n  elevated admin can manage sources but should not bypass tenant isolation.",
+    "codeMode": "literal",
+    "duration": 50
+  },
+  {
+    "chapter": "IAM Deep Dive - Authorization Build",
+    "title": "Elevated Access Needs Extra Guardrails",
+    "skin": "aws",
+    "visual": "<div class=\"aws-console\"><aside><strong>AWS Console</strong><span>Users</span><span>Groups</span><span>Applications</span><span>Assignments</span><span>Audit</span></aside><main><div class=\"aws-top\"><span>Applications / BidIntel / Elevated_Admin assignment</span><strong>IAM Identity Center + BidIntel Admin</strong></div><h2>Elevated access is rare, logged, and time-bound</h2><div class=\"aws-cards\"><section class=\"aws-card\"><h3>MFA</h3><p>Require MFA for Elevated_Admin users.</p></section><section class=\"aws-card\"><h3>Separate group</h3><p>Use BidIntel_Elevated_Admin, not a broad catch-all group.</p></section><section class=\"aws-card\"><h3>Break-glass</h3><p>Use ticket number, reason, time limit, and approval.</p></section><section class=\"aws-card\"><h3>Audit</h3><p>Log every admin route and policy change.</p></section></div></main></div>",
+    "narration": "Elevated access should be treated as break-glass access, not normal manager access. Require MFA, a separate group, a reason, a ticket, a time limit, and an audit row for every policy or user change.",
+    "code": "# backend/app/security/elevation.py\ndef require_elevated_admin(user=Depends(get_current_user)):\n    if not user.elevated:\n        raise HTTPException(status_code=403, detail=\"Elevated access required\")\n    if not user.mfa:\n        raise HTTPException(status_code=403, detail=\"MFA required\")\n    if not active_elevation_ticket(user.user_id):\n        raise HTTPException(status_code=403, detail=\"Approval ticket required\")\n    write_audit(\n        user=user,\n        action=\"elevated_access.used\",\n        result=\"allowed\",\n    )\n    return user\n\nConsole setup:\nIAM Identity Center -> Groups -> BidIntel_Elevated_Admin\nAssignments -> BidIntel app -> add BidIntel_Elevated_Admin\nSettings -> MFA -> require MFA\n\nBackend setup:\nAdmin endpoints require both:\n  users:manage permission\n  require_elevated_admin dependency",
+    "codeMode": "literal",
+    "duration": 44
+  },
+  {
+    "chapter": "IAM Deep Dive - Authorization Build",
+    "title": "Auditor Access Is Read Only",
+    "skin": "aws",
+    "visual": "<div class=\"aws-console\"><aside><strong>AWS Console</strong><span>Applications</span><span>Assignments</span><span>Groups</span><span>Audit</span><span>Exports</span></aside><main><div class=\"aws-top\"><span>Applications / BidIntel / Auditor assignment</span><strong>IAM Identity Center + BidIntel Audit</strong></div><h2>Auditors see evidence, not working documents</h2><div class=\"aws-cards\"><section class=\"aws-card\"><h3>Group</h3><p>BidIntel_Auditor.</p></section><section class=\"aws-card\"><h3>Allowed</h3><p>Audit logs, guardrail blocks, citations, exports.</p></section><section class=\"aws-card\"><h3>Blocked</h3><p>Upload documents, ask RAG, score proposals, edit users.</p></section><section class=\"aws-card\"><h3>Purpose</h3><p>Compliance review without operational write access.</p></section></div></main></div>",
+    "narration": "Auditor access is a separate teaching path. The auditor logs in through the same Identity Center app, but the backend grants only audit read and export permissions. The auditor should not ask the AI questions or mutate proposal data.",
+    "code": "Auditor test user:\n  email = avery.auditor@bidintel.ai\n  groups = [\"BidIntel_Auditor\"]\n  role = \"auditor\"\n  permissions = [\"audit:read\", \"audit:export\", \"documents:read_citations_only\"]\n\nExpected results:\nGET /auth/me -> 200 role=auditor\nGET /audit/events -> 200\nGET /audit/export -> 200\nPOST /documents/upload -> 403\nPOST /chat/ask -> 403\nPOST /proposal-score/run -> 403\nPOST /admin/users -> 403\n\nUI behavior:\nShow Audit Logs.\nHide Documents upload.\nHide AI Assistant ask box.\nHide Proposal Scoring run button.\nStill show source citations in audit detail.",
+    "codeMode": "literal",
+    "duration": 42
+  },
+  {
+    "chapter": "IAM Deep Dive - Authorization Build",
+    "title": "Manager Access Can Approve But Not Administer",
+    "skin": "aws",
+    "visual": "<div class=\"aws-console\"><aside><strong>AWS Console</strong><span>Applications</span><span>Assignments</span><span>Groups</span><span>Approvals</span><span>Reviews</span></aside><main><div class=\"aws-top\"><span>Applications / BidIntel / Manager assignment</span><strong>IAM Identity Center + BidIntel Manager</strong></div><h2>Managers approve workflow, not infrastructure</h2><div class=\"aws-cards\"><section class=\"aws-card\"><h3>Group</h3><p>BidIntel_Manager plus team access groups.</p></section><section class=\"aws-card\"><h3>Allowed</h3><p>Team dashboard, scoring review, bid decisions, review assignments.</p></section><section class=\"aws-card\"><h3>Blocked</h3><p>User admin, IAM policy changes, data source policy changes.</p></section><section class=\"aws-card\"><h3>Data scope</h3><p>Only tenant and team documents matching access groups.</p></section></div></main></div>",
+    "narration": "Manager is not the same as elevated admin. A manager can approve decisions and review team scoring, but cannot manage users, IAM, data sources, or global policies unless they are also in the elevated admin group.",
+    "code": "Manager test user:\n  email = maria.manager@bidintel.ai\n  groups = [\"BidIntel_Manager\", \"Proposal_Team\", \"Capture_Team\"]\n  role = \"manager\"\n\nExpected allowed:\nGET /dashboard -> 200\nPOST /chat/ask -> 200 if document groups match\nPOST /proposal-score/run -> 200\nPOST /bid-decision/approve -> 200\nPOST /reviews/assign -> 200\n\nExpected blocked:\nPOST /admin/users -> 403\nPOST /admin/data-sources -> 403\nPATCH /security/policies -> 403\n\nManager rule:\nManager can approve work.\nManager cannot become system owner by default.",
+    "codeMode": "literal",
+    "duration": 40
+  },
+  {
+    "chapter": "IAM Deep Dive - Authorization Build",
+    "title": "Test The IAM Wiring End To End",
+    "skin": "terminal",
+    "visual": "$ curl /auth/me as proposal writer\n$ curl /auth/me as manager\n$ curl /auth/me as auditor\n$ curl /audit/events as auditor\n$ curl /chat/ask as auditor\n403 Not authorized",
+    "narration": "The tutorial should end this section with proof commands. Create one user per role, sign in, call auth me, then test the API matrix. The important proof is not that the buttons hide. The proof is that the backend returns 403 for unauthorized role and permission combinations.",
+    "code": "# Manual proof checklist\n1. Sign in as adam.davis@bidintel.ai\n   Expect role=proposal_writer\n   POST /chat/ask -> 200\n   GET /audit/events -> 403\n\n2. Sign in as maria.manager@bidintel.ai\n   Expect role=manager\n   POST /bid-decision/approve -> 200\n   POST /admin/users -> 403\n\n3. Sign in as avery.auditor@bidintel.ai\n   Expect role=auditor\n   GET /audit/events -> 200\n   POST /chat/ask -> 403\n   POST /proposal-score/run -> 403\n\n4. Sign in as emergency.admin@bidintel.ai\n   Expect role=admin and elevated=true\n   MFA required\n   active approval ticket required\n   all admin actions audit logged\n\n# Automated test sketch\npytest backend/tests/test_authz_matrix.py\n\nDone condition:\nEvery role has a green allowed-path test and a red blocked-path test.",
+    "codeMode": "literal",
+    "duration": 44
+  },
+  {
     "chapter": "Granular PDF - AWS Console Screens",
     "title": "IAM Role: Backend Service Permissions",
     "skin": "aws",

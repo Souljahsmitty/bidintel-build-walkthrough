@@ -268,88 +268,148 @@ Bedrock access is a console step before code works. Open Amazon Bedrock, go to M
 
 68
 00:13:57,000 --> 00:14:31,000
-The backend needs its own AWS identity. Create an IAM role trusted by ECS tasks, attach least-privilege policy for the approved Bedrock models, and add only the S3 and Secrets permissions this service needs.
+The beginner mistake is thinking IAM is one thing. For BidIntel there are two identity systems: IAM Identity Center handles human login, groups, and app assignments. The backend IAM role handles AWS service calls. Start in IAM Identity Center because this is where the login and role recognition begin.
 
 69
 00:14:31,000 --> 00:15:05,000
-The backend is hosted as a container. Build the Docker image, push it to ECR, create an ECS Fargate task using the backend IAM role, pass environment variables and secrets, then expose it through a load balancer.
+This screen is where the roles become concrete. Create groups that match the business permissions you need: Proposal Writer, Manager, Auditor, and Elevated Admin. These group names later become token claims and backend authorization rules.
 
 70
-00:15:05,000 --> 00:15:35,000
-The frontend is static HTML, CSS, and JavaScript after Vite builds it. Set the API base to the AWS backend URL, build the dist folder, upload it to S3, put CloudFront in front, and test the real hosted URL.
+00:15:05,000 --> 00:15:43,000
+On the Users screen, add the person and assign groups. This is what makes the app recognize different roles. A user can be a proposal writer, manager, auditor, or elevated admin because their Identity Center group membership appears in the login token.
 
 71
-00:15:35,000 --> 00:16:05,000
-The data layer is where the real system becomes durable. Store secrets in Secrets Manager, run PostgreSQL in RDS, enable vector retrieval, and keep uploaded documents in an S3 bucket controlled by backend IAM.
+00:15:43,000 --> 00:16:25,000
+This is the application registration screen. You add BidIntel as a customer-managed app, choose SAML or OIDC, and enter the application URLs. In a production build, the frontend login redirects here, then the callback returns to the backend so the backend can create the app session.
 
 72
-00:16:05,000 --> 00:16:33,000
-This is the corrected granular order from the attached PDF. Build the frontend and click loop first, wire FastAPI, add login and group filters, then do Bedrock access, IAM, data services, backend hosting, frontend hosting, and finally flip from mock to live.
+00:16:25,000 --> 00:17:09,000
+This is the missing wiring screen. In the BidIntel app details, choose Actions, then Edit attribute mapping. Add mappings for email, subject, groups, tenant id, and access level. The backend reads those claims and turns them into the CurrentUser object.
 
 73
-00:16:33,000 --> 00:16:57,000
-The build starts with the local folder structure, not AWS. First separate frontend, backend, infra, and docs so each layer has a clear responsibility.
+00:17:09,000 --> 00:17:47,000
+After the app exists, assign groups to it. This is separate from merely creating groups. If Auditor is not assigned to the BidIntel app, the auditor cannot sign into BidIntel. If assigned, the backend still restricts what the auditor can do.
 
 74
-00:16:57,000 --> 00:17:21,000
-Build the frontend first with mock data. The goal is to prove that login, navigation, upload, RAG ask, and scoring screens make sense before wiring AWS.
+00:17:47,000 --> 00:18:29,000
+This is the login flow as a builder should understand it. The React login button redirects to Identity Center. The backend callback verifies the token or assertion, maps groups to roles, creates a secure session, and the frontend calls auth me to know which pages to show.
 
 75
-00:17:21,000 --> 00:17:45,000
-The frontend API client is the switch between local development and AWS. The frontend never calls the database or Bedrock directly.
+00:18:29,000 --> 00:18:35,000
+The backend needs an explicit role map. Manager, Auditor, Proposal Writer, and Elevated Admin are not vague labels. They become deterministic permissions the API checks on every request.
 
 76
-00:17:45,000 --> 00:18:09,000
-The login screen is the first product screen. The frontend can show or hide pages, but the backend enforces real access by checking the user, tenant, role, and groups.
+00:18:35,000 --> 00:19:19,000
+A tutorial needs this matrix because it teaches what the roles actually do. Proposal writers can work documents and ask questions. Managers can approve and review team work. Auditors read audit evidence. Elevated admins manage policy and data source settings.
 
 77
-00:18:09,000 --> 00:18:33,000
-After login, the user lands on the capture dashboard. This is where BidIntel stops feeling like a chatbot and starts feeling like a contract-intelligence workspace.
+00:19:19,000 --> 00:20:01,000
+This is the part that keeps the system honest. Every protected endpoint depends on require permission. If an auditor tries to call proposal scoring directly, the backend returns forbidden even if the frontend button is hidden.
 
 78
-00:18:33,000 --> 00:18:57,000
-The document screen is where contracts and supporting media enter the system. Every file is tagged with tenant, classification, source type, and access group before retrieval.
+00:20:01,000 --> 00:20:51,000
+Authorization has to reach the retrieval layer. The RAG pipeline filters chunks by tenant and document access groups before any text is inserted into the Bedrock prompt. This prevents an auditor, manager, or writer from accidentally retrieving documents outside their lane.
 
 79
-00:18:57,000 --> 00:19:21,000
-FastAPI is the control layer. Every frontend click becomes an API request, and the backend decides identity, permissions, retrieval, model calls, and audit logging.
+00:20:51,000 --> 00:21:35,000
+Elevated access should be treated as break-glass access, not normal manager access. Require MFA, a separate group, a reason, a ticket, a time limit, and an audit row for every policy or user change.
 
 80
-00:19:21,000 --> 00:19:45,000
-PostgreSQL stores the business truth: tenants, users, documents, chunks, embeddings, and audit logs. Tenant ID is the wall between organizations.
+00:21:35,000 --> 00:22:17,000
+Auditor access is a separate teaching path. The auditor logs in through the same Identity Center app, but the backend grants only audit read and export permissions. The auditor should not ask the AI questions or mutate proposal data.
 
 81
-00:19:45,000 --> 00:20:09,000
-The RAG screen shows the user question, the grounded answer, citations, and trace metadata. The backend filters evidence before Bedrock sees it.
+00:22:17,000 --> 00:22:57,000
+Manager is not the same as elevated admin. A manager can approve decisions and review team scoring, but cannot manage users, IAM, data sources, or global policies unless they are also in the elevated admin group.
 
 82
-00:20:09,000 --> 00:20:33,000
-The model does not decide what the user can see. Retrieval filters by tenant and permission before any chunk enters the Bedrock prompt.
+00:22:57,000 --> 00:23:41,000
+The tutorial should end this section with proof commands. Create one user per role, sign in, call auth me, then test the API matrix. The important proof is not that the buttons hide. The proof is that the backend returns 403 for unauthorized role and permission combinations.
 
 83
-00:20:33,000 --> 00:20:57,000
-The scoring page turns retrieved evidence into proposal guidance. It shows weighted category scores, gaps, risk, and recommended fixes.
+00:23:41,000 --> 00:24:15,000
+The backend needs its own AWS identity. Create an IAM role trusted by ECS tasks, attach least-privilege policy for the approved Bedrock models, and add only the S3 and Secrets permissions this service needs.
 
 84
-00:20:57,000 --> 00:21:21,000
-RAGAS is the batch evaluation layer. The tutorial shows mock metrics so the viewer understands how faithfulness, context recall, and relevancy are checked.
+00:24:15,000 --> 00:24:49,000
+The backend is hosted as a container. Build the Docker image, push it to ECR, create an ECS Fargate task using the backend IAM role, pass environment variables and secrets, then expose it through a load balancer.
 
 85
-00:21:21,000 --> 00:21:45,000
-Phoenix shows the AI request timeline: retrieval, reranking, model call, evaluation, and audit. It makes the system debuggable instead of mysterious.
+00:24:49,000 --> 00:25:19,000
+The frontend is static HTML, CSS, and JavaScript after Vite builds it. Set the API base to the AWS backend URL, build the dist folder, upload it to S3, put CloudFront in front, and test the real hosted URL.
 
 86
-00:21:45,000 --> 00:22:09,000
-AWS has a dependency order. Do identity first, model access second, IAM service role third, secrets and database fourth, backend fifth, and frontend cutover last.
+00:25:19,000 --> 00:25:49,000
+The data layer is where the real system becomes durable. Store secrets in Secrets Manager, run PostgreSQL in RDS, enable vector retrieval, and keep uploaded documents in an S3 bucket controlled by backend IAM.
 
 87
-00:22:09,000 --> 00:22:33,000
-There are two kinds of permission. The human user's role controls which documents they can retrieve. The backend IAM role controls which AWS services the app can call.
+00:25:49,000 --> 00:26:17,000
+This is the corrected granular order from the attached PDF. Build the frontend and click loop first, wire FastAPI, add login and group filters, then do Bedrock access, IAM, data services, backend hosting, frontend hosting, and finally flip from mock to live.
 
 88
-00:22:33,000 --> 00:22:57,000
-Bedrock is backend only. The frontend calls FastAPI, FastAPI builds the prompt from allowed evidence, and the backend container uses its IAM role to invoke Bedrock.
+00:26:17,000 --> 00:26:41,000
+The build starts with the local folder structure, not AWS. First separate frontend, backend, infra, and docs so each layer has a clear responsibility.
 
 89
-00:22:57,000 --> 00:23:21,000
+00:26:41,000 --> 00:27:05,000
+Build the frontend first with mock data. The goal is to prove that login, navigation, upload, RAG ask, and scoring screens make sense before wiring AWS.
+
+90
+00:27:05,000 --> 00:27:29,000
+The frontend API client is the switch between local development and AWS. The frontend never calls the database or Bedrock directly.
+
+91
+00:27:29,000 --> 00:27:53,000
+The login screen is the first product screen. The frontend can show or hide pages, but the backend enforces real access by checking the user, tenant, role, and groups.
+
+92
+00:27:53,000 --> 00:28:17,000
+After login, the user lands on the capture dashboard. This is where BidIntel stops feeling like a chatbot and starts feeling like a contract-intelligence workspace.
+
+93
+00:28:17,000 --> 00:28:41,000
+The document screen is where contracts and supporting media enter the system. Every file is tagged with tenant, classification, source type, and access group before retrieval.
+
+94
+00:28:41,000 --> 00:29:05,000
+FastAPI is the control layer. Every frontend click becomes an API request, and the backend decides identity, permissions, retrieval, model calls, and audit logging.
+
+95
+00:29:05,000 --> 00:29:29,000
+PostgreSQL stores the business truth: tenants, users, documents, chunks, embeddings, and audit logs. Tenant ID is the wall between organizations.
+
+96
+00:29:29,000 --> 00:29:53,000
+The RAG screen shows the user question, the grounded answer, citations, and trace metadata. The backend filters evidence before Bedrock sees it.
+
+97
+00:29:53,000 --> 00:30:17,000
+The model does not decide what the user can see. Retrieval filters by tenant and permission before any chunk enters the Bedrock prompt.
+
+98
+00:30:17,000 --> 00:30:41,000
+The scoring page turns retrieved evidence into proposal guidance. It shows weighted category scores, gaps, risk, and recommended fixes.
+
+99
+00:30:41,000 --> 00:31:05,000
+RAGAS is the batch evaluation layer. The tutorial shows mock metrics so the viewer understands how faithfulness, context recall, and relevancy are checked.
+
+100
+00:31:05,000 --> 00:31:29,000
+Phoenix shows the AI request timeline: retrieval, reranking, model call, evaluation, and audit. It makes the system debuggable instead of mysterious.
+
+101
+00:31:29,000 --> 00:31:53,000
+AWS has a dependency order. Do identity first, model access second, IAM service role third, secrets and database fourth, backend fifth, and frontend cutover last.
+
+102
+00:31:53,000 --> 00:32:17,000
+There are two kinds of permission. The human user's role controls which documents they can retrieve. The backend IAM role controls which AWS services the app can call.
+
+103
+00:32:17,000 --> 00:32:41,000
+Bedrock is backend only. The frontend calls FastAPI, FastAPI builds the prompt from allowed evidence, and the backend container uses its IAM role to invoke Bedrock.
+
+104
+00:32:41,000 --> 00:33:05,000
 The final message is simple. BidIntel is not just a chatbot. It is a secure evidence pipeline around an AI model, with frontend screens, backend enforcement, database retrieval, IAM, Bedrock, evaluation, and audit.

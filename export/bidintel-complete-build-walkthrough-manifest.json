@@ -1,8 +1,8 @@
 {
   "source": "file:///Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/index.html",
   "video": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/bidintel-complete-build-walkthrough.mp4",
-  "scene_count": 89,
-  "duration_seconds": 1401.8000000000002,
+  "scene_count": 104,
+  "duration_seconds": 1985.8000000000002,
   "viewport": "1920x1080",
   "note": "Browser screenshots of the frontend/AWS tutorial URL. Long code scenes are captured as multiple scroll frames.",
   "assets": [
@@ -1178,8 +1178,8 @@
     },
     {
       "index": 68,
-      "chapter": "Granular PDF - AWS Console Screens",
-      "title": "IAM Role: Backend Service Permissions",
+      "chapter": "IAM Deep Dive - Authorization Build",
+      "title": "Identity Center Is The Login Control Plane",
       "duration": 34,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0068.png",
       "frames": [
@@ -1194,8 +1194,8 @@
     },
     {
       "index": 69,
-      "chapter": "Granular PDF - AWS Console Screens",
-      "title": "ECR And ECS: Host The FastAPI Backend",
+      "chapter": "IAM Deep Dive - Authorization Build",
+      "title": "Create BidIntel Access Groups",
       "duration": 34,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0069.png",
       "frames": [
@@ -1210,14 +1210,14 @@
     },
     {
       "index": 70,
-      "chapter": "Granular PDF - AWS Console Screens",
-      "title": "S3 And CloudFront: Host The Frontend",
-      "duration": 30,
+      "chapter": "IAM Deep Dive - Authorization Build",
+      "title": "Add Users And Assign Groups",
+      "duration": 38,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0070.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0070.png",
-          "duration": 30,
+          "duration": 38,
           "scroll_index": 1,
           "scroll_count": 1,
           "scroll_top": 0
@@ -1226,14 +1226,14 @@
     },
     {
       "index": 71,
-      "chapter": "Granular PDF - AWS Console Screens",
-      "title": "Secrets, RDS, And S3 Document Storage",
-      "duration": 30,
+      "chapter": "IAM Deep Dive - Authorization Build",
+      "title": "Create The BidIntel Application",
+      "duration": 42,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0071.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0071.png",
-          "duration": 30,
+          "duration": 42,
           "scroll_index": 1,
           "scroll_count": 1,
           "scroll_top": 0
@@ -1242,14 +1242,14 @@
     },
     {
       "index": 72,
-      "chapter": "Granular PDF - Final Order",
-      "title": "Final Build Order From The PDF",
-      "duration": 28,
+      "chapter": "IAM Deep Dive - Authorization Build",
+      "title": "Map Identity Attributes Into Claims",
+      "duration": 44,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0072.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0072.png",
-          "duration": 28,
+          "duration": 44,
           "scroll_index": 1,
           "scroll_count": 1,
           "scroll_top": 0
@@ -1258,14 +1258,14 @@
     },
     {
       "index": 73,
-      "chapter": "Frontend + AWS - Correct Build Order",
-      "title": "Create The Local Project Skeleton",
-      "duration": 24,
+      "chapter": "IAM Deep Dive - Authorization Build",
+      "title": "Assign Groups To The BidIntel App",
+      "duration": 38,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0073.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0073.png",
-          "duration": 24,
+          "duration": 38,
           "scroll_index": 1,
           "scroll_count": 1,
           "scroll_top": 0
@@ -1274,14 +1274,14 @@
     },
     {
       "index": 74,
-      "chapter": "Frontend + AWS - Frontend First",
-      "title": "Vite React App And Routes",
-      "duration": 24,
+      "chapter": "IAM Deep Dive - Authorization Build",
+      "title": "Frontend Login Button To Backend Session",
+      "duration": 42,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0074.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0074.png",
-          "duration": 24,
+          "duration": 42,
           "scroll_index": 1,
           "scroll_count": 1,
           "scroll_top": 0
@@ -1290,30 +1290,37 @@
     },
     {
       "index": 75,
-      "chapter": "Frontend + AWS - Frontend First",
-      "title": "API Client Is The Switch",
-      "duration": 24,
-      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0075.png",
+      "chapter": "IAM Deep Dive - Authorization Build",
+      "title": "Map Groups To BidIntel Roles",
+      "duration": 6,
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0075-01.png",
       "frames": [
         {
-          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0075.png",
-          "duration": 24,
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0075-01.png",
+          "duration": 2.75,
           "scroll_index": 1,
-          "scroll_count": 1,
+          "scroll_count": 2,
           "scroll_top": 0
+        },
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0075-02.png",
+          "duration": 3.25,
+          "scroll_index": 2,
+          "scroll_count": 2,
+          "scroll_top": 247
         }
       ]
     },
     {
       "index": 76,
-      "chapter": "Frontend + AWS - Frontend Product Flow",
-      "title": "Login Screen And Identity",
-      "duration": 24,
+      "chapter": "IAM Deep Dive - Authorization Build",
+      "title": "Authorization Matrix For Pages And APIs",
+      "duration": 44,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0076.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0076.png",
-          "duration": 24,
+          "duration": 44,
           "scroll_index": 1,
           "scroll_count": 1,
           "scroll_top": 0
@@ -1322,14 +1329,14 @@
     },
     {
       "index": 77,
-      "chapter": "Frontend + AWS - Frontend Product Flow",
-      "title": "Dashboard After Login",
-      "duration": 24,
+      "chapter": "IAM Deep Dive - Authorization Build",
+      "title": "Backend Blocks Unauthorized APIs",
+      "duration": 42,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0077.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0077.png",
-          "duration": 24,
+          "duration": 42,
           "scroll_index": 1,
           "scroll_count": 1,
           "scroll_top": 0
@@ -1338,14 +1345,14 @@
     },
     {
       "index": 78,
-      "chapter": "Frontend + AWS - Frontend Product Flow",
-      "title": "Document Ingest Screen",
-      "duration": 24,
+      "chapter": "IAM Deep Dive - Authorization Build",
+      "title": "Document Retrieval Filters By Tenant And Access Group",
+      "duration": 50,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0078.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0078.png",
-          "duration": 24,
+          "duration": 50,
           "scroll_index": 1,
           "scroll_count": 1,
           "scroll_top": 0
@@ -1354,14 +1361,14 @@
     },
     {
       "index": 79,
-      "chapter": "Frontend + AWS - Backend And Database",
-      "title": "FastAPI Doorway",
-      "duration": 24,
+      "chapter": "IAM Deep Dive - Authorization Build",
+      "title": "Elevated Access Needs Extra Guardrails",
+      "duration": 44,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0079.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0079.png",
-          "duration": 24,
+          "duration": 44,
           "scroll_index": 1,
           "scroll_count": 1,
           "scroll_top": 0
@@ -1370,14 +1377,14 @@
     },
     {
       "index": 80,
-      "chapter": "Frontend + AWS - Backend And Database",
-      "title": "PostgreSQL And pgvector Tables",
-      "duration": 24,
+      "chapter": "IAM Deep Dive - Authorization Build",
+      "title": "Auditor Access Is Read Only",
+      "duration": 42,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0080.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0080.png",
-          "duration": 24,
+          "duration": 42,
           "scroll_index": 1,
           "scroll_count": 1,
           "scroll_top": 0
@@ -1386,14 +1393,14 @@
     },
     {
       "index": 81,
-      "chapter": "Frontend + AWS - RAG Product Flow",
-      "title": "Ask BidIntel Screen",
-      "duration": 24,
+      "chapter": "IAM Deep Dive - Authorization Build",
+      "title": "Manager Access Can Approve But Not Administer",
+      "duration": 40,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0081.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0081.png",
-          "duration": 24,
+          "duration": 40,
           "scroll_index": 1,
           "scroll_count": 1,
           "scroll_top": 0
@@ -1402,14 +1409,14 @@
     },
     {
       "index": 82,
-      "chapter": "Frontend + AWS - RAG Product Flow",
-      "title": "Permission Filter Before Bedrock",
-      "duration": 24,
+      "chapter": "IAM Deep Dive - Authorization Build",
+      "title": "Test The IAM Wiring End To End",
+      "duration": 44,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0082.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0082.png",
-          "duration": 24,
+          "duration": 44,
           "scroll_index": 1,
           "scroll_count": 1,
           "scroll_top": 0
@@ -1418,14 +1425,14 @@
     },
     {
       "index": 83,
-      "chapter": "Frontend + AWS - Proposal Scoring",
-      "title": "Score Page With Example Findings",
-      "duration": 24,
+      "chapter": "Granular PDF - AWS Console Screens",
+      "title": "IAM Role: Backend Service Permissions",
+      "duration": 34,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0083.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0083.png",
-          "duration": 24,
+          "duration": 34,
           "scroll_index": 1,
           "scroll_count": 1,
           "scroll_top": 0
@@ -1434,14 +1441,14 @@
     },
     {
       "index": 84,
-      "chapter": "Frontend + AWS - Evaluation And Observability",
-      "title": "RAGAS Evaluation Mock Screen",
-      "duration": 24,
+      "chapter": "Granular PDF - AWS Console Screens",
+      "title": "ECR And ECS: Host The FastAPI Backend",
+      "duration": 34,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0084.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0084.png",
-          "duration": 24,
+          "duration": 34,
           "scroll_index": 1,
           "scroll_count": 1,
           "scroll_top": 0
@@ -1450,14 +1457,14 @@
     },
     {
       "index": 85,
-      "chapter": "Frontend + AWS - Evaluation And Observability",
-      "title": "Phoenix Trace Mock Screen",
-      "duration": 24,
+      "chapter": "Granular PDF - AWS Console Screens",
+      "title": "S3 And CloudFront: Host The Frontend",
+      "duration": 30,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0085.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0085.png",
-          "duration": 24,
+          "duration": 30,
           "scroll_index": 1,
           "scroll_count": 1,
           "scroll_top": 0
@@ -1466,14 +1473,14 @@
     },
     {
       "index": 86,
-      "chapter": "Frontend + AWS - AWS Build Order",
-      "title": "Correct AWS Dependency Order",
-      "duration": 24,
+      "chapter": "Granular PDF - AWS Console Screens",
+      "title": "Secrets, RDS, And S3 Document Storage",
+      "duration": 30,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0086.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0086.png",
-          "duration": 24,
+          "duration": 30,
           "scroll_index": 1,
           "scroll_count": 1,
           "scroll_top": 0
@@ -1482,14 +1489,14 @@
     },
     {
       "index": 87,
-      "chapter": "Frontend + AWS - AWS Build Order",
-      "title": "Backend IAM Role Is Not User Role",
-      "duration": 24,
+      "chapter": "Granular PDF - Final Order",
+      "title": "Final Build Order From The PDF",
+      "duration": 28,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0087.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0087.png",
-          "duration": 24,
+          "duration": 28,
           "scroll_index": 1,
           "scroll_count": 1,
           "scroll_top": 0
@@ -1498,8 +1505,8 @@
     },
     {
       "index": 88,
-      "chapter": "Frontend + AWS - Bedrock Wiring",
-      "title": "Backend Calls Bedrock, Frontend Never Does",
+      "chapter": "Frontend + AWS - Correct Build Order",
+      "title": "Create The Local Project Skeleton",
       "duration": 24,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0088.png",
       "frames": [
@@ -1514,13 +1521,253 @@
     },
     {
       "index": 89,
-      "chapter": "Frontend + AWS - Final System Map",
-      "title": "What BidIntel Is",
+      "chapter": "Frontend + AWS - Frontend First",
+      "title": "Vite React App And Routes",
       "duration": 24,
       "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0089.png",
       "frames": [
         {
           "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0089.png",
+          "duration": 24,
+          "scroll_index": 1,
+          "scroll_count": 1,
+          "scroll_top": 0
+        }
+      ]
+    },
+    {
+      "index": 90,
+      "chapter": "Frontend + AWS - Frontend First",
+      "title": "API Client Is The Switch",
+      "duration": 24,
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0090.png",
+      "frames": [
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0090.png",
+          "duration": 24,
+          "scroll_index": 1,
+          "scroll_count": 1,
+          "scroll_top": 0
+        }
+      ]
+    },
+    {
+      "index": 91,
+      "chapter": "Frontend + AWS - Frontend Product Flow",
+      "title": "Login Screen And Identity",
+      "duration": 24,
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0091.png",
+      "frames": [
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0091.png",
+          "duration": 24,
+          "scroll_index": 1,
+          "scroll_count": 1,
+          "scroll_top": 0
+        }
+      ]
+    },
+    {
+      "index": 92,
+      "chapter": "Frontend + AWS - Frontend Product Flow",
+      "title": "Dashboard After Login",
+      "duration": 24,
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0092.png",
+      "frames": [
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0092.png",
+          "duration": 24,
+          "scroll_index": 1,
+          "scroll_count": 1,
+          "scroll_top": 0
+        }
+      ]
+    },
+    {
+      "index": 93,
+      "chapter": "Frontend + AWS - Frontend Product Flow",
+      "title": "Document Ingest Screen",
+      "duration": 24,
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0093.png",
+      "frames": [
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0093.png",
+          "duration": 24,
+          "scroll_index": 1,
+          "scroll_count": 1,
+          "scroll_top": 0
+        }
+      ]
+    },
+    {
+      "index": 94,
+      "chapter": "Frontend + AWS - Backend And Database",
+      "title": "FastAPI Doorway",
+      "duration": 24,
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0094.png",
+      "frames": [
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0094.png",
+          "duration": 24,
+          "scroll_index": 1,
+          "scroll_count": 1,
+          "scroll_top": 0
+        }
+      ]
+    },
+    {
+      "index": 95,
+      "chapter": "Frontend + AWS - Backend And Database",
+      "title": "PostgreSQL And pgvector Tables",
+      "duration": 24,
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0095.png",
+      "frames": [
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0095.png",
+          "duration": 24,
+          "scroll_index": 1,
+          "scroll_count": 1,
+          "scroll_top": 0
+        }
+      ]
+    },
+    {
+      "index": 96,
+      "chapter": "Frontend + AWS - RAG Product Flow",
+      "title": "Ask BidIntel Screen",
+      "duration": 24,
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0096.png",
+      "frames": [
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0096.png",
+          "duration": 24,
+          "scroll_index": 1,
+          "scroll_count": 1,
+          "scroll_top": 0
+        }
+      ]
+    },
+    {
+      "index": 97,
+      "chapter": "Frontend + AWS - RAG Product Flow",
+      "title": "Permission Filter Before Bedrock",
+      "duration": 24,
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0097.png",
+      "frames": [
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0097.png",
+          "duration": 24,
+          "scroll_index": 1,
+          "scroll_count": 1,
+          "scroll_top": 0
+        }
+      ]
+    },
+    {
+      "index": 98,
+      "chapter": "Frontend + AWS - Proposal Scoring",
+      "title": "Score Page With Example Findings",
+      "duration": 24,
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0098.png",
+      "frames": [
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0098.png",
+          "duration": 24,
+          "scroll_index": 1,
+          "scroll_count": 1,
+          "scroll_top": 0
+        }
+      ]
+    },
+    {
+      "index": 99,
+      "chapter": "Frontend + AWS - Evaluation And Observability",
+      "title": "RAGAS Evaluation Mock Screen",
+      "duration": 24,
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0099.png",
+      "frames": [
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0099.png",
+          "duration": 24,
+          "scroll_index": 1,
+          "scroll_count": 1,
+          "scroll_top": 0
+        }
+      ]
+    },
+    {
+      "index": 100,
+      "chapter": "Frontend + AWS - Evaluation And Observability",
+      "title": "Phoenix Trace Mock Screen",
+      "duration": 24,
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0100.png",
+      "frames": [
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0100.png",
+          "duration": 24,
+          "scroll_index": 1,
+          "scroll_count": 1,
+          "scroll_top": 0
+        }
+      ]
+    },
+    {
+      "index": 101,
+      "chapter": "Frontend + AWS - AWS Build Order",
+      "title": "Correct AWS Dependency Order",
+      "duration": 24,
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0101.png",
+      "frames": [
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0101.png",
+          "duration": 24,
+          "scroll_index": 1,
+          "scroll_count": 1,
+          "scroll_top": 0
+        }
+      ]
+    },
+    {
+      "index": 102,
+      "chapter": "Frontend + AWS - AWS Build Order",
+      "title": "Backend IAM Role Is Not User Role",
+      "duration": 24,
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0102.png",
+      "frames": [
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0102.png",
+          "duration": 24,
+          "scroll_index": 1,
+          "scroll_count": 1,
+          "scroll_top": 0
+        }
+      ]
+    },
+    {
+      "index": 103,
+      "chapter": "Frontend + AWS - Bedrock Wiring",
+      "title": "Backend Calls Bedrock, Frontend Never Does",
+      "duration": 24,
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0103.png",
+      "frames": [
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0103.png",
+          "duration": 24,
+          "scroll_index": 1,
+          "scroll_count": 1,
+          "scroll_top": 0
+        }
+      ]
+    },
+    {
+      "index": 104,
+      "chapter": "Frontend + AWS - Final System Map",
+      "title": "What BidIntel Is",
+      "duration": 24,
+      "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0104.png",
+      "frames": [
+        {
+          "frame": "/Users/adamsmith/Documents/New project/bidintel-ai/tutorial-complete/export/frames/0104.png",
           "duration": 24,
           "scroll_index": 1,
           "scroll_count": 1,
