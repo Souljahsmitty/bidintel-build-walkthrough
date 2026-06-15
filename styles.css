@@ -14,12 +14,12 @@ h2 { margin: 0 0 16px; font-size: 24px; }
 .button.secondary, button.secondary { background: #13243d; color: #e8f3ff; border: 1px solid #284866; }
 .hero-video { width: 100%; aspect-ratio: 16/9; background: #050b13; border: 1px solid #2a4a6e; border-radius: 8px; }
 .player { display: grid; grid-template-columns: minmax(0,1fr) 360px; height: 100vh; }
-.stage { display: grid; grid-template-rows: 54px minmax(210px,30vh) auto minmax(420px,1fr); padding: 16px; gap: 12px; min-height: 0; }
+.stage { display: grid; grid-template-rows: 54px minmax(220px,32vh) minmax(96px,auto) minmax(360px,1fr); padding: 16px; gap: 12px; min-height: 0; }
 .topbar, .caption, .code-panel, .controls { border: 1px solid #223752; background: #0e1a2d; border-radius: 8px; }
 .topbar { display: flex; align-items: center; justify-content: space-between; padding: 0 18px; color: #b8d8ff; }
 .home-link { color: #c8fff6; font-weight: 900; text-decoration: none; }
 .mockup { min-height: 0; border: 1px solid #254264; background: #101d31; border-radius: 8px; overflow: hidden; position: relative; padding: 18px; }
-.caption { padding: 12px 16px; line-height: 1.35; font-size: 16px; max-height: 86px; overflow: auto; }
+.caption { padding: 14px 18px; line-height: 1.45; font-size: 16px; min-height: 96px; max-height: none; overflow: visible; }
 .code-panel { padding: 10px 16px; overflow: auto; overscroll-behavior: contain; scrollbar-color: #26d6bd #0a1424; }
 .code-panel summary { cursor: pointer; font-weight: 800; color: #e8f4ff; }
 pre { margin: 10px 0 0; white-space: pre-wrap; color: #c7f9e8; font-size: 12px; line-height: 1.28; }
