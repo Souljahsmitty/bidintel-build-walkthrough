@@ -19,6 +19,7 @@ Coverage:
 
 - two-track course shape: Fast Track local build and Expert Track AWS/IAM production path
 - course scaffold files: prerequisites, checklist, troubleshooting, labs, API contract, teacher notes
+- BUILD_FROM_ZERO.md companion guide with exact module start state, files, commands, expected outputs, screenshot targets, and fixes
 - original BidIntel RAG build tutorial
 - long code panels with scroll-frame video capture
 - product screenshots from the attached reference images

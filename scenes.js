@@ -1206,7 +1206,7 @@ const SCENES = [
   {
     "chapter": "Frontend + AWS - Backend And Database",
     "title": "FastAPI Doorway",
-    "visual": "<div class=\"terminal\">uvicorn app.main:app --reload --port 8000\n\nRoutes:\n/auth/me\n/documents/upload\n/rag/ask or /assistant/query\n/bid/score-proposal\n/compliance/matrix\n/audit</div>",
+    "visual": "<div class=\"terminal\">uvicorn app.main:app --reload --port 8000\n\nRoutes:\n/auth/me\n/documents/upload\n/chat/ask\n/bid/score-proposal\n/compliance/matrix\n/audit</div>",
     "narration": "FastAPI is the control layer. Every frontend click becomes an API request, and the backend decides identity, permissions, retrieval, model calls, and audit logging.",
     "code": "# backend/app/main.py\nfrom fastapi import FastAPI\nfrom fastapi.middleware.cors import CORSMiddleware\n\nfrom app.routes import auth_routes, document_routes, rag_routes, scoring_routes\n\napp = FastAPI(title=\"BIDINTEL API\")\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=[\"http://localhost:5173\"],\n    allow_credentials=True,\n    allow_methods=[\"*\"],\n    allow_headers=[\"*\"],\n)\n\napp.include_router(auth_routes.router, prefix=\"/auth\")\napp.include_router(document_routes.router, prefix=\"/documents\")\napp.include_router(rag_routes.router, prefix=\"/rag\")\napp.include_router(scoring_routes.router, prefix=\"/scoring\")",
     "duration": 24,
@@ -1226,7 +1226,7 @@ const SCENES = [
     "title": "Ask BidIntel Screen",
     "visual": "\n<div class=\"app-shell\">\n  <aside class=\"side\">\n    <strong>BidIntel AI</strong>\n    <span class=\"\">Dashboard</span><span class=\"\">Documents</span><span class=\"active\">Ask BidIntel</span><span class=\"\">Proposal Scoring</span><span class=\"\">Compliance</span><span class=\"\">Audit</span>\n  </aside>\n  <section class=\"content\"><div class=\"chat\"><div><div class=\"bubble\">Find past proposal language for cybersecurity SOC modernization.</div><div class=\"answer\"><strong>BidIntel Assistant</strong><br>Our SOC modernization approach delivers 24/7 monitoring, automated triage, and Tier-1 to Tier-3 escalation, grounded in retrieved past performance.</div></div><aside class=\"panel\"><h2>Retrieved Context</h2><p>DHS_Cyber_Mod_RFP §C.3.1 · 0.95</p><p>Past_Performance_SOC #1 · 0.88</p><p>Phoenix trace: retrieve 38ms · rerank 52ms · LLM 910ms</p></aside></div></section>\n</div>",
     "narration": "The RAG screen shows the user question, the grounded answer, citations, and trace metadata. The backend filters evidence before Bedrock sees it.",
-    "code": "POST /rag/ask\n\n{\n  \"question\": \"What contracts mention emergency communications?\"\n}\n\nBackend flow:\n1. Verify logged-in user.\n2. Get tenant_id and role.\n3. Search only allowed documents.\n4. Retrieve matching chunks.\n5. Rerank chunks.\n6. Build final context.\n7. Call Bedrock.\n8. Return answer with citations.\n9. Write audit log.",
+    "code": "POST /chat/ask\n\n{\n  \"question\": \"What contracts mention emergency communications?\"\n}\n\nBackend flow:\n1. Verify logged-in user.\n2. Get tenant_id and role.\n3. Search only allowed documents.\n4. Retrieve matching chunks.\n5. Rerank chunks.\n6. Build final context.\n7. Call Bedrock.\n8. Return answer with citations.\n9. Write audit log.",
     "duration": 24,
     "codeMode": "literal"
   },
@@ -1260,7 +1260,7 @@ const SCENES = [
   {
     "chapter": "Frontend + AWS - Evaluation And Observability",
     "title": "Phoenix Trace Mock Screen",
-    "visual": "<div class=\"obs\"><div class=\"panel\"><h2>Phoenix Trace: /rag/ask</h2><p>retrieve</p><div class=\"trace-row\"><span style=\"--w:12%;--c:#20c7b5\"></span></div><p>rerank</p><div class=\"trace-row\"><span style=\"--w:16%;--c:#244cec\"></span></div><p>bedrock invoke</p><div class=\"trace-row\"><span style=\"--w:72%;--c:#a64013\"></span></div></div><div class=\"panel\"><h2>Why it matters</h2><p>Traces show where latency, errors, or missing evidence happen.</p><p>CloudWatch is the AWS log layer; Phoenix is the AI request timeline.</p></div></div>",
+    "visual": "<div class=\"obs\"><div class=\"panel\"><h2>Phoenix Trace: /chat/ask</h2><p>retrieve</p><div class=\"trace-row\"><span style=\"--w:12%;--c:#20c7b5\"></span></div><p>rerank</p><div class=\"trace-row\"><span style=\"--w:16%;--c:#244cec\"></span></div><p>bedrock invoke</p><div class=\"trace-row\"><span style=\"--w:72%;--c:#a64013\"></span></div></div><div class=\"panel\"><h2>Why it matters</h2><p>Traces show where latency, errors, or missing evidence happen.</p><p>CloudWatch is the AWS log layer; Phoenix is the AI request timeline.</p></div></div>",
     "narration": "Phoenix shows the AI request timeline: retrieval, reranking, model call, evaluation, and audit. It makes the system debuggable instead of mysterious.",
     "code": "Trace spans:\nrag.ask\n  auth.verify_user\n  retrieval.bm25\n  retrieval.vector\n  reranker.shortlist\n  prompt.build_context\n  bedrock.invoke_model\n  evaluator.faithfulness\n  audit.write\n\nLocal: Phoenix dashboard\nAWS: CloudWatch logs + metrics",
     "duration": 24,
