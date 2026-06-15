@@ -1,0 +1,355 @@
+1
+00:00:00,000 --> 00:00:06,000
+Welcome. We are building BidIntel, a contract-intelligence assistant. The safest mental model is an open-book exam: the AI must use your documents and cite the page instead of guessing.
+
+2
+00:00:06,000 --> 00:00:16,000
+RAG. Retrieval-Augmented Generation means we retrieve real evidence first, then ask the AI to answer from that evidence. Think of it this way: An open-book exam where the AI must cite the book.
+
+3
+00:00:16,000 --> 00:00:26,000
+Chunking. Chunking splits a big document into small overlapping passages. A token is a small piece of text. Overlap repeats a little text between chunks so we do not cut an idea in half. Think of it this way: Cutting a book into index cards with a few repeated lines.
+
+4
+00:00:26,000 --> 00:00:36,000
+Embedding / Vector. An embedding is a list of numbers that captures meaning. A vector is that list of numbers. Think of it this way: Giving every sentence GPS coordinates in meaning space.
+
+5
+00:00:36,000 --> 00:00:46,000
+Vector Search. Vector search finds chunks whose meaning is close to the question, even if the exact words differ. Think of it this way: Detective number two matches suspects by behavior.
+
+6
+00:00:46,000 --> 00:00:56,000
+BM25. BM25 is classic keyword search. It rewards exact word matches, useful word frequency, and sensible document length. Think of it this way: Detective number one matches suspects by exact name.
+
+7
+00:00:56,000 --> 00:01:06,000
+Hybrid Search. Hybrid search runs keyword search and meaning search together because each catches evidence the other can miss. Think of it this way: Two detectives compare notes.
+
+8
+00:01:06,000 --> 00:01:16,000
+RRF. Reciprocal Rank Fusion merges ranked lists using 1 divided by k plus rank. With k equals 60, first place gives 1/(60+1), or 0.01639. Think of it this way: The sergeant promotes any suspect both detectives flagged. RRF is not the reranker.
+
+9
+00:01:16,000 --> 00:01:26,000
+Reranker. A reranker deeply reviews the shortlisted chunks against the question and keeps the best few. Think of it this way: The lead detective interviews the suspects.
+
+10
+00:01:26,000 --> 00:01:36,000
+Context Builder. The context builder assembles selected chunks, source IDs, and page numbers into the package sent to the model. Think of it this way: The briefing folder handed to the prosecutor.
+
+11
+00:01:36,000 --> 00:01:46,000
+LLM / Amazon Bedrock / Claude. A large language model writes the answer. Amazon Bedrock is AWS's managed way to call models like Claude. Think of it this way: The prosecutor argues only from the case file.
+
+12
+00:01:46,000 --> 00:01:56,000
+Guardrails. Guardrails are checks that block prompt injection and unsupported answers before the user sees them. Think of it this way: The courtroom rules of evidence.
+
+13
+00:01:56,000 --> 00:02:06,000
+Evaluator / LLM-as-a-Judge. An evaluator grades the answer after it is written. LLM-as-a-judge means using another AI to grade the first AI. Think of it this way: Internal Affairs reviews the case.
+
+14
+00:02:06,000 --> 00:02:16,000
+RAGAS. RAGAS is a library for batch-scoring RAG quality metrics like faithfulness and context recall. Think of it this way: The performance report.
+
+15
+00:02:16,000 --> 00:02:26,000
+Phoenix / Observability / Tracing. Phoenix records each step, timing, and metadata. A trace is the timeline of one request. A span is one step in that timeline. Think of it this way: The command-center dashboard.
+
+16
+00:02:26,000 --> 00:02:36,000
+Precision@K. Of the chunks we retrieved, precision asks how many were actually useful. Higher is better. Think of it this way: How many suspects on the shortlist truly mattered.
+
+17
+00:02:36,000 --> 00:02:46,000
+Recall@K. Of all useful chunks that exist, recall asks how many we found. Higher is better. For BidIntel, missing evidence is worse than extra evidence. Think of it this way: Did we find every witness who mattered.
+
+18
+00:02:46,000 --> 00:02:56,000
+MRR. Mean Reciprocal Rank measures how early the first correct result appears. Higher is better. Think of it this way: How quickly the detective finds the first real lead.
+
+19
+00:02:56,000 --> 00:03:06,000
+NDCG. NDCG checks whether the best chunks are ranked highest, not merely found somewhere. Higher is better. Think of it this way: Putting the strongest witness first.
+
+20
+00:03:06,000 --> 00:03:16,000
+Faithfulness. Faithfulness asks whether the answer stayed grounded in retrieved context. It is the hallucination detector and the most important BidIntel metric. Think of it this way: No claims outside the case file.
+
+21
+00:03:16,000 --> 00:03:26,000
+Answer Relevancy. Answer relevancy asks whether the answer actually responds to the question. Higher is better. Think of it this way: The witness answers the question asked.
+
+22
+00:03:26,000 --> 00:03:36,000
+Context Precision / Context Recall. Context precision asks how much retrieved context was useful. Context recall asks whether we brought all needed evidence. Think of it this way: A clean case folder versus a complete case folder.
+
+23
+00:03:36,000 --> 00:03:46,000
+Answer Correctness. Answer correctness compares the answer to a known ground truth. Higher is better. Think of it this way: The final statement matches the verified answer key.
+
+24
+00:03:46,000 --> 00:03:56,000
+Latency / Cost / Citation Coverage / Hallucination Rate. Operations metrics track speed, money, source coverage, and unsupported claims. Think of it this way: The dashboard that tells the team if the system is practical.
+
+25
+00:03:56,000 --> 00:04:06,000
+PostgreSQL. PostgreSQL is the relational database where BidIntel stores users, documents, chunks, audits, and scores. Think of it this way: The courthouse records office.
+
+26
+00:04:06,000 --> 00:04:16,000
+pgvector. pgvector adds vector storage and similarity search to PostgreSQL. Think of it this way: A meaning-coordinate cabinet inside the records office.
+
+27
+00:04:16,000 --> 00:04:26,000
+Full-text Search / tsvector. Full-text search turns text into searchable keywords. tsvector is PostgreSQL's search-ready form. Think of it this way: A professional index in the back of a book.
+
+28
+00:04:26,000 --> 00:04:36,000
+HNSW & GIN Indexes. HNSW speeds up vector search. GIN speeds up keyword search. Think of it this way: Fast filing systems for meaning and exact words.
+
+29
+00:04:36,000 --> 00:04:46,000
+Docker / Container / docker-compose. A container packages a service with its runtime. Docker runs containers. docker-compose starts multiple services together. Think of it this way: A labeled toolbox that opens the same way on every machine.
+
+30
+00:04:46,000 --> 00:04:56,000
+FastAPI / Swagger Docs. FastAPI is the Python web API framework. Swagger at /docs lets you click and test endpoints. Think of it this way: The service desk and its interactive menu.
+
+31
+00:04:56,000 --> 00:05:06,000
+React / Vite. React builds the browser interface. Vite runs the local frontend quickly. Think of it this way: The analyst's control room.
+
+32
+00:05:06,000 --> 00:05:16,000
+IAM Role / Temporary Credentials. An IAM role grants AWS permissions to the backend. Temporary credentials are short-lived credentials AWS provides automatically. Think of it this way: A time-limited badge, not a permanent key.
+
+33
+00:05:16,000 --> 00:05:26,000
+S3 / Secrets Manager / ECS Task. S3 stores files, Secrets Manager stores secrets, and an ECS task runs the backend container. Think of it this way: Storage room, locked safe, and assigned worker.
+
+34
+00:05:26,000 --> 00:05:36,000
+CloudTrail / CloudWatch. CloudTrail records AWS API actions. CloudWatch stores logs and metrics. Think of it this way: Security camera and operations dashboard.
+
+35
+00:05:36,000 --> 00:05:46,000
+Multi-tenancy / tenant_id / Access Groups / ATO. Multi-tenancy separates customers with tenant_id. Access groups limit documents. ATO means Authority to Operate, a formal production security approval. Think of it this way: Separate courtrooms, locked evidence rooms, and final authorization.
+
+36
+00:05:46,000 --> 00:05:52,000
+Here is the whole case flow. The browser asks FastAPI. FastAPI checks identity, retrieves only allowed evidence, builds the context, calls the model or mock model, evaluates the answer, applies guardrails, writes audit, and returns citations.
+
+37
+00:05:52,000 --> 00:06:03,000
+A terminal is just the command window where we ask the computer to run tools. We need Python, Node, Docker, and Git before building BidIntel.
+
+38
+00:06:03,000 --> 00:06:14,000
+The frontend is the analyst screen. The backend owns APIs and security. Services hold RAG logic. Infra explains AWS. Docs explain how to run and harden it.
+
+39
+00:06:14,000 --> 00:06:25,000
+Docker starts PostgreSQL with pgvector and Phoenix for observability. PostgreSQL stores records. pgvector stores meaning coordinates.
+
+40
+00:06:25,000 --> 00:06:33,000
+The schema creates the evidence store. The critical table is document_chunks, because search retrieves chunks, not whole PDFs.
+
+41
+00:06:33,000 --> 00:06:39,000
+Document ingestion turns a PDF or text file into searchable evidence. Extract text, split into chunks, create embeddings, and store active chunks with page and section metadata.
+
+42
+00:06:39,000 --> 00:06:50,000
+BM25 is our literal detective. It is great when the analyst uses exact words like submission requirements or due date.
+
+43
+00:06:50,000 --> 00:07:01,000
+Vector search is the meaning detective. It can connect automobile to car, or cybersecurity incident response to breach handling.
+
+44
+00:07:01,000 --> 00:07:12,000
+RRF merges the detective lists without trusting incompatible score scales. Rank position is enough. Shared candidates rise.
+
+45
+00:07:12,000 --> 00:07:23,000
+The reranker is the deeper review. It looks at the question and shortlisted chunks and keeps the strongest evidence for the model.
+
+46
+00:07:23,000 --> 00:07:34,000
+Context engineering means arranging evidence so the model can answer safely. In local mode, MockLLM replaces Bedrock so you can run with no AWS keys.
+
+47
+00:07:34,000 --> 00:07:45,000
+This is the most important security rule. The model never receives documents the user is not allowed to see.
+
+48
+00:07:45,000 --> 00:07:56,000
+Evaluation checks retrieval and answers. Faithfulness is number one for BidIntel because a confident unsupported answer is dangerous.
+
+49
+00:07:56,000 --> 00:08:07,000
+Observability records the request timeline. When something is slow or wrong, traces show which step caused it.
+
+50
+00:08:07,000 --> 00:08:18,000
+The Assistant page sends the question through one API wrapper, waits for JSON, then renders the answer and source cards.
+
+51
+00:08:18,000 --> 00:08:38,000
+BidIntel is more than chat. RAG finds the evidence, then the proposal scoring engine grades compliance, technical strength, management, past performance, and price risk before returning a scorecard with fixes.
+
+52
+00:08:38,000 --> 00:08:49,000
+In AWS, the backend runs with an IAM role. No AWS keys go in the frontend. The Bedrock policy only permits the approved Claude and Titan models.
+
+53
+00:08:49,000 --> 00:09:00,000
+This is the local proof path. Start the database, seed demo data, run FastAPI, run Vite, upload or use seeded documents, ask a question, and confirm sources plus audit.
+
+54
+00:09:00,000 --> 00:09:11,000
+Common failures are ordinary. Check database connection, Bedrock permissions, CORS origins, active chunks, retrieval speed, and unsupported answers.
+
+55
+00:09:11,000 --> 00:09:17,000
+You went from zero to the full map. BidIntel is a secure evidence pipeline around an AI model, not a generic chatbot. The prototype works locally; production still needs cloud and security review.
+
+56
+00:09:17,000 --> 00:09:31,000
+The first half explains and builds the RAG system. The second half adds the product walkthrough: login, dashboard, document ingest, RAG ask, proposal scoring, RAGAS and Phoenix dashboards, AWS hosting, IAM, and Bedrock.
+
+57
+00:09:31,000 --> 00:09:49,000
+The tutorial needs to show what the app actually looks like. The login screen starts with the BidIntel command center and gives the user AWS IAM Identity Center or Microsoft Entra ID sign-in before the backend maps identity to role and groups.
+
+58
+00:09:49,000 --> 00:10:09,000
+The document screen is where RAG begins. The analyst uploads a solicitation or contract, adds classification and access groups, then the backend extracts text, chunks it, embeds it, stores metadata, and makes it available for retrieval.
+
+59
+00:10:09,000 --> 00:10:27,000
+The audit screen is not decoration. It proves every query, retrieval, model call, evaluation score, and blocked guardrail decision is recorded and exportable.
+
+60
+00:10:27,000 --> 00:10:49,000
+The granular build starts with five frontend files. The HTML mount point loads React, CSS defines the command-center look, api.ts is the only bridge to Python, and the page components prove the click loop.
+
+61
+00:10:49,000 --> 00:11:13,000
+Every screen calls the backend through one API client. That makes local development and AWS cutover a single environment variable instead of a rewrite.
+
+62
+00:11:13,000 --> 00:11:39,000
+This is the exact frontend loop: user types, clicks Ask, React calls FastAPI, saves the JSON result into state, and rerenders the answer plus source chunks.
+
+63
+00:11:39,000 --> 00:12:05,000
+The Python backend is where security and RAG actually happen. The frontend does not retrieve documents or call the model. FastAPI checks the user, filters retrieval by access group, builds the prompt, calls the LLM, writes the audit row, and returns JSON.
+
+64
+00:12:05,000 --> 00:12:33,000
+Login is not just a page. The SSO identity maps to role and access groups, and those groups are used on every retrieval query so unauthorized documents never reach the prompt.
+
+65
+00:12:33,000 --> 00:12:57,000
+This is the AWS console mental map. For BidIntel you open Identity Center, Bedrock, IAM, Secrets Manager, RDS, S3, ECR, ECS, and CloudFront. The order matters because later screens depend on earlier credentials and roles.
+
+66
+00:12:57,000 --> 00:13:27,000
+This is where the user's login starts. Create the groups in Identity Center, add users to the right groups, and connect BidIntel as a SAML or OIDC app so the backend can read group claims.
+
+67
+00:13:27,000 --> 00:13:57,000
+Bedrock access is a console step before code works. Open Amazon Bedrock, go to Model access, enable Anthropic Claude Sonnet and Amazon Titan Embeddings, then store only model IDs in the backend environment.
+
+68
+00:13:57,000 --> 00:14:31,000
+The backend needs its own AWS identity. Create an IAM role trusted by ECS tasks, attach least-privilege policy for the approved Bedrock models, and add only the S3 and Secrets permissions this service needs.
+
+69
+00:14:31,000 --> 00:15:05,000
+The backend is hosted as a container. Build the Docker image, push it to ECR, create an ECS Fargate task using the backend IAM role, pass environment variables and secrets, then expose it through a load balancer.
+
+70
+00:15:05,000 --> 00:15:35,000
+The frontend is static HTML, CSS, and JavaScript after Vite builds it. Set the API base to the AWS backend URL, build the dist folder, upload it to S3, put CloudFront in front, and test the real hosted URL.
+
+71
+00:15:35,000 --> 00:16:05,000
+The data layer is where the real system becomes durable. Store secrets in Secrets Manager, run PostgreSQL in RDS, enable vector retrieval, and keep uploaded documents in an S3 bucket controlled by backend IAM.
+
+72
+00:16:05,000 --> 00:16:33,000
+This is the corrected granular order from the attached PDF. Build the frontend and click loop first, wire FastAPI, add login and group filters, then do Bedrock access, IAM, data services, backend hosting, frontend hosting, and finally flip from mock to live.
+
+73
+00:16:33,000 --> 00:16:57,000
+The build starts with the local folder structure, not AWS. First separate frontend, backend, infra, and docs so each layer has a clear responsibility.
+
+74
+00:16:57,000 --> 00:17:21,000
+Build the frontend first with mock data. The goal is to prove that login, navigation, upload, RAG ask, and scoring screens make sense before wiring AWS.
+
+75
+00:17:21,000 --> 00:17:45,000
+The frontend API client is the switch between local development and AWS. The frontend never calls the database or Bedrock directly.
+
+76
+00:17:45,000 --> 00:18:09,000
+The login screen is the first product screen. The frontend can show or hide pages, but the backend enforces real access by checking the user, tenant, role, and groups.
+
+77
+00:18:09,000 --> 00:18:33,000
+After login, the user lands on the capture dashboard. This is where BidIntel stops feeling like a chatbot and starts feeling like a contract-intelligence workspace.
+
+78
+00:18:33,000 --> 00:18:57,000
+The document screen is where contracts and supporting media enter the system. Every file is tagged with tenant, classification, source type, and access group before retrieval.
+
+79
+00:18:57,000 --> 00:19:21,000
+FastAPI is the control layer. Every frontend click becomes an API request, and the backend decides identity, permissions, retrieval, model calls, and audit logging.
+
+80
+00:19:21,000 --> 00:19:45,000
+PostgreSQL stores the business truth: tenants, users, documents, chunks, embeddings, and audit logs. Tenant ID is the wall between organizations.
+
+81
+00:19:45,000 --> 00:20:09,000
+The RAG screen shows the user question, the grounded answer, citations, and trace metadata. The backend filters evidence before Bedrock sees it.
+
+82
+00:20:09,000 --> 00:20:33,000
+The model does not decide what the user can see. Retrieval filters by tenant and permission before any chunk enters the Bedrock prompt.
+
+83
+00:20:33,000 --> 00:20:57,000
+The scoring page turns retrieved evidence into proposal guidance. It shows weighted category scores, gaps, risk, and recommended fixes.
+
+84
+00:20:57,000 --> 00:21:21,000
+RAGAS is the batch evaluation layer. The tutorial shows mock metrics so the viewer understands how faithfulness, context recall, and relevancy are checked.
+
+85
+00:21:21,000 --> 00:21:45,000
+Phoenix shows the AI request timeline: retrieval, reranking, model call, evaluation, and audit. It makes the system debuggable instead of mysterious.
+
+86
+00:21:45,000 --> 00:22:09,000
+AWS has a dependency order. Do identity first, model access second, IAM service role third, secrets and database fourth, backend fifth, and frontend cutover last.
+
+87
+00:22:09,000 --> 00:22:33,000
+There are two kinds of permission. The human user's role controls which documents they can retrieve. The backend IAM role controls which AWS services the app can call.
+
+88
+00:22:33,000 --> 00:22:57,000
+Bedrock is backend only. The frontend calls FastAPI, FastAPI builds the prompt from allowed evidence, and the backend container uses its IAM role to invoke Bedrock.
+
+89
+00:22:57,000 --> 00:23:21,000
+The final message is simple. BidIntel is not just a chatbot. It is a secure evidence pipeline around an AI model, with frontend screens, backend enforcement, database retrieval, IAM, Bedrock, evaluation, and audit.
