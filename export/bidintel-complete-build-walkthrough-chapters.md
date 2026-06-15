@@ -87,20 +87,34 @@
 00:24:49 Granular PDF - AWS Console Screens - S3 And CloudFront: Host The Frontend
 00:25:19 Granular PDF - AWS Console Screens - Secrets, RDS, And S3 Document Storage
 00:25:49 Granular PDF - Final Order - Final Build Order From The PDF
-00:26:17 Frontend + AWS - Correct Build Order - Create The Local Project Skeleton
-00:26:41 Frontend + AWS - Frontend First - Vite React App And Routes
-00:27:05 Frontend + AWS - Frontend First - API Client Is The Switch
-00:27:29 Frontend + AWS - Frontend Product Flow - Login Screen And Identity
-00:27:53 Frontend + AWS - Frontend Product Flow - Dashboard After Login
-00:28:17 Frontend + AWS - Frontend Product Flow - Document Ingest Screen
-00:28:41 Frontend + AWS - Backend And Database - FastAPI Doorway
-00:29:05 Frontend + AWS - Backend And Database - PostgreSQL And pgvector Tables
-00:29:29 Frontend + AWS - RAG Product Flow - Ask BidIntel Screen
-00:29:53 Frontend + AWS - RAG Product Flow - Permission Filter Before Bedrock
-00:30:17 Frontend + AWS - Proposal Scoring - Score Page With Example Findings
-00:30:41 Frontend + AWS - Evaluation And Observability - RAGAS Evaluation Mock Screen
-00:31:05 Frontend + AWS - Evaluation And Observability - Phoenix Trace Mock Screen
-00:31:29 Frontend + AWS - AWS Build Order - Correct AWS Dependency Order
-00:31:53 Frontend + AWS - AWS Build Order - Backend IAM Role Is Not User Role
-00:32:17 Frontend + AWS - Bedrock Wiring - Backend Calls Bedrock, Frontend Never Does
-00:32:41 Frontend + AWS - Final System Map - What BidIntel Is
+00:26:17 Docs-Backed Click Path - IAM Identity Center - Open The Exact AWS IAM Identity Center Area
+00:26:53 Docs-Backed Click Path - IAM Identity Center - Groups Screen: Create The Roles Users Will Carry
+00:27:37 Docs-Backed Click Path - IAM Identity Center - Applications Screen: Add BidIntel As A Custom App
+00:28:25 Docs-Backed Click Path - IAM Identity Center - Configuration Screen: Paste ACS, Entity, And Metadata Values
+00:29:19 Docs-Backed Click Path - IAM Identity Center - Attribute Mapping Screen: Put Claims In The Token
+00:30:17 Docs-Backed Click Path - IAM Identity Center - Assignments Screen: Let Groups Use The App
+00:31:03 Docs-Backed Click Path - Backend Hosting - ECR Screen: Where The Backend Image Goes
+00:31:57 Docs-Backed Click Path - Backend Hosting - Secrets Manager: Where DATABASE_URL And SSO Metadata Go
+00:32:49 Docs-Backed Click Path - Backend Hosting - ECS Task Definition: Paste Image URI And Env Vars
+00:33:49 Docs-Backed Click Path - Backend Hosting - ECS Service And Load Balancer: Make The API Reachable
+00:34:53 Docs-Backed Click Path - Frontend Hosting - S3 Bucket: Upload The Built React Frontend
+00:35:51 Docs-Backed Click Path - Frontend Hosting - CloudFront: Create The Public Tutorial/App URL
+00:36:55 Docs-Backed Click Path - Bedrock And RAG - Bedrock Model Access: The Console Screen Before Code Works
+00:37:47 Docs-Backed Click Path - RAGAS Phoenix Vector DB - Where RAGAS, Phoenix, And pgvector Fit
+00:38:45 Frontend + AWS - Correct Build Order - Create The Local Project Skeleton
+00:39:09 Frontend + AWS - Frontend First - Vite React App And Routes
+00:39:33 Frontend + AWS - Frontend First - API Client Is The Switch
+00:39:57 Frontend + AWS - Frontend Product Flow - Login Screen And Identity
+00:40:21 Frontend + AWS - Frontend Product Flow - Dashboard After Login
+00:40:45 Frontend + AWS - Frontend Product Flow - Document Ingest Screen
+00:41:09 Frontend + AWS - Backend And Database - FastAPI Doorway
+00:41:33 Frontend + AWS - Backend And Database - PostgreSQL And pgvector Tables
+00:41:57 Frontend + AWS - RAG Product Flow - Ask BidIntel Screen
+00:42:21 Frontend + AWS - RAG Product Flow - Permission Filter Before Bedrock
+00:42:45 Frontend + AWS - Proposal Scoring - Score Page With Example Findings
+00:43:09 Frontend + AWS - Evaluation And Observability - RAGAS Evaluation Mock Screen
+00:43:33 Frontend + AWS - Evaluation And Observability - Phoenix Trace Mock Screen
+00:43:57 Frontend + AWS - AWS Build Order - Correct AWS Dependency Order
+00:44:21 Frontend + AWS - AWS Build Order - Backend IAM Role Is Not User Role
+00:44:45 Frontend + AWS - Bedrock Wiring - Backend Calls Bedrock, Frontend Never Does
+00:45:09 Frontend + AWS - Final System Map - What BidIntel Is

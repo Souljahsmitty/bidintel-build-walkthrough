@@ -870,6 +870,146 @@ const SCENES = [
     "duration": 28
   },
   {
+    "chapter": "Docs-Backed Click Path - IAM Identity Center",
+    "title": "Open The Exact AWS IAM Identity Center Area",
+    "skin": "aws",
+    "visual": "<div class=\"aws-console\"><aside><strong>AWS Console</strong><span>Dashboard</span><span>Users</span><span>Groups</span><span>Applications</span><span>Settings</span><span>AWS accounts</span></aside><main><div class=\"aws-top\"><span>AWS Console search bar / IAM Identity Center / Dashboard</span><strong>IAM Identity Center</strong></div><h2>Start here for human login, not IAM Roles</h2><div class=\"aws-cards\"><section class=\"aws-card\"><h3>1. Console search</h3><p>Type IAM Identity Center and open the service.</p></section><section class=\"aws-card\"><h3>2. Dashboard</h3><p>If not enabled, choose Enable and confirm your identity source.</p></section><section class=\"aws-card\"><h3>3. Left nav</h3><p>You will use Users, Groups, Applications, and Settings.</p></section><section class=\"aws-card\"><h3>4. Do not start in IAM Roles</h3><p>IAM Roles are for AWS services. Identity Center is for people logging in.</p></section></div></main></div>",
+    "narration": "This is the first missing tutorial step. In the AWS console search box, open IAM Identity Center. That is where user login, groups, app assignment, and claims are configured. Do not start in IAM Roles when you are wiring the login page.",
+    "code": "Source basis:\nAWS IAM Identity Center docs: customer managed applications, application assignments, and attribute mappings.\n\nClick path:\nAWS Console\n-> Search: IAM Identity Center\n-> Open IAM Identity Center\n-> Dashboard\n\nIf disabled:\n-> Enable\n-> Choose identity source\n   - Identity Center directory for a simple tutorial\n   - External IdP like Microsoft Entra ID or Okta for real company SSO\n\nScreens used next:\nUsers\nGroups\nApplications\nSettings -> Attributes for access control\n\nMental model:\nIAM Identity Center = human login and groups.\nIAM Roles = backend service permissions.\nYou need both, but they are different screens.",
+    "codeMode": "literal",
+    "duration": 36
+  },
+  {
+    "chapter": "Docs-Backed Click Path - IAM Identity Center",
+    "title": "Groups Screen: Create The Roles Users Will Carry",
+    "skin": "aws",
+    "visual": "<div class=\"aws-console\"><aside><strong>AWS Console</strong><span>Dashboard</span><span>Users</span><span>Groups</span><span>Applications</span><span>Settings</span></aside><main><div class=\"aws-top\"><span>Groups / Create group</span><strong>IAM Identity Center</strong></div><h2>Enter the groups exactly, then attach users</h2><div class=\"aws-cards\"><section class=\"aws-card\"><h3>Group name</h3><p>BidIntel_Proposal_Writer</p></section><section class=\"aws-card\"><h3>Group name</h3><p>BidIntel_Manager</p></section><section class=\"aws-card\"><h3>Group name</h3><p>BidIntel_Auditor</p></section><section class=\"aws-card\"><h3>Group name</h3><p>BidIntel_Elevated_Admin</p></section></div></main></div>",
+    "narration": "On the Groups screen, click Create group and enter the actual role groups. These are the strings the backend will later map into permissions. This is where manager, auditor, and elevated access become real.",
+    "code": "Click path:\nIAM Identity Center\n-> Groups\n-> Create group\n\nEnter:\nGroup name: BidIntel_Proposal_Writer\nDescription: Can upload assigned documents, ask RAG questions, and run proposal scoring.\n\nRepeat:\nGroup name: BidIntel_Manager\nDescription: Can review team work, approve bid decisions, and assign reviews.\n\nRepeat:\nGroup name: BidIntel_Auditor\nDescription: Read-only access to audit evidence, guardrail results, citations, and exports.\n\nRepeat:\nGroup name: BidIntel_Elevated_Admin\nDescription: Emergency/admin access to users, data sources, and security policies.\n\nWhere this appears in code:\nbackend/app/authz.py\nGROUP_ROLE_MAP = {\n  \"BidIntel_Proposal_Writer\": \"proposal_writer\",\n  \"BidIntel_Manager\": \"manager\",\n  \"BidIntel_Auditor\": \"auditor\",\n  \"BidIntel_Elevated_Admin\": \"admin\",\n}",
+    "codeMode": "literal",
+    "duration": 44
+  },
+  {
+    "chapter": "Docs-Backed Click Path - IAM Identity Center",
+    "title": "Applications Screen: Add BidIntel As A Custom App",
+    "skin": "aws",
+    "visual": "<div class=\"aws-console\"><aside><strong>AWS Console</strong><span>Applications</span><span>Customer managed</span><span>Add application</span><span>Configuration</span><span>Assignments</span></aside><main><div class=\"aws-top\"><span>Applications / Customer managed / Add application</span><strong>IAM Identity Center</strong></div><h2>This is where the login button points</h2><div class=\"aws-cards\"><section class=\"aws-card\"><h3>Customer managed</h3><p>Choose Add application under the Customer managed tab.</p></section><section class=\"aws-card\"><h3>Setup preference</h3><p>Choose I have an application I want to set up.</p></section><section class=\"aws-card\"><h3>Application type</h3><p>Choose SAML 2.0 for the tutorial path, or OIDC if your auth library supports it.</p></section><section class=\"aws-card\"><h3>Next</h3><p>Then enter BidIntel application properties and callback URLs.</p></section></div></main></div>",
+    "narration": "Now go to Applications. Choose the Customer managed tab, add an application, choose that you have an app to set up, and pick SAML 2.0 for the tutorial path. This is the Identity Center app your BidIntel login button ultimately talks to.",
+    "code": "Click path from AWS docs:\nIAM Identity Center\n-> Applications\n-> Customer managed tab\n-> Add application\n-> Setup preference: I have an application I want to set up\n-> Application type: SAML 2.0\n-> Next\n\nFields to enter:\nDisplay name: BidIntel AI Command Center\nDescription: Contract capture intelligence workspace\nApplication start URL:\n  Local: http://localhost:5173/login\n  Production: https://app.bidintel.ai/login\n\nWhere this goes in code:\nfrontend/src/pages/LoginPage.tsx\n  Login button sends user to backend auth start endpoint.\n\nbackend/app/api/auth_api.py\n  /auth/login/aws-sso redirects to Identity Center.\n  /auth/callback receives the result and creates the app session.",
+    "codeMode": "literal",
+    "duration": 48
+  },
+  {
+    "chapter": "Docs-Backed Click Path - IAM Identity Center",
+    "title": "Configuration Screen: Paste ACS, Entity, And Metadata Values",
+    "skin": "aws",
+    "visual": "<div class=\"aws-console\"><aside><strong>AWS Console</strong><span>Application details</span><span>Configuration</span><span>Attribute mappings</span><span>Assignments</span><span>Actions</span></aside><main><div class=\"aws-top\"><span>Applications / BidIntel / Configuration</span><strong>IAM Identity Center</strong></div><h2>These fields connect AWS SSO to your backend callback</h2><div class=\"aws-cards\"><section class=\"aws-card\"><h3>ACS URL</h3><p>https://api.bidintel.ai/auth/saml/acs</p></section><section class=\"aws-card\"><h3>Entity ID</h3><p>bidintel-ai or https://api.bidintel.ai/saml/metadata</p></section><section class=\"aws-card\"><h3>Start URL</h3><p>https://app.bidintel.ai/login</p></section><section class=\"aws-card\"><h3>Metadata</h3><p>Download/copy IAM Identity Center metadata for backend verification.</p></section></div></main></div>",
+    "narration": "This is where the tutorial needs to slow down. The ACS or callback URL is the backend endpoint that receives the login response. The Entity ID identifies your BidIntel app. The metadata URL or file is saved so your backend can verify Identity Center signatures.",
+    "code": "Screen:\nIAM Identity Center -> Applications -> BidIntel AI Command Center -> Configuration\n\nEnter application values:\nApplication ACS URL:\n  Local: http://localhost:8000/auth/saml/acs\n  Production: https://api.bidintel.ai/auth/saml/acs\n\nApplication SAML audience / Entity ID:\n  bidintel-ai\n  or https://api.bidintel.ai/saml/metadata\n\nApplication start URL:\n  Local: http://localhost:5173/login\n  Production: https://app.bidintel.ai/login\n\nDownload/copy:\nIAM Identity Center SAML metadata file or metadata URL\n\nPut it here:\nbackend/secrets/aws_sso_metadata.xml\nor Secrets Manager value:\n  bidintel/prod/aws-sso-metadata-url\n\nBackend env:\nAWS_SSO_ENTITY_ID=bidintel-ai\nAWS_SSO_ACS_URL=https://api.bidintel.ai/auth/saml/acs\nAWS_SSO_METADATA_URL=<copied from Identity Center>",
+    "codeMode": "literal",
+    "duration": 54
+  },
+  {
+    "chapter": "Docs-Backed Click Path - IAM Identity Center",
+    "title": "Attribute Mapping Screen: Put Claims In The Token",
+    "skin": "aws",
+    "visual": "<div class=\"aws-console\"><aside><strong>AWS Console</strong><span>Application details</span><span>Actions</span><span>Edit attribute mapping</span><span>Add new attribute mapping</span><span>Save changes</span></aside><main><div class=\"aws-top\"><span>Applications / BidIntel / Actions / Edit attribute mapping</span><strong>IAM Identity Center</strong></div><h2>This is the screen that wires roles into the app</h2><div class=\"aws-cards\"><section class=\"aws-card\"><h3>subject</h3><p>Maps the stable user id.</p></section><section class=\"aws-card\"><h3>email</h3><p>Maps the user email for session and audit.</p></section><section class=\"aws-card\"><h3>groups</h3><p>Maps group membership for role recognition.</p></section><section class=\"aws-card\"><h3>tenant/access</h3><p>Maps tenant_id and access_level when available.</p></section></div></main></div>",
+    "narration": "Open the BidIntel app, choose Actions, then Edit attribute mapping. Click Add new attribute mapping for each claim. This is how manager, auditor, and elevated admin group names reach your backend.",
+    "code": "Click path from AWS docs:\nIAM Identity Center\n-> Applications\n-> BidIntel AI Command Center\n-> Actions\n-> Edit attribute mapping\n-> Add new attribute mapping\n\nEnter mappings:\nApplication attribute: subject\nMaps to this string value or user attribute: ${user:subject}\n\nApplication attribute: email\nMaps to: ${user:email}\n\nApplication attribute: display_name\nMaps to: ${user:name}\n\nApplication attribute: groups\nMaps to: ${user:groups}\n\nApplication attribute: tenant_id\nMaps to: ${user:custom:tenant_id}\n\nApplication attribute: access_level\nMaps to: ${user:custom:access_level}\n\nThen:\nSave changes.\n\nWhere code reads this:\nbackend/app/auth.py\n  claims = verify_saml_or_oidc_token(...)\n  groups = claims[\"groups\"]\n  user = map_claims_to_current_user(claims)\n\nWhat to test:\nSign in as auditor.\n/auth/me should return:\n  role: auditor\n  groups: [\"BidIntel_Auditor\"]",
+    "codeMode": "literal",
+    "duration": 58
+  },
+  {
+    "chapter": "Docs-Backed Click Path - IAM Identity Center",
+    "title": "Assignments Screen: Let Groups Use The App",
+    "skin": "aws",
+    "visual": "<div class=\"aws-console\"><aside><strong>AWS Console</strong><span>Application details</span><span>Assignments</span><span>Assign users and groups</span><span>Groups</span><span>Review</span></aside><main><div class=\"aws-top\"><span>Applications / BidIntel / Assign users and groups</span><strong>IAM Identity Center</strong></div><h2>Creating groups is not enough; assign them to BidIntel</h2><div class=\"aws-cards\"><section class=\"aws-card\"><h3>Assign users/groups</h3><p>Choose Assign users and groups.</p></section><section class=\"aws-card\"><h3>Groups tab</h3><p>Select the BidIntel groups.</p></section><section class=\"aws-card\"><h3>Review</h3><p>Confirm Proposal Writer, Manager, Auditor, Elevated Admin.</p></section><section class=\"aws-card\"><h3>Test</h3><p>Unassigned users should not be able to sign in.</p></section></div></main></div>",
+    "narration": "This is another common missing step. Creating groups does not grant access to the app. In the BidIntel application, open Assignments, choose Assign users and groups, select the groups, and save. Then test each group.",
+    "code": "Click path:\nIAM Identity Center\n-> Applications\n-> BidIntel AI Command Center\n-> Assignments\n-> Assign users and groups\n-> Groups tab\n\nSelect:\n[x] BidIntel_Proposal_Writer\n[x] BidIntel_Manager\n[x] BidIntel_Auditor\n[x] BidIntel_Elevated_Admin\n\nClick:\nAssign users\n\nValidation:\nUser not assigned to app -> cannot open BidIntel.\nUser assigned to app but has Auditor group -> can sign in but backend permits only audit actions.\nUser assigned to app with Manager group -> can approve reviews but cannot manage users.\n\nBackend still enforces:\nbackend/app/security/permissions.py\nbackend/app/retrieval.py",
+    "codeMode": "literal",
+    "duration": 46
+  },
+  {
+    "chapter": "Docs-Backed Click Path - Backend Hosting",
+    "title": "ECR Screen: Where The Backend Image Goes",
+    "skin": "aws",
+    "visual": "<div class=\"aws-console\"><aside><strong>AWS Console</strong><span>Private registry</span><span>Repositories</span><span>Create repository</span><span>View push commands</span><span>Images</span></aside><main><div class=\"aws-top\"><span>ECR / Repositories / Create repository / bidintel-backend</span><strong>Amazon ECR</strong></div><h2>Store the FastAPI Docker image here first</h2><div class=\"aws-cards\"><section class=\"aws-card\"><h3>Create repository</h3><p>Name: bidintel-backend.</p></section><section class=\"aws-card\"><h3>View push commands</h3><p>Copy the docker login, tag, and push commands.</p></section><section class=\"aws-card\"><h3>Image URI</h3><p>Copy the final ECR image URI for ECS task definition.</p></section><section class=\"aws-card\"><h3>Version tag</h3><p>Use :latest for tutorial, commit SHA for real releases.</p></section></div></main></div>",
+    "narration": "For AWS hosting, start with ECR. The FastAPI backend becomes a Docker image, and ECR is where you push it. The ECS task definition later asks for the ECR image URI.",
+    "code": "Click path:\nAWS Console\n-> Search: ECR\n-> Repositories\n-> Create repository\n\nFields:\nVisibility: Private\nRepository name: bidintel-backend\nImage tag mutability: Mutable for tutorial, Immutable for production\nEncryption: AES-256 or KMS\n\nClick:\nCreate repository\nView push commands\n\nRun locally:\naws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <account>.dkr.ecr.us-east-1.amazonaws.com\ndocker build -t bidintel-backend ./backend\ndocker tag bidintel-backend:latest <account>.dkr.ecr.us-east-1.amazonaws.com/bidintel-backend:latest\ndocker push <account>.dkr.ecr.us-east-1.amazonaws.com/bidintel-backend:latest\n\nCopy this for ECS:\n<account>.dkr.ecr.us-east-1.amazonaws.com/bidintel-backend:latest",
+    "codeMode": "literal",
+    "duration": 54
+  },
+  {
+    "chapter": "Docs-Backed Click Path - Backend Hosting",
+    "title": "Secrets Manager: Where DATABASE_URL And SSO Metadata Go",
+    "skin": "aws",
+    "visual": "<div class=\"aws-console\"><aside><strong>AWS Console</strong><span>Secrets</span><span>Store a new secret</span><span>Secret type</span><span>Configure secret</span><span>Review</span></aside><main><div class=\"aws-top\"><span>Secrets Manager / Store a new secret</span><strong>AWS Secrets Manager</strong></div><h2>Backend secrets live here, not in React</h2><div class=\"aws-cards\"><section class=\"aws-card\"><h3>Secret type</h3><p>Other type of secret.</p></section><section class=\"aws-card\"><h3>Key/value</h3><p>DATABASE_URL, SSO metadata URL, JWT/session secret.</p></section><section class=\"aws-card\"><h3>Name</h3><p>bidintel/prod/backend.</p></section><section class=\"aws-card\"><h3>ECS task</h3><p>Inject secret values into container environment.</p></section></div></main></div>",
+    "narration": "Secrets Manager is where backend-only values go. Do not put DATABASE_URL, session keys, SSO metadata, or Bedrock config in React. Store them as a secret, then reference that secret from the ECS task definition.",
+    "code": "Click path:\nAWS Console\n-> Search: Secrets Manager\n-> Store a new secret\n-> Other type of secret\n\nKey/value:\nDATABASE_URL=postgresql://bidintel:...@rds-endpoint:5432/bidintel\nAWS_SSO_METADATA_URL=https://portal.sso.us-east-1.amazonaws.com/saml/metadata/...\nSESSION_SECRET=<generate strong random value>\nBEDROCK_MODEL_ID=anthropic.claude-3-5-sonnet-20240620-v1:0\nEMBEDDING_MODEL_ID=amazon.titan-embed-text-v2:0\n\nSecret name:\nbidintel/prod/backend\n\nWhere code reads it:\nbackend/app/config.py\n\nWhere AWS injects it:\nECS -> Task definitions -> Container -> Environment -> Secrets",
+    "codeMode": "literal",
+    "duration": 52
+  },
+  {
+    "chapter": "Docs-Backed Click Path - Backend Hosting",
+    "title": "ECS Task Definition: Paste Image URI And Env Vars",
+    "skin": "aws",
+    "visual": "<div class=\"aws-console\"><aside><strong>AWS Console</strong><span>Clusters</span><span>Task definitions</span><span>Create</span><span>Container</span><span>Environment</span></aside><main><div class=\"aws-top\"><span>ECS / Task definitions / Create new task definition</span><strong>Amazon ECS</strong></div><h2>This is where the backend container is configured</h2><div class=\"aws-cards\"><section class=\"aws-card\"><h3>Launch type</h3><p>AWS Fargate.</p></section><section class=\"aws-card\"><h3>Task role</h3><p>bidintel-backend-role.</p></section><section class=\"aws-card\"><h3>Container image</h3><p>Paste ECR image URI.</p></section><section class=\"aws-card\"><h3>Port mapping</h3><p>Container port 8000 for FastAPI.</p></section></div></main></div>",
+    "narration": "In ECS, create a task definition. Paste the ECR image URI, set port 8000 for FastAPI, choose the backend IAM role as the task role, and add environment variables and Secrets Manager references.",
+    "code": "Click path:\nAWS Console\n-> Search: ECS\n-> Task definitions\n-> Create new task definition\n\nTask settings:\nLaunch type: AWS Fargate\nTask definition family: bidintel-backend\nTask role: bidintel-backend-role\nTask execution role: ecsTaskExecutionRole\nCPU/Memory: 0.5 vCPU / 1 GB for tutorial\n\nContainer:\nName: api\nImage URI: <ECR URI copied from ECR>\nEssential: yes\nPort mappings:\n  Container port: 8000\n  Protocol: TCP\n\nEnvironment:\nAPP_ENV=prod\nAWS_REGION=us-east-1\nLOCAL_MOCK_LLM=false\nFRONTEND_URL=https://app.bidintel.ai\n\nSecrets:\nDATABASE_URL -> Secrets Manager bidintel/prod/backend:DATABASE_URL\nSESSION_SECRET -> Secrets Manager bidintel/prod/backend:SESSION_SECRET\nAWS_SSO_METADATA_URL -> Secrets Manager bidintel/prod/backend:AWS_SSO_METADATA_URL",
+    "codeMode": "literal",
+    "duration": 60
+  },
+  {
+    "chapter": "Docs-Backed Click Path - Backend Hosting",
+    "title": "ECS Service And Load Balancer: Make The API Reachable",
+    "skin": "aws",
+    "visual": "<div class=\"aws-console\"><aside><strong>AWS Console</strong><span>Clusters</span><span>Services</span><span>Create service</span><span>Networking</span><span>Load balancing</span></aside><main><div class=\"aws-top\"><span>ECS / Clusters / Services / Create</span><strong>Amazon ECS</strong></div><h2>Run the task behind an Application Load Balancer</h2><div class=\"aws-cards\"><section class=\"aws-card\"><h3>Cluster</h3><p>Create or select bidintel-prod.</p></section><section class=\"aws-card\"><h3>Service</h3><p>Use task definition bidintel-backend.</p></section><section class=\"aws-card\"><h3>Networking</h3><p>Choose VPC, subnets, security group.</p></section><section class=\"aws-card\"><h3>Load balancer</h3><p>Application Load Balancer routes HTTPS to container port 8000.</p></section></div></main></div>",
+    "narration": "A task definition is only a template. To run it, create an ECS service on Fargate and attach an Application Load Balancer. The ALB URL becomes your backend API base URL.",
+    "code": "Click path:\nECS\n-> Clusters\n-> Create cluster or select bidintel-prod\n-> Services\n-> Create\n\nService fields:\nLaunch type: Fargate\nTask definition: bidintel-backend\nService name: bidintel-api\nDesired tasks: 1 for tutorial, 2+ for production\n\nNetworking:\nVPC: your app VPC\nSubnets: public subnets for ALB, private subnets for tasks if configured\nSecurity group:\n  ALB allows HTTPS 443 from internet\n  ECS task allows port 8000 only from ALB security group\n\nLoad balancing:\nType: Application Load Balancer\nListener: 443 HTTPS\nTarget group: bidintel-api-tg\nHealth check path: /health\n\nCopy after creation:\nALB DNS name:\nhttps://<alb-name>.<region>.elb.amazonaws.com\n\nPut it in frontend build:\nVITE_API_BASE=https://api.bidintel.ai",
+    "codeMode": "literal",
+    "duration": 64
+  },
+  {
+    "chapter": "Docs-Backed Click Path - Frontend Hosting",
+    "title": "S3 Bucket: Upload The Built React Frontend",
+    "skin": "aws",
+    "visual": "<div class=\"aws-console\"><aside><strong>AWS Console</strong><span>Buckets</span><span>Create bucket</span><span>Objects</span><span>Upload</span><span>Properties</span></aside><main><div class=\"aws-top\"><span>S3 / Buckets / Create bucket / Upload dist</span><strong>Amazon S3</strong></div><h2>The frontend is static files after npm run build</h2><div class=\"aws-cards\"><section class=\"aws-card\"><h3>Create bucket</h3><p>Name: bidintel-frontend-prod.</p></section><section class=\"aws-card\"><h3>Build frontend</h3><p>Set VITE_API_BASE to backend URL before npm run build.</p></section><section class=\"aws-card\"><h3>Upload</h3><p>Upload all files from frontend/dist.</p></section><section class=\"aws-card\"><h3>Private origin</h3><p>For production, keep bucket private and serve through CloudFront OAC.</p></section></div></main></div>",
+    "narration": "For the frontend, run npm build locally or in CI, then upload the dist files to S3. The key detail is to set VITE_API_BASE to the hosted backend API before building.",
+    "code": "Local build:\ncd frontend\necho \"VITE_API_BASE=https://api.bidintel.ai\" > .env.production\nnpm run build\n\nClick path:\nAWS Console\n-> Search: S3\n-> Buckets\n-> Create bucket\n\nFields:\nBucket name: bidintel-frontend-prod\nRegion: same region as app\nBlock public access: keep blocked for CloudFront OAC production path\nEncryption: SSE-S3 or SSE-KMS\n\nAfter bucket exists:\nOpen bucket\n-> Objects\n-> Upload\n-> Add files/folder\n-> Select all files inside frontend/dist\n-> Upload\n\nDo not upload:\nfrontend/src\nnode_modules\n.env files",
+    "codeMode": "literal",
+    "duration": 58
+  },
+  {
+    "chapter": "Docs-Backed Click Path - Frontend Hosting",
+    "title": "CloudFront: Create The Public Tutorial/App URL",
+    "skin": "aws",
+    "visual": "<div class=\"aws-console\"><aside><strong>AWS Console</strong><span>Distributions</span><span>Create distribution</span><span>Origins</span><span>Behaviors</span><span>Error pages</span></aside><main><div class=\"aws-top\"><span>CloudFront / Distributions / Create distribution</span><strong>Amazon CloudFront</strong></div><h2>Serve S3 frontend over HTTPS</h2><div class=\"aws-cards\"><section class=\"aws-card\"><h3>Origin</h3><p>Select the S3 bucket.</p></section><section class=\"aws-card\"><h3>Origin access</h3><p>Use Origin Access Control for private S3.</p></section><section class=\"aws-card\"><h3>Default root object</h3><p>index.html.</p></section><section class=\"aws-card\"><h3>Custom error</h3><p>Route 403/404 to /index.html for React routing.</p></section></div></main></div>",
+    "narration": "CloudFront is the public HTTPS front door for the React app. Choose the S3 bucket as origin, create origin access control, set index dot html as the default root object, and add React routing error responses.",
+    "code": "Click path:\nAWS Console\n-> Search: CloudFront\n-> Distributions\n-> Create distribution\n\nOrigin:\nOrigin domain: bidintel-frontend-prod.s3.<region>.amazonaws.com\nOrigin access: Origin access control settings\nCreate new OAC if prompted\n\nDefault cache behavior:\nViewer protocol policy: Redirect HTTP to HTTPS\nAllowed methods: GET, HEAD\n\nSettings:\nDefault root object: index.html\n\nError pages for React/Vite routing:\nCreate custom error response:\n  HTTP error code: 403\n  Response page path: /index.html\n  HTTP response code: 200\nCreate custom error response:\n  HTTP error code: 404\n  Response page path: /index.html\n  HTTP response code: 200\n\nCopy:\nCloudFront distribution domain name\nhttps://dxxxxxxxx.cloudfront.net\n\nUse this as:\nFRONTEND_URL in backend\nApplication start URL in IAM Identity Center",
+    "codeMode": "literal",
+    "duration": 64
+  },
+  {
+    "chapter": "Docs-Backed Click Path - Bedrock And RAG",
+    "title": "Bedrock Model Access: The Console Screen Before Code Works",
+    "skin": "aws",
+    "visual": "<div class=\"aws-console\"><aside><strong>AWS Console</strong><span>Overview</span><span>Model access</span><span>Foundation models</span><span>Inference</span><span>Monitoring</span></aside><main><div class=\"aws-top\"><span>Amazon Bedrock / Model access / Modify model access</span><strong>Amazon Bedrock</strong></div><h2>Enable the models before invoking them</h2><div class=\"aws-cards\"><section class=\"aws-card\"><h3>Model access</h3><p>Open Model access in Bedrock console.</p></section><section class=\"aws-card\"><h3>Claude</h3><p>Enable Anthropic Claude Sonnet.</p></section><section class=\"aws-card\"><h3>Titan</h3><p>Enable Amazon Titan Embeddings.</p></section><section class=\"aws-card\"><h3>IAM policy</h3><p>Backend role must allow InvokeModel on approved model ARNs.</p></section></div></main></div>",
+    "narration": "Bedrock has a console gate. Open Bedrock, go to Model access, modify model access, enable Claude and Titan Embeddings, then make sure the ECS task role policy allows those model ARNs.",
+    "code": "Click path:\nAWS Console\n-> Search: Amazon Bedrock\n-> Model access\n-> Modify model access\n\nSelect:\n[x] Anthropic Claude Sonnet\n[x] Amazon Titan Text Embeddings\n-> Submit / Save\nWait for status: Access granted\n\nPut model ids in:\nSecrets Manager -> bidintel/prod/backend\nBEDROCK_MODEL_ID=anthropic.claude-3-5-sonnet-20240620-v1:0\nEMBEDDING_MODEL_ID=amazon.titan-embed-text-v2:0\n\nPut client code in:\nbackend/app/services/llm_bedrock.py\n\nThe backend container uses:\nECS task role: bidintel-backend-role\nIAM policy: bedrock:InvokeModel on approved model resources",
+    "codeMode": "literal",
+    "duration": 52
+  },
+  {
+    "chapter": "Docs-Backed Click Path - RAGAS Phoenix Vector DB",
+    "title": "Where RAGAS, Phoenix, And pgvector Fit",
+    "skin": "diagram",
+    "visual": "<div class=\"diagram-grid\"><div class=\"node hot\">Postgres + pgvector stores embeddings</div><div class=\"node \">BM25 and vector search retrieve chunks</div><div class=\"node \">Bedrock writes grounded answer</div><div class=\"node hot\">Phoenix traces each span</div><div class=\"node hot\">RAGAS scores faithfulness and recall</div><div class=\"node \">Audit log stores decision</div><div class=\"node \">CloudWatch stores service logs</div><div class=\"node \">Human reviews low scores</div></div>",
+    "narration": "The tutorial also needs to show where RAGAS, Phoenix, and the vector database are wired. pgvector lives in PostgreSQL for embeddings and indexes. Phoenix traces the request path. RAGAS evaluates faithfulness, answer relevance, and context recall after the RAG answer is produced.",
+    "code": "Vector DB code goes here:\nbackend/app/db/migrations/001_vectors.sql\n\nCREATE EXTENSION IF NOT EXISTS vector;\nCREATE TABLE chunks (\n  id uuid primary key,\n  document_id uuid not null,\n  chunk_text text not null,\n  embedding vector(1536),\n  access_groups text[] not null\n);\nCREATE INDEX chunks_embedding_hnsw\nON chunks USING hnsw (embedding vector_cosine_ops);\n\nPhoenix tracing code goes here:\nbackend/app/observability/phoenix.py\nbackend/app/main.py imports tracing setup\n\nTrace spans:\nauth.verify_user\nretrieval.bm25\nretrieval.vector\nprompt.build_context\nbedrock.invoke_model\nragas.evaluate\naudit.write\n\nRAGAS eval code goes here:\nbackend/app/evals/ragas_eval.py\n\nMetrics:\nfaithfulness\nanswer_relevancy\ncontext_recall\ncontext_precision\n\nRule:\nRAGAS and Phoenix are not AWS hosting screens.\nThey are local/backend observability and evaluation wiring that must appear in the tutorial flow.",
+    "codeMode": "literal",
+    "duration": 58
+  },
+  {
     "chapter": "Frontend + AWS - Correct Build Order",
     "title": "Create The Local Project Skeleton",
     "visual": "<div class=\"terminal\">$ mkdir bidintel\n$ cd bidintel\n$ mkdir frontend backend infra docs\n\nfrontend = what the user clicks\nbackend = API and security brain\ndatabase = users, docs, chunks, audit, permissions\nAWS = hosting, identity, Bedrock, IAM roles</div>",
